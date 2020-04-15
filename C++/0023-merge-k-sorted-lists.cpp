@@ -49,3 +49,54 @@ private:
 
     }
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Heap Solution
+// Time = O(n*logk)
+// Space = O
+
+class Solution {
+public:
+    ListNode* mergeKLists(vector<ListNode*>& lists) {
+        ListNode dummy {0};
+        auto *curr = &dummy;
+
+        auto cmp = [] (const ListNode *a, const ListNode *b){ return (b->val < a->val) ;};
+
+        priority_queue<ListNode*, vector<ListNode*>, decltype(cmp)> min_heap(cmp);
+
+        for (const auto &n : lists){
+            if(n){
+                min_heap.emplace(n);
+            }
+        }
+
+
+        while(!min_heap.empty()){
+            auto *node = min_heap.top();
+            min_heap.pop();
+            curr->next = node;
+            curr = curr->next;
+            if (node->next){
+                min_heap.emplace(node->next);
+            }
+        }
+
+        return dummy.next;
+    }
+};
+ 

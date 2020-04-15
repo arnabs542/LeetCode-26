@@ -38,3 +38,46 @@ class Solution:
             return mergeTwoLists(mergeKListsHelper(lists, begin, (begin+end)//2), mergeKListsHelper(lists, (begin+end)//2 + 1, end))
 
         return mergeKListsHelper(lists,0,len(lists)-1)
+
+
+
+
+
+
+
+
+
+
+# Heap Solution
+# Time = O(n*logk)
+# Space = O(1)
+import heapq
+
+class Solution:
+    def mergeKLists(self, lists: List[ListNode]) -> ListNode:
+        dummy = ListNode(0)
+        curr = dummy
+        heap = []
+
+        for head in lists:
+            if head:
+                heapq.heappush(heap,(head.val,id(head),head))
+
+        while heap:
+            smallest = heapq.heappop(heap)[2]
+            curr.next = smallest
+            curr = curr.next
+
+            if smallest.next:
+                heapq.heappush(heap,(smallest.next.val,id(smallest.next),smallest.next))
+
+
+        return dummy.next
+
+
+
+
+
+
+
+        
