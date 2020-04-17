@@ -5,6 +5,9 @@
 #         self.next = None
 
 # its better to create dummy node always
+# This is because if the node to be deleted is the head node in
+# one of the test case then slow, which points to the previous of 
+# the node to be deleted will have nothing to point to
 # Time O(n)
 # Space O(1)
 class Solution:
