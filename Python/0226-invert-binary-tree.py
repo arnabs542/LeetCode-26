@@ -18,7 +18,7 @@ class Solution:
 # Time:  O(n)
 # Space: O(h)
 # DFS Iterative Stack solution (list as stack).
-class Solutions:
+class Solution2:
     def invertTree(self, root: TreeNode) -> TreeNode:
         if root is not None:
             nodes = []
@@ -61,7 +61,7 @@ class Queue:
     def empty(self):
         return len(self.data) == 0
 
-class Solution:
+class Solution3:
     def invertTree(self, root: TreeNode) -> TreeNode:
         if root is not None:
             nodes = Queue()
@@ -79,3 +79,6 @@ class Solution:
                     nodes.push(node.right)
 
         return root
+
+
+# from queue import Queue - put(), get()
