@@ -34,5 +34,6 @@ public:
         return true;
         }
     };
-    
+
 // Idea: Inorder Traversal gives sorted list of BST nodes
+// Better Inorder Traversal in python 0230
