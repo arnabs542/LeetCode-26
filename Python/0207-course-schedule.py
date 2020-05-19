@@ -19,7 +19,7 @@ class Solution:
             if visit[u] == -1:
                 return False
 
-            # if node v has been visited (ie. was stuck & backtrack)
+            # if node v has been explored (ie. was stuck & backtrack)
             if visit[u] == 1:
                 return True
 
@@ -42,27 +42,12 @@ class Solution:
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # Time:  O(|V| + |E|)
 # Space: O(|E|)
+# complicated
 from collections import defaultdict, deque
 
-class Solution:
+class Solution2:
     def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
 
         zero_in_degree = deque()
@@ -95,8 +80,3 @@ class Solution:
             return False
 
         return True
-
-
-
-
-# Topological sort using DFS
