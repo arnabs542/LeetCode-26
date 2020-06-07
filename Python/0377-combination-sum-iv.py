@@ -8,7 +8,7 @@ class Solution:
         nums.sort()
         for i in range(1, target + 1):
             for j in range(len(nums)):
-                if nums[j] <= target:
+                if nums[j] <= i:
                     dp[i] += dp[i - nums[j]]
                 else:
                     break
