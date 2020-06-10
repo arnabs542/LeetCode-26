@@ -82,6 +82,7 @@ public:
         for (const auto &n : lists){
             if(n){
                 min_heap.emplace(n);
+                // or .push(n);
             }
         }
 
@@ -99,4 +100,3 @@ public:
         return dummy.next;
     }
 };
- 
