@@ -22,3 +22,4 @@ class Solution:
 
 # Notes:
 # could have used defaultdict(list)
+# can also use [[] for _ in range(n)]
