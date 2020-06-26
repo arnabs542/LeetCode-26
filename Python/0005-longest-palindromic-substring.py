@@ -1,5 +1,6 @@
-# Time O(n)
+# Time O(n^2)
 # Space O(1)
+# Expand from middle approach
 class Solution:
     def longestPalindrome(self, s: str) -> str:
 
@@ -26,4 +27,23 @@ class Solution:
                 end = i + length//2;
 
         return s[start:end+1]
+        
+        
+# Time O(n^2)
+# Space O(n^2)
+# Using DP
+class Solution:
+    def longestPalindrome(self, s: str) -> str:
+        dp = [[False for i in range(len(s))] for j in range(len(s))]
+        maxlen = 1
+        ans = s[0:1]
+        for j in range(len(s)):
+            for i in range(j, -1, -1):
+                if s[i] == s[j] and (j-i < 2 or dp[i+1][j-1]):
+                    dp[i][j] = True
+                    if j - i + 1 > maxlen:
+                        maxlen = j - i + 1
+                        ans = s[i:j+1]
+        return ans
+
     
