@@ -24,3 +24,7 @@ class Solution:
                 else:
                     low+=1
         return result
+
+# Notes:
+# If I fix two elements, there will only be one possible choice for third one.
+# Here sorting is done so that we can avoid duplicate elements

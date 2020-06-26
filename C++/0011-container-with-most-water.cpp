@@ -20,3 +20,7 @@ public:
     }
 
 };
+
+// Notes:
+// If we found an area with height h, the only choice that could beat this
+// if when new height is > h because the width would keep on decreasing.

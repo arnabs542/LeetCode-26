@@ -7,16 +7,17 @@ class Solution:
 
         left, right = 0, len(nums)-1
 
-
-        while left < right:
+        ans = -1
+        while left <= right:
             mid = left + (right-left)//2
 
-            if(nums[mid] > nums[right]):
-                left = mid + 1
+            if(nums[mid] <= nums[len(nums)-1]):
+                ans = mid
+                right = mid - 1
             else:
-                right = mid
+                left = mid + 1
 
-        inflect = left
+        inflect = ans
         left, right = 0, len(nums)-1
 
         if (nums[inflect]<=target<=nums[right]):
