@@ -11,14 +11,14 @@ class Solution:
 
         for i in range(len(s)):
             left, right = i, i
-
+            # considers odd length substrings
             while left >=0 and right < len(s) and s[left] == s[right]:
                 left-=1
                 right+=1
                 result+=1
 
             left, right = i, i+1
-
+            # considers even length substrings
             while left>=0 and right < len(s) and s[left] == s[right]:
                 left-=1
                 right+=1
