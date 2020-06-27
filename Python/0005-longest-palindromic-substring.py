@@ -23,12 +23,14 @@ class Solution:
             len2 = expandFromMiddle(s,i,i+1)
             length = max(len1,len2)
             if length > end-start+1:
+                # in case of aabbaa, i is not at center
+                # but length is even therefore length - 1 for start
                 start = i - (length-1)//2
                 end = i + length//2;
 
         return s[start:end+1]
-        
-        
+
+
 # Time O(n^2)
 # Space O(n^2)
 # Using DP
@@ -45,5 +47,3 @@ class Solution:
                         maxlen = j - i + 1
                         ans = s[i:j+1]
         return ans
-
-    
