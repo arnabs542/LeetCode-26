@@ -17,3 +17,42 @@ class Solution:
 
         for c in self.lookup[digits[cur]]:
             self.helper(cur+1, ans + c, digits)
+
+
+# Time:  O(4^n)
+# Space: O(4^n)
+# BFS Solution using two lists
+class Solution:
+    def letterCombinations(self, digits: str) -> List[str]:
+        if not digits:
+            return []
+        mapping = {"2": "abc", "3": "def", "4": "ghi", "5": "jkl",\
+                  "6": "mno", "7": "pqrs", "8": "tuv", "9": "wxyz"}
+        currlevel = ['']
+        for d in digits:
+            nextlevel = []
+            for x in currlevel:
+                for c in mapping[d]:
+                    nextlevel.append(x + c)
+            currlevel = nextlevel
+        return currlevel
+
+
+# Time:  O(4^n)
+# Space: O(4^n)
+# BFS Solution using queue
+import collections
+class Solution:
+    def letterCombinations(self, digits: str) -> List[str]:
+        if not digits:
+            return []
+        mapping = {"2": "abc", "3": "def", "4": "ghi", "5": "jkl",\
+                  "6": "mno", "7": "pqrs", "8": "tuv", "9": "wxyz"}
+        queue = collections.deque([""])
+        for i, d in enumerate(digits):
+            # i represents no of chars in prev level
+            while len(queue[0]) == i:
+                x = queue.popleft()
+                for c in mapping[d]:
+                    queue.append(x + c)
+        return queue
