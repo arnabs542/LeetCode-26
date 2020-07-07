@@ -7,6 +7,7 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+# Using two lists
 class Solution:
     def levelOrder(self, root: TreeNode) -> List[List[int]]:
         if root is None:
@@ -25,4 +26,25 @@ class Solution:
             curr_lev = next_lev
             result.append(vals)
 
+        return result
+
+
+# Using Queue
+import collections
+class Solution:
+    def levelOrder(self, root: TreeNode) -> List[List[int]]:
+        if not root:
+            return []
+        que = collections.deque([root])
+        result = []
+        while que:
+            lev = []
+            for _ in range(len(que)):
+                node = que.popleft()
+                lev.append(node.val)
+                if node.left:
+                    que.append(node.left)
+                if node.right:
+                    que.append(node.right)
+            result.append(lev)
         return result
