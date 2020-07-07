@@ -23,3 +23,7 @@ class Solution:
         self.maxSum = max(self.maxSum, left + right + node.val)
 
         return max(left,right) + node.val
+
+
+# Notes:
+# Unlike iterative dfs using stack, here we do work after returning
