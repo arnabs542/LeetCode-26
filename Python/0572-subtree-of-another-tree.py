@@ -22,4 +22,16 @@ class Solution:
             return s and (isSame(s, t) or preOrderTraverse(s.left, t) or preOrderTraverse(s.right, t))
 
         return preOrderTraverse(s,t)
-    
+
+
+
+class Solution:
+    def isSubtree(self, s: TreeNode, t: TreeNode) -> bool:
+        def isSame(s,t):
+            if not s and not t:
+                return True
+            if not s or not t:
+                return False
+            return s.val == t.val and isSame(s.left, t.left) and isSame(s.right, t.right)
+
+        return s and (isSame(s, t) or self.isSubtree(s.left, t) or self.isSubtree(s.right, t))
