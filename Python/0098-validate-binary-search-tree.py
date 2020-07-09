@@ -6,7 +6,7 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
-# Recursion
+# Recursion Preorder
 class Solution:
     def isValidBST(self, root: TreeNode) -> bool:
 
@@ -17,3 +17,24 @@ class Solution:
             return low < root.val and root.val < high and helper(root.left, low, root.val) and helper(root.right, root.val, high)
 
         return helper(root, float("-inf"), float("inf"))
+
+
+# Inorder Traversal
+# Time O(n)
+# Space O(h)
+class Solution:
+    def isValidBST(self, root: TreeNode) -> bool:
+        stack = []
+        left_child_val = float("-inf")
+        cur = root
+        while stack or cur:
+            if cur:
+                stack.append(cur)
+                cur = cur.left
+            else:
+                cur = stack.pop()
+                if cur.val <= left_child_val:
+                    return False
+                left_child_val = cur.val
+                cur = cur.right
+        return True
