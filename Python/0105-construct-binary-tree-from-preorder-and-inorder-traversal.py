@@ -30,3 +30,25 @@ class Solution:
             return root
 
         return helper(0, len(inorder)-1)
+
+
+
+
+class Solution:
+    def buildTree(self, preorder: List[int], inorder: List[int]) -> TreeNode:
+
+        def helper(preStart, inStart, inEnd):
+            if inStart > inEnd:
+                return None
+
+            root = TreeNode(preorder[preStart])
+            inIndex = 0
+            for i in range(inStart, inEnd+1):
+                if root.val == inorder[i]:
+                    inIndex = i
+
+            root.left = helper(preStart + 1, inStart, inIndex - 1)
+            root.right = helper(preStart + inIndex - inStart + 1, inIndex + 1, inEnd)
+            return root
+
+        return helper(0, 0, len(inorder) - 1)
