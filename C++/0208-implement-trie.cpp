@@ -3,7 +3,8 @@
 
 class TrieNode {
 public:
-    TrieNode(): isCompleteWord(false) {
+    TrieNode(): isCompleteWord(false)
+    {
     }
     bool isCompleteWord;
     unordered_map<char, TrieNode*> children;
