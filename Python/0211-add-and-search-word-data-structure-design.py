@@ -1,5 +1,12 @@
-# Time:  O(min(n, h)), per operation
+# for add
+# Time:  O(min(n, h))
 # Space: O(min(n, h))
+
+# for search
+# Time: (26 ^ N), worst case: ".....",
+# this will have to search for all combinations of 26 characters
+# Space: O(N), for recursion stack
+
 
 class TrieNode:
     def __int__(self):
@@ -50,3 +57,4 @@ class WordDictionary:
 # param_2 = obj.search(word)
 
 # Notes: AttributeError: TrieNode object has no attribute children (Line 23)
+# In some cases h may be less than n
