@@ -15,31 +15,43 @@ class Solution:
 
         # dfsTopSortExists
         def dfsAcyclic(u):
+            # cycle exists as being visited node is called again
             # if node v is being visited (ie. in stack)
             if visit[u] == -1:
                 return False
 
-            # if node v has been explored (ie. was stuck & backtrack)
+            # if node v has already been explored
+            # (ie. was stuck & backtrack)
             if visit[u] == 1:
                 return True
 
+            # pushed to stack
             visit[u] = -1
 
             for v in adj[u]:
                 if not dfsAcyclic(v):
                     return False
 
+            # node has been explored now
             visit[u] = 1
+            # poped from stack
             return True
 
 
 
         for i in range(numCourses):
+            # if visit[i] == 0:
+            # call dfs again from unvisited node
             if not dfsAcyclic(i):
                 return False
         return True
 
 
+# Notes:
+# If there is a directed cycle, there is not topological ordering
+# possible
+# Unlike regular dfs which is preorder, it is postorder.
+# Also, this is complicated to do using a iterative stack
 
 
 # Time:  O(|V| + |E|)

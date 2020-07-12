@@ -36,3 +36,7 @@ public:
 Since we first decrement and then check if indegree == 0,
 we will never push each node twice to our queue
 Prerequisites could be in format vector<pair<int, int>>& prerequisites*/
+
+/* Whenever we pop from stack, we add that elem to our topological ordering.
+ Here we are using the idea that it we are able to include all nodes in our
+ ordering, we have a topological order and hence no cycle */
