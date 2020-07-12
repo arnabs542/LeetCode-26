@@ -55,4 +55,5 @@ class Solution:
 # Notes: In dfs the 'node' and 'path' is from previous step
 # We put the cell value temporarily as # so that it won't be
 # included again in the same word. Once we return we put back the value
-        
+
+# in most cases in dfs, cur actually refers to prev
