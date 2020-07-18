@@ -92,3 +92,42 @@ class Solution2:
             return False
 
         return True
+
+
+# Topological Sort using BFS
+# Time: O(V+E)
+# Space: O(V)
+# Kahn's algorithm
+import collections
+class Solution:
+    def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
+        adj = [[] for _ in range(numCourses)]
+        indegree = [0 for _ in range(numCourses)]
+
+        for x,y in prerequisites:
+            adj[y].append(x)
+            indegree[x] += 1
+
+        q = collections.deque([])
+        for i in range(numCourses):
+            if indegree[i] == 0:
+                q.append(i)
+        n = numCourses
+        while q:
+            cur = q.popleft()
+            n -= 1;
+
+            for v in adj[cur]:
+                indegree[v] -= 1
+                if indegree[v] == 0:
+                    q.append(v)
+        return n==0
+
+# Notes:
+# Since we first decrement and then check if indegree == 0,
+# we will never push each node twice to our queue as it will become -1
+# Therefore visited array not requireds
+#
+# Whenever we pop from stack, we add that elem to our topological ordering.
+# Here we are using the idea that it we are able to include all nodes in our
+# ordering, we have a topological order and hence no cycle.
