@@ -13,3 +13,11 @@ class Solution:
                     y += 1
                 result = max(result, y - x)
         return result
+
+
+# Notes:
+# Starting from x, how far the count of consecutive
+# elements can go
+# we only attempt to build sequences from numbers that
+# are not already part of a longer sequence
+# corner example : 6, 5, 4, 3, 2, 1
