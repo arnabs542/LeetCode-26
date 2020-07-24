@@ -1,4 +1,5 @@
-# Time:  O(n^k), a*h where a (branches) = n and h(height) = k (if only 1's)
+# Time:  O(k*n^k), a*h where a (branches) = n and h(height) = k (if only 1's),
+# for reaching each leaf, we have to go though height k
 # Space: O(k), assuming 1 is chosen at each level.
 # where k = target, n = len(candidates)
 class Solution:
