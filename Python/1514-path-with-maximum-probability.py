@@ -1,6 +1,6 @@
 # Time:  O((|E| + |V|) * log|V|) = O(|E| * log|V|) by using binary heap,
 #        if we can further to use Fibonacci heap, it would be O(|E| + |V| * log|V|)
-# Space: O(|E| + |V|) = O(|E|)
+# Space: O(|E| + |V|) = O(|E|), multiple versions for same vertex
 class Solution:
     def maxProbability(self, n: int, edges: List[List[int]], succProb: List[float], start: int, end: int) -> float:
         adj = collections.defaultdict(list)
@@ -27,6 +27,3 @@ class Solution:
                 result[v] = -cur*w
                 heapq.heappush(max_heap, (-result[v], v))
         return result[end]
-
-
-        
