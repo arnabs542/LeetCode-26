@@ -11,7 +11,7 @@ class Solution:
 
             while left <= right and counter[s[right]] < 0:
                 # if illegal char
-                # restore the subtracted count
+                # restore/undo the subtracted count
                 counter[s[left]] += 1
                 left += 1
                 # when exit left = right + 1
