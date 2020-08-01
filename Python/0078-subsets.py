@@ -21,6 +21,8 @@ class Solution:
 
 
 # With little optimization
+# Time: O(2^n)
+# Space: O(n*2^n)
 # no need to do a for loop for backTrack method, simply do the
 # following will work because when processing backTrack for
 # len = n, it will also process len 0, 1.... n-1
