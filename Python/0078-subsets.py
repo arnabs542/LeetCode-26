@@ -48,3 +48,31 @@ class Solution:
 # object with each append and pop. Therefore you want to save/preserve
 # the momentary state of curr when you append it to the output so you
 # create a copy of it by slicing.
+
+
+
+
+# Time:  O(n * 2^n)
+# Space: O(1)
+class Solution:
+    def subsets(self, nums: List[int]) -> List[List[int]]:
+        result = [[]]
+        for i in range(len(nums)):
+            size = len(result)
+            # append elem to lists already
+            # present in result
+            for j in range(size):
+                # make a copy
+                result.append(list(result[j]))
+                # add new elem
+                result[-1].append(nums[i])
+
+        return result
+
+# Notes:
+# Using [1, 2, 3] as an example, the iterative process is like:
+# Initially, one empty subset [[]]
+# Adding 1 to []: [[], [1]];
+# Adding 2 to [] and [1]: [[], [1], [2], [1, 2]];
+# Adding 3 to [], [1], [2] and [1, 2]: [[], [1], [2], [1, 2], [3],
+# [1, 3], [2, 3], [1, 2, 3]].
