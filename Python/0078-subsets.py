@@ -76,3 +76,5 @@ class Solution:
 # Adding 2 to [] and [1]: [[], [1], [2], [1, 2]];
 # Adding 3 to [], [1], [2] and [1, 2]: [[], [1], [2], [1, 2], [3],
 # [1, 3], [2, 3], [1, 2, 3]].
+
+# To do: Bit manipulation method
