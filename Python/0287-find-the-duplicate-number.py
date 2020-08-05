@@ -44,3 +44,13 @@ class Solution:
             else:
                 left = mid + 1
         return ans
+
+# Notes:
+# Let count be the number of elements in the range 1 .. mid, as in your solution.
+#
+# If count > mid, then there are more than mid elements in the range 1 .. mid and
+# thus that range contains a duplicate.
+#
+# If count <= mid, then there are n+1-count elements in the range mid+1 .. n.
+# That is, at least n+1-mid elements in a range of size n-mid. Thus this range
+# must contain a duplicate.
