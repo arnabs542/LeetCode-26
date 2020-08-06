@@ -1,3 +1,4 @@
+# Tags: DP
 # Time: O(n^3)
 # Space: O(n^2)
 # DP solution.
@@ -65,7 +66,8 @@ class Solution:
 # Here is that, # of BST from [1 ~ 3] == # of BST from [2 ~ 4], and etc.
 #
 # Earlier we had
-# dp[i][j] = 0: # of BST can be constructed from i to j
+# dp[i][j] =
+# of BST can be constructed from i to j
 # Now we can have
 # dp[l] = # of BST can be constructed with l consecutive numbers
 
