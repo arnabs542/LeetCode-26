@@ -67,6 +67,8 @@ class Solution:
         cur_dp1 = max(-prices[0], 0 - prices[1])
 
         for i in range(2, len(prices)):
+            # capture i-1 values before they are overwritten,
+            # they act as i-2 for next iteration
             temp_dp0 = cur_dp0
             temp_dp1 = cur_dp1
             cur_dp0 = max(cur_dp1 + prices[i], cur_dp0)
