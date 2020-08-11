@@ -49,3 +49,53 @@ b. Carry forward
     OPT[i-1][1]
 
 """
+
+
+# Time:  O(n)
+# Space: O(1)
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        if len(prices) <= 1:
+            return 0
+
+        if len(prices) == 2:
+            return max(0, prices[1] - prices[0])
+
+        prev_dp0 = 0
+        prev_dp1 = -prices[0]
+        cur_dp0 = max(-prices[0] + prices[1], 0)
+        cur_dp1 = max(-prices[0], 0 - prices[1])
+
+        for i in range(2, len(prices)):
+            temp_dp0 = cur_dp0
+            temp_dp1 = cur_dp1
+            cur_dp0 = max(cur_dp1 + prices[i], cur_dp0)
+            cur_dp1 = max(prev_dp0 - prices[i], cur_dp1)
+            prev_dp0 = temp_dp0
+            prev_dp1 = temp_dp1
+
+        return cur_dp0
+
+
+# Doesn't work
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        if len(prices) <= 1:
+            return 0
+
+        if len(prices) == 2:
+            return max(0, prices[1] - prices[0])
+
+        # n rows and 2 columns
+        dp = [[0]*2 for _ in range(2)]
+
+        dp[0][0] = 0
+        dp[0][1] = -prices[0]
+        dp[1][0] = max(-prices[0] + prices[1], 0)
+        dp[1][1] = max(-prices[0], 0 - prices[1])
+
+        for i in range(2, len(prices)):
+            dp[i % 2][0] = max(dp[(i-1) % 2][1] + prices[i], dp[(i-1) % 2][0])
+            dp[i % 2][1] = max(dp[(i-2) % 2][0] - prices[i], dp[(i-1) % 2][1])
+
+        return dp[(len(prices)-1) % 2][0]
