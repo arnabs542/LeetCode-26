@@ -11,3 +11,9 @@ class Solution:
             result = max(result,opt)
 
         return result
+
+
+"""
+Notes: opt[i] = maximum sum achieved for an array ending
+at index
+"""
