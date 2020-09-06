@@ -9,6 +9,7 @@ class Solution:
 
         char_map.sort(reverse=True)
         # dont need to wait on the very last occurence
+        # max_val is no of gaps (taking consecutive idle slots as a single gap)
         max_val = char_map[0] - 1
         # imagine every task we have to do after max val
         # task as idle slot
@@ -26,3 +27,9 @@ class Solution:
         # to put idle slots
         return idle_slots + len(tasks) if idle_slots > 0 else\
     len(tasks)
+
+
+    """
+    Step 1 A _ _ A _ _ A
+    Step 2 A B _ A B _ A B, where 1 B is outside
+    """

@@ -18,3 +18,7 @@ class Solution:
                     i += 1
 
         triPartition(nums, 1)
+
+"""
+left and right are the boundaries of the region that need to be sorted
+"""

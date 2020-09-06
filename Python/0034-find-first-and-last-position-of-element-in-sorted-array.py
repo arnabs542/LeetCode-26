@@ -27,3 +27,7 @@ class Solution:
             else:
                 right = mid - 1
         return [ans1, ans2]
+
+"""
+Finding two points of inflection.
+"""

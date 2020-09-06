@@ -27,7 +27,6 @@ public:
     }
 };
 
-// best
 //simplest logic
 class Solution2 {
 public:

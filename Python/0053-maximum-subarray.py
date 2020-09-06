@@ -51,5 +51,4 @@ the maximum sum is finally equal to the middle element plus the maximum sum of
 moving leftwards and the maximum sum of moving rightwards.
 
 T(n) = 2*T(n/2) + O(n)
-
 """

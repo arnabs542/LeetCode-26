@@ -32,6 +32,7 @@ class Solution:
         left, right = 1, len(nums) - 1
         ans = 1
         # At first the search space is numbers between 1 to n
+        # [1,n]
         while left <= right:
             mid = left + (right - left)//2
             count = 0
@@ -39,6 +40,7 @@ class Solution:
                 if num <= mid:
                     count += 1
             if count > mid:
+                # region of interest
                 ans = mid
                 right = mid - 1
             else:
@@ -46,11 +48,11 @@ class Solution:
         return ans
 
 # Notes:
-# Let count be the number of elements in the range 1 .. mid, as in your solution.
+# Let count be the number of elements in the range [1, mid], as in your solution.
 #
-# If count > mid, then there are more than mid elements in the range 1 .. mid and
+# If count > mid, then there are more than 'mid' no. of elements in the range [1, mid] and
 # thus that range contains a duplicate.
 #
-# If count <= mid, then there are n+1-count elements in the range mid+1 .. n.
-# That is, at least n+1-mid elements in a range of size n-mid. Thus this range
+# If count <= mid, then there are n+1-count elements in the range [mid+1, n].
+# That is, n+1-mid elements in a range of size n-mid. Thus this range
 # must contain a duplicate.
