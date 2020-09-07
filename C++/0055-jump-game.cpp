@@ -20,3 +20,8 @@ public:
 
     }
 };
+
+/*
+opt[i] denotes if we can reach the last element in the
+array 0,.....,i
+*/
