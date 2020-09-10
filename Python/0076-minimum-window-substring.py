@@ -5,7 +5,7 @@ class Solution:
 
         current_count = [0 for i in range(58)]
         expected_count = [0 for i in range(58)]
-        #0 to 25: a to z and -32 to -7:A to Z
+        #0 to 25: a to z and -32 to -7: A to Z
 
         for char in t:
             expected_count[ord(char)-ord('a')] += 1
@@ -16,10 +16,13 @@ class Solution:
             current_count[ord(s[right])-ord('a')] += 1
 
             if current_count[ord(s[right])-ord('a')] <= expected_count[ord(s[right])-ord('a')]:
+                # counting the number of element of t observed so far
                 count += 1
 
             if count == len(t):
+                # all elements of t are observed
                 while expected_count[ord(s[left])-ord('a')] == 0 or current_count[ord(s[left])-ord('a')] > expected_count[ord(s[left])-ord('a')]:
+                    # filter unrequired elements
                     current_count[ord(s[left])-ord('a')] -= 1
                     left += 1
 

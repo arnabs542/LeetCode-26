@@ -14,10 +14,12 @@ class Solution:
             # should have been count.most_common(1)[0][1]
             # i.e. current max count but O(n)
 
+            # if current length ie right - left + 1 is
+            # greater than maxCount so far + k, move left
             while (right - left + 1 - maxCount > k):
                 count[s[left]]-=1
                 left+=1
-
+            # pointers have been correct, so capture result
             result = max(result, right - left + 1)
         return result
 
