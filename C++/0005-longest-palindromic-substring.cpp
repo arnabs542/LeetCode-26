@@ -1,8 +1,8 @@
-/* Bruce Force approach: Create all substring - O(n^2)
+/* Bruce Force approach: Create all substring - O(n^2),
+nC2 (excluding the trivial solution where a character itself is a palindrome).
 Now iterate once and check if the substring is palindrome.
 Then return the largest palidromic substring- O(n^3)
 */
-
 
 /* Expand Around Center approach:
 Two cases:

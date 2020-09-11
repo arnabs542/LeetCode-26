@@ -47,3 +47,13 @@ class Solution:
                         maxlen = j - i + 1
                         ans = s[i:j+1]
         return ans
+
+"""
+opt[i, j] = true if the substring si,.......,sj is a palindrome
+
+base case:
+opt[i, i] = true
+opt[i, i+1] = (si == sj)
+
+j-i < 2 covers both base cases ie. when j-i == 0 and when j-i == 1
+"""
