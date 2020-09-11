@@ -1,6 +1,6 @@
 # Time:  O(4^n)
 # Space: O(n)
-# Recursive Solution
+# Recursive Solution, dfs but no backtracking
 class Solution:
     def letterCombinations(self, digits: str) -> List[str]:
         if len(digits) == 0:
@@ -30,12 +30,19 @@ class Solution:
                   "6": "mno", "7": "pqrs", "8": "tuv", "9": "wxyz"}
         currlevel = ['']
         for d in digits:
+            # current level
             nextlevel = []
+            # for every elem in currlevel, append every elem of
+            # mapping[d]
             for x in currlevel:
                 for c in mapping[d]:
                     nextlevel.append(x + c)
             currlevel = nextlevel
         return currlevel
+
+# Actually currlevel behaves as previous level
+# and nextlevel as current level
+
 
 
 # Time:  O(4^n)
