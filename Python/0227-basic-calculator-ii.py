@@ -10,7 +10,11 @@ class Solution:
             if s[i] in "+-/*" or (len(s)-1 == i):
                 # if we see a new operator or it is last char, we
                 # perform operation using the previous
+<<<<<<< HEAD
                 # operator and push into stack
+=======
+                # operator
+>>>>>>> 64129c428e5039d21e8ca86a4de1f59512539573
                 if sign == "+":
                     stack.append(num)
                 elif sign == "-":
