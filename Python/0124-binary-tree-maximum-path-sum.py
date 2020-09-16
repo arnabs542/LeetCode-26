@@ -12,7 +12,8 @@ class Solution:
         self.PathSum(root)
         return self.maxSum
 
-
+# PathSum() returns the maximum gain one could have including the node and may
+# be one of its subtrees into the path
     def PathSum(self, node):
         if node is None:
             return 0
