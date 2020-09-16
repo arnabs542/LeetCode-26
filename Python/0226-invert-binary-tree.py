@@ -1,12 +1,13 @@
-# Time:  O(n)
-# Space: O(h)
-# DFS, Recursive solution.
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
 #         self.val = val
 #         self.left = left
 #         self.right = right
+
+# Time:  O(n)
+# Space: O(h)
+# DFS, Recursive solution, Post order, Down to top
 class Solution:
     def invertTree(self, root: TreeNode) -> TreeNode:
         if root is not None:
@@ -39,7 +40,8 @@ class Solution2:
 
 
 # Time:  O(n)
-# Space: O(h)
+# Space: O(w), w is max number of nodes at a levels
+# w = (n+1)/2 in case of full binary tree
 # BFS Iterative Queue solution .
 from collections import deque
 class Queue:

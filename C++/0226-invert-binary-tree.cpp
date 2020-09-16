@@ -1,6 +1,6 @@
 // Time O(n)
 // Space o(h)
-// DFS Recursive solution
+// DFS Recursive solution, Preorder, Top to down
 class Solution {
 public:
     TreeNode* invertTree(TreeNode* root) {
