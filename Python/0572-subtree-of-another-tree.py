@@ -1,11 +1,12 @@
-# Time O(m*n), m is the number of nodes of s, n is the number of nodes of t
-# Space O(h), h is the height of s
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
 #         self.val = val
 #         self.left = left
 #         self.right = right
+
+# Time O(m*n), m is the number of nodes of s, n is the number of nodes of t
+# Space O(h), h is the height of s
 class Solution:
     def isSubtree(self, s: TreeNode, t: TreeNode) -> bool:
 
@@ -35,3 +36,9 @@ class Solution:
             return s.val == t.val and isSame(s.left, t.left) and isSame(s.right, t.right)
 
         return s and (isSame(s, t) or self.isSubtree(s.left, t) or self.isSubtree(s.right, t))
+
+"""
+We are checking if a tree rooted at s is same as tree rooted at t. If not,
+we check if tree rooted at s.left or if tree rooted at s.right is same as t.
+We keep doing this until we have checked every node in tree s.
+"""

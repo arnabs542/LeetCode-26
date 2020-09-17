@@ -15,6 +15,7 @@ class Solution:
 
         result, curr_lev = [], [root]
         # vals contain values of visited nodes
+        # stop when there are not more nodes in curr_lev
         while curr_lev:
             next_lev, vals = [], []
             for node in curr_lev:
@@ -39,7 +40,9 @@ class Solution:
         result = []
         while que:
             lev = []
-            for _ in range(len(que)):
+            size = len(que)
+            # can't say range(len(que)) as it keeps changing
+            for _ in range(size):
                 node = que.popleft()
                 lev.append(node.val)
                 if node.left:
