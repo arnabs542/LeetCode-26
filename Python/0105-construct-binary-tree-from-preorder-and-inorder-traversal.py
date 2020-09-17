@@ -1,13 +1,13 @@
-# pythonic solution
-# Time O(n)
-# Space O(n)
-
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
 #         self.val = val
 #         self.left = left
 #         self.right = right
+
+# pythonic solution
+# Time O(n)
+# Space O(n)
 class Solution:
     def buildTree(self, preorder, inorder):
         """
@@ -37,6 +37,8 @@ class Solution:
 class Solution:
     def buildTree(self, preorder: List[int], inorder: List[int]) -> TreeNode:
 
+        # inStart and inEnd denotes the range of nodes that fall under the
+        # current subtree rooted at preStart
         def helper(preStart, inStart, inEnd):
             if inStart > inEnd:
                 return None
@@ -52,3 +54,9 @@ class Solution:
             return root
 
         return helper(0, 0, len(inorder) - 1)
+
+"""
+We are doing dfs preorder traversal to build tree.
+
+iter(list) works in case of prorder traversals.
+"""

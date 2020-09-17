@@ -9,6 +9,7 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
+
 // Time O(n^2)
 // Space O(n)
 class Solution {
@@ -37,8 +38,6 @@ public:
 };
 
 
-
-
 // Improvement to use hashmap to cache inorder[] positions.
 // Time O(n)
 // Space O(n)
@@ -55,6 +54,7 @@ public:
         return helper(0, 0, inorder.size() - 1, preorder, inorder, lookup);
     }
     TreeNode *helper(int preStart, int inStart, int inEnd, vector<int> &preorder, vector<int> &inorder, const unordered_map<int, int> &lookup) {
+        // first condition is not required
         if (preStart > preorder.size() - 1 || inStart > inEnd)
             return nullptr;
 
