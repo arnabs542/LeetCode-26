@@ -14,7 +14,8 @@ class Solution:
             if root is None:
                 return True
             # checking if root.val > low but < high
-            return low < root.val and root.val < high and helper(root.left, low, root.val) and helper(root.right, root.val, high)
+            return low < root.val and root.val < high and helper(root.left,\
+            low, root.val) and helper(root.right, root.val, high)
 
         return helper(root, float("-inf"), float("inf"))
 
@@ -38,3 +39,8 @@ class Solution:
                 left_child_val = cur.val
                 cur = cur.right
         return True
+
+"""
+At each step we check if the current node's value is less than
+the right most node of the left subtree.
+"""
