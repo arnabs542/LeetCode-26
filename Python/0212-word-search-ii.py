@@ -1,4 +1,4 @@
-# Time:  O(m * n * l)
+# Time:  O(m * n * l), l is height of Trie
 # Space: O(l)
 
 from collections import defaultdict
@@ -28,13 +28,14 @@ class Solution:
             trie.insert(w)
 
         for i, row in enumerate(board):
-            for j, col in enumerate(row):
+            for j, col in enumerate(board[0]):
                 self.dfs(board, node, i, j, "", res)
         return res
 
     def dfs(self, board, node, i, j, path, res):
         if node.isWord:
             res.append(path)
+            # don't want to add this word multiple times
             node.isWord = False
 
         if i < 0 or i >= len(board) or j < 0 or j >= len(board[0]):
