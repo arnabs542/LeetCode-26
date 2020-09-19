@@ -1,4 +1,4 @@
-// Time: O(min(n, h)) for search(), O(n) for addWord()
+// Time: O(min(n, h)) for search() if no '.' else O(26^n), O(n) for addWord()
 // Space: O(min(n, h)) for search(), O(1) for addWord()
 
 struct TrieNode {
@@ -28,7 +28,8 @@ public:
         cur->isCompleteWord = true;
     }
 
-    /** Returns if the word is in the data structure. A word could contain the dot character '.' to represent any one letter. */
+    /** Returns if the word is in the data structure. A word could contain the
+    dot character '.' to represent any one letter. */
     bool search(string word) {
         return searchHelper(word, 0, root);
     }

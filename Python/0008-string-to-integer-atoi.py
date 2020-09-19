@@ -30,4 +30,4 @@ class Solution:
             num = num*10 + digit
             i += 1
         return num*sign
-        # max(-2**31, min(sign * ret,2**31-1))
+        # max(-2**31, min(sign * num,2**31-1))

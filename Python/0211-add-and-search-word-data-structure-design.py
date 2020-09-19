@@ -1,11 +1,13 @@
 # for add
-# Time:  O(min(n, h))
-# Space: O(min(n, h))
+# Time:  O(n)
+# Space: O(1)
 
 # for search
-# Time: (26 ^ N), worst case: ".....",
+# Time: O(26 ^ n), worst case: ".....",
 # this will have to search for all combinations of 26 characters
-# Space: O(N), for recursion stack
+# O(min(n, h)) if no "." in word
+# Space: O(min(n, h)), for recursion stack
+# where n: length of word, h: height of Trie
 
 
 class TrieNode:
