@@ -26,7 +26,7 @@ class Solution:
 
 
 
-# DP solution 1 (memoization): Time limit exceeded
+# DP solution (memoization): Time limit exceeded
 # Time: O(n)
 # Space: O(n), stack cost of recursion not counted
 class Solution:
@@ -63,12 +63,13 @@ class Solution:
 # The naive solution above computed these subproblems repeatedly, which
 # resulted in bad time performance. Now if you recall the two conditions for
 # dynamic programming (DP): "optimal substructure" + "overlapping of subproblems",
+# and optimization problem which it is as we have to find maximum.
 # we actually have a DP problem. A naive way to implement DP here is to
 # use a hash map to record the results for visited subtrees.
 
 
 
-# DP solution 2: Accepted
+# Greedy solution: Accepted
 # Time: O(n)
 # Space: O(1), stack cost of recursion not counted
 # O(h) including stack
@@ -80,11 +81,24 @@ class Solution:
                     return (0, 0)
                 left = robSub(root.left)
                 right = robSub(root.right)
+                # root is not included
                 a = max(left[0], left[1]) + max(right[0], right[1])
                 # root not chosen in both left and right subtree
                 b = root.val + left[0] + right[0]
                 return (a, b)
             return max(robSub(root))
 
-# Notes:
-# Ref:https://leetcode.com/problems/house-robber-iii/discuss/79330/Step-by-step-tackling-of-the-problem
+""""
+Here, we no longer have repeated subproblems.
+
+What makes it greedy?
+Greedy-choice property (a local optical choice at each step, refer link),
+Optimal substructure
+and it is an Optimization problem.
+
+robSub return an array of two elements, the first element of which denotes
+the maximum amount of money that can be robbed if root is not robbed, while
+the second element signifies the maximum amount of money robbed if it is robbed.
+
+Ref:https://leetcode.com/problems/house-robber-iii/discuss/79330/Step-by-step-tackling-of-the-problem
+"""
