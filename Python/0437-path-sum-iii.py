@@ -6,13 +6,13 @@
 #         self.right = right
 
 # Brute force solution
-# Time: O(h,n), O(nlogn) (balanced tree) to O(n^2) (one sided tree)
+# Time: O(h*n), O(nlogn) (balanced tree) to O(n^2) (one sided tree)
 # Space: O(h), O(logn) (balanced tree) to O(n) (single sided tree)
 class Solution:
     def pathSum(self, root: TreeNode, sum: int) -> int:
         self.numOfPaths = 0
         # 1st layer dfs to go through each node
-        self.dfs(root, sum)
+        self.pathSumFrom(root, sum)
         return self.numOfPaths
 
     # traverse through the tree
@@ -23,8 +23,8 @@ class Solution:
         # order doesn't matter here
         # can even do postorder
         self.test(node, target)
-        self.dfs(node.left, target)
-        self.dfs(node.right, target)
+        self.pathSumFrom(node.left, target)
+        self.pathSumFrom(node.right, target)
 
     # dfs to find paths that sum == target starting for that node
     def test(self, node, target):
