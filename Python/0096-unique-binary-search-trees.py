@@ -14,8 +14,11 @@ class Solution:
 
         # n+1 since length
         for l in range(1, n+1):
+            # starting point
             for i in range(n-l):
+                # ending point
                 j = i + l
+                # each point between start and end
                 for r in range(i, j+1):
                     if r == i:
                         # only right
@@ -30,6 +33,8 @@ class Solution:
 
 
 #     Notes:
+#     Brute Force: Catalan number, O(4**n)
+#     DP:
 #     OPT[i, j] = number of BST that can be formed with element ki, ...... kj
 #     where k1 < k2 < ..... < kn (sorted)
 #     OPT[i, j] = sum i <= r <= j (OPT[i, r-1]*OPT[r+1, j])
@@ -51,6 +56,8 @@ class Solution:
 
         dp = [0] * (n+1)
         # for only left or only right
+        # unlike previous solution, we don't need to have a separate case for
+        # r==i and r==j
         dp[0] = 1
         # just 1 elem
         dp[1] = 1
@@ -66,8 +73,7 @@ class Solution:
 # Here is that, # of BST from [1 ~ 3] == # of BST from [2 ~ 4], and etc.
 #
 # Earlier we had
-# dp[i][j] =
-# of BST can be constructed from i to j
+# dp[i][j] = # of BST can be constructed from i to j
 # Now we can have
 # dp[l] = # of BST can be constructed with l consecutive numbers
 
