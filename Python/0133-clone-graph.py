@@ -21,6 +21,7 @@ class Solution:
             cur = stack.pop()
             for neighbor in cur.neighbors:
                 if neighbor not in cloned:
+                    # ensure each node is visited only once
                     stack.append(neighbor)
                     cloned_neighbor = Node(neighbor.val)
                     cloned[neighbor] = cloned_neighbor
@@ -30,10 +31,8 @@ class Solution:
 
 
 
-
-
-
-
 # Notes: Use dictionary cloned to search in constant time
 # DFS runtime V+E , E could be O(V^2) in case of dense graph
 # cloned dict contains visited and to be visited ie stack nodes
+# In dfs, we don't want to push the nodes which are either already
+# visited or in stack currently.
