@@ -1,8 +1,5 @@
 # Time:  O(|V| + |E|)
-# Space: O(|E|)
-
-from collections import defaultdict, deque
-
+# Space: O(|V|), without adjacency list
 # DFS finding cycle
 class Solution:
     def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
@@ -34,7 +31,7 @@ class Solution:
             for v in adj[u]:
                 if not dfsAcyclic(v):
                     return False
-            
+
             # **** do operations ****
             # node has been explored now
             visit[u] = 1
@@ -108,7 +105,7 @@ class Solution2:
 
 # Topological Sort using BFS
 # Time: O(V+E)
-# Space: O(V)
+# Space: O(V), without adjacency list
 # Kahn's algorithm
 import collections
 class Solution:
