@@ -15,10 +15,10 @@ class Solution:
             visited[x][y] |= curOceanNum
 
             if visited[x][y] == (PACIFIC | ATLANTIC):
-                res.append((x,y))
+                res.append([x,y])
 
             for d in [(0,-1), (0,1), (-1,0), (1,0)]:
-                dfs(matrix, x + d[0], y + d[1], matrix[x][y], visited[x][y], visited, res)
+                dfs(matrix, x + d[0], y + d[1], matrix[x][y], curOceanNum, visited, res)
 
         if not matrix:
             return []
@@ -37,4 +37,3 @@ class Solution:
             dfs(matrix, m - 1, j, float("-inf"), ATLANTIC, visited, res)
 
         return res
-        
