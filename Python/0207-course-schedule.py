@@ -15,6 +15,7 @@ class Solution:
 
         # dfsTopSortExists
         def dfsAcyclic(u):
+            # *** recursion stop conditions ***
             # cycle exists as being visited node is called again
             # if node v is being visited (ie. in stack)
             if visit[u] == -1:
@@ -25,13 +26,16 @@ class Solution:
             if visit[u] == 1:
                 return True
 
-            # pushed to stack
+            # **** do operations ****
+            # pushed to stack (ie. marked 'being visited')
             visit[u] = -1
 
+            # **** call neighbors ****
             for v in adj[u]:
                 if not dfsAcyclic(v):
                     return False
-
+            
+            # **** do operations ****
             # node has been explored now
             visit[u] = 1
             # poped from stack
@@ -49,9 +53,15 @@ class Solution:
 
 # Notes:
 # If there is a directed cycle, there is not topological ordering
-# possible
-# Unlike regular dfs which is preorder, it is postorder.
-# Also, this is complicated to do using a iterative stack
+# possible.
+# Unlike regular dfs which is preorder, it is postorder. Here we consider
+# node visited if there are no unexplored nodes and we have to backtrack.
+# Also, this is complicated to do using an iterative stack
+# Notice that we cycle only exist if being visited not is called again,
+# not the visited node.
+# By stack I mean virtual stack not recursion stack.
+
+
 
 
 # Time:  O(|V| + |E|)
@@ -92,6 +102,8 @@ class Solution2:
             return False
 
         return True
+
+
 
 
 # Topological Sort using BFS
