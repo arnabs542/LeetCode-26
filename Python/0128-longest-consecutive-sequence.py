@@ -16,8 +16,11 @@ class Solution:
 
 
 # Notes:
-# Starting from x, how far the count of consecutive
-# elements can go
-# we only attempt to build sequences from numbers that
-# are not already part of a longer sequence
+# Starting from each element x, we go as far as the count of consecutive
+# elements can go.
+# We only attempt to build sequences from numbers that
+# are not already part of a longer sequence, ie only if
+# x-1 is not in the set.
+# O(n) because we skip if x-1 is present in the set and only iterative once.
 # corner example : 6, 5, 4, 3, 2, 1
+
