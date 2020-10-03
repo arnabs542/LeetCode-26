@@ -23,4 +23,3 @@ class Solution:
 # x-1 is not in the set.
 # O(n) because we skip if x-1 is present in the set and only iterative once.
 # corner example : 6, 5, 4, 3, 2, 1
-
