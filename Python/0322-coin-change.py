@@ -23,7 +23,7 @@ amount s using coin dominations [c0,......, cn-1]
 
 opt[s] = opt[s-ci] + 1 where ci is the last coin chosen
 
-to find ci we choose minimum among the all dominations c0, c1,
+to find ci we choose minimum among the all denominations c0, c1,
 c2,.......cn-1.
 
 => opt[s] = Min(i) opt[s-ci] + 1  s.t s-ci >= 0

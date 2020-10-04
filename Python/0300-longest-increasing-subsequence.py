@@ -19,3 +19,4 @@ class Solution:
 # Notes:
 # opt[i] represents the length of LIS upto ith index by necessarily including ith
 # element.
+# opt[i] = (0 <= j < i) max(opt[j] + 1)
