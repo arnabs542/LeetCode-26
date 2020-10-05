@@ -18,7 +18,7 @@ private:
         int left = 0, right = LIS.size() - 1;
         auto comp = [] (int x, int target) {return x >= target;};
 
-    // find the first index "left" which satisfies LIS[left] >= target
+    // find the first index (leftmost) "left" which satisfies LIS[mid] >= target
         while (left <= right) {
             int mid = left + (right - left)/2;
             if (comp(LIS[mid], target))
@@ -34,33 +34,22 @@ private:
     }
 };
 
-/*
-Notes:
-At the end of loop, left give us the position of rightmost element (largest length)
-satifying condition ie. !comp and right moves to one position behind left.
-Here we are using just a list instead of list of lists, therefore we can't
-find the actual subsequence. (LIS[i] gives us the last elem of subsequence
-of size i + 1)
 
-We are keeping track of active/latest lists of different sizes.
-LIS[i] gives us the last elem of subsequence of size i + 1.
-*/
-
-
+// Better solution
 class Solution {
 public:
     int lengthOfLIS(vector<int>& nums) {
         vector<int> tails;
         for (auto n: nums) {
             int left = 0, right = tails.size() - 1;
-            int ans = left;
+            int ans = tails.size();
             while (left <= right) {
                 int mid = left + (right - left)/2;
                 if (tails[mid] >= n){
                     ans = mid;
-                    left = mid + 1;
-                } else {
                     right = mid - 1;
+                } else {
+                    left = mid + 1;
                 }
             }
             if (ans == tails.size())
@@ -71,3 +60,18 @@ public:
         return tails.size();
     }
 };
+
+/*
+We are keeping track of active/latest list. LIS[i] gives us the last elem of last subsequence of size i + 1.
+Since we are only keeping track of the latest list, LIS will be sorted and therefore we use binary search
+to find the leftmost elem satisfying 'tails[mid] >= n' which gives us the index of the element to be replaced
+i.e. ans.
+
+Here we are using just a list instead of list of lists, therefore we can't find the actual subsequence.
+
+Algorithm to find actual subsequences of each length:
+1. If A[i] is the smallest among all end candidates of active lists, start a new active list with A[i] of length 1.
+2. If A[i] is largest among all end candidates of active lists, clone the largest active list, and append A[i] to it.
+3. If A[i] is in between, find the list with the largest end number that is smaller than A[i]. Clone and append A[i] to this list.
+4. Discard all other lists of the same length as that of this modified list.
+*/
