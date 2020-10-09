@@ -1,4 +1,5 @@
-// Using Backtracking: Failed Attempt
+// Using Backtracking: Failed Attempt, Time limit exceeded
+// In worst n^h paths are possible, n is length of nums, h is height of tree
 class Solution {
 public:
     int combinationSum4(vector<int>& nums, int target) {
@@ -19,14 +20,12 @@ private:
         for (size_t i = 0; i < nums.size(); ++i) {
             if (nums[i] <= target)
                 helper(nums, target - nums[i]);
-            else
-                return;
         }
     }
 };
 
 // Time: O(n*t)
-// Space: O(t)
+// Space: O(t), for nums[i] = 1 at each level
 // DP Top-Down Approach
 class Solution {
 public:
@@ -53,3 +52,7 @@ private:
         return combns;
     }
 };
+
+/*
+opt[t] = sigma nums[0] <= n <= nums[-1] (opt[t-n])
+*/

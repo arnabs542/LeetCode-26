@@ -6,6 +6,7 @@ public:
     bool wordBreak(string s, vector<string>& wordDict) {
         const int n = s.length();
         size_t max_len = 0;
+        // unordered_set <string> word_set (wordDict.begin(), wordDict.end());
         for (const auto &str: wordDict)
             max_len = max(max_len, str.length());
 
@@ -14,7 +15,7 @@ public:
 
         for (int i = 1; i <= n; ++i)
             for (int l = 1; l <= max_len && i - l >= 0; ++l) {
-                // if (canBreak[i - l] && wordDict.count(s.substr(i - l, l))) if unordered_set is used
+                // if (canBreak[i - l] && word_set.count(s.substr(i - l, l))) if unordered_set is used
                 if (canBreak[i - l] && contain(wordDict, s.substr(i - l, l))) {
                     canBreak[i] = true;
                     break;
