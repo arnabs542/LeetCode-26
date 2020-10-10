@@ -19,5 +19,6 @@ public:
 
 /*
 Notes:
+We assume text2 is always smaller in length.
 i means the ith element of X and ith element of X is at index i-1
 */
