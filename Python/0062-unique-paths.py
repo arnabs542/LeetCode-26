@@ -17,3 +17,11 @@ class Solution:
                 ways[j] = ways[j] + ways[j - 1]
 
         return ways[n-1]
+
+"""
+Base case: opt[i, j] = 1 if i = 0 or j = 0
+(all down or all right)
+
+ways[1 to n-1] = 1 act as base case for i = 0
+and ways[0] = 1 acts as base case for j = 0
+"""
