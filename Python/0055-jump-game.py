@@ -12,7 +12,9 @@ class Solution:
 
 """
 As expected Greedy solution takes less time than DP solution.
-Greedy Choice property: take the last good index position
+lastGoodIndexPos = index from where we can reach the end.
+Greedy Choice property: take the last good index position and see if it is
+reachable.
 
 Optimal substructure: at each iteration, we've a local optimal
 solution to our subproblem.
