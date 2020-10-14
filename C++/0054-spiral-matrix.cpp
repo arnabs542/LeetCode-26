@@ -19,11 +19,11 @@ public:
                 res.push_back(matrix[i][right]);
 
             for (int j = right; j >= left; --j)
-                if (top < bottom) // skip for single row
+                if (top < bottom) // skip for single row (submatrix)
                 res.push_back(matrix[bottom][j]);
 
             for (int i = bottom - 1; i > top; --i)
-                if (left < right) // skip for single column
+                if (left < right) // skip for single column (submatrix)
                 res.push_back(matrix[i][left]);
 
             ++left, ++top, --right, --bottom;
