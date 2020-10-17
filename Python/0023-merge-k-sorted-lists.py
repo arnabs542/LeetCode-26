@@ -41,13 +41,6 @@ class Solution:
 
 
 
-
-
-
-
-
-
-
 # Heap Solution
 # Time = O(n*logk)
 # Space = O(1)
@@ -73,11 +66,3 @@ class Solution:
 
 
         return dummy.next
-
-
-
-
-
-
-
-        
