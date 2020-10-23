@@ -1,3 +1,4 @@
+// Tags: WC210
 // Time: O(n * 2 ^ n). We enumerate 2 ^ n trees and traverse each tree once.
 // Space: O(n). Because it's a tree, the number of edges is n - 1,
 // so we our adjacency list need n + n-1 space.
