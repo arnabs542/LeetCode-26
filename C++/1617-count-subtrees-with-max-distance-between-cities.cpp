@@ -1,6 +1,7 @@
 // Time: O(n * 2 ^ n). We enumerate 2 ^ n trees and traverse each tree once.
 // Space: O(n). Because it's a tree, the number of edges is n - 1,
 // so we our adjacency list need n + n-1 space.
+// DFS + Bitmask
 class Solution {
 public:
     vector<int> countSubgraphsForEachDiameter(int n, vector<vector<int>>& edges) {
@@ -56,3 +57,52 @@ public:
 • For each of subset, we calculate the maximum distance between any two cities in our subset.
 • Maximum distance between any two cities in our subset (subset must be a subtree) is the diameter of the tree.
 */
+
+
+// Time: O(n ^ 2 * 2 ^ n). We enumerate 2 ^ n trees, and enumerate all pairs of nodes.
+// Space: O(n ^ 2) for the adjacency matrix (dp).
+// Floyd Warshall
+class Solution {
+public:
+    vector<int> countSubgraphsForEachDiameter(int n, vector<vector<int>>& edges) {
+        // n acting as infinity
+        vector<vector<int>> dp(n, vector<int> (n, n));
+
+        // initial matrix, base case
+        for (auto &edge: edges)
+            dp[edge[0] - 1][edge[1] - 1] = dp[edge[1] - 1][edge[0] - 1] = 1;
+
+        // building adjacency matrix with the distance between each pair
+        // using Floyd Warshall algorithm, O(n^3)
+        for (int k = 0; k < n; ++k)
+            for (int i = 0; i < n; ++i)
+                for (int j = 0; j < n; ++j)
+                    dp[i][j] = min(dp[i][j], dp[i][k] + dp[k][j]);
+        // only taking the case where k is the intermediate index ie 1234.....k
+
+        vector<int> res(n - 1);
+
+        for (int mask = 0; mask < 1 << n; ++mask) {
+            int max_depth = 0, edges = 0, nodes = 0;
+            for (int i = 0; i < n; ++i) {
+                if (mask & 1 << i) {
+                    // checking the number of set bits
+                    ++nodes;
+                    // enumerating pairs
+                    for (int j = i + 1; j < n; ++j) {
+                        if (mask & (1 << j)) {
+                            // counting edges (since can't count nodes unlike dfs method)
+                            edges += (dp[i][j] == 1);
+                            max_depth = max(max_depth, dp[i][j]);
+                        }
+                    }
+                }
+            }
+            // check if this subset forms a tree
+            if (edges == nodes - 1 && max_depth > 0)
+                ++res[max_depth - 1];
+        }
+        return res;
+    }
+
+};
