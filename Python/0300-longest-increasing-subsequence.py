@@ -12,6 +12,7 @@ class Solution:
                     opt[i] = max(opt[i], opt[j] + 1)
 
         return max(opt) if opt else 0
+        # *max_element(opt.begin, opt.end());
 
 
 

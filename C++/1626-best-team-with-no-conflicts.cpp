@@ -36,4 +36,5 @@ the scores and the age to see whether these two players can be in the same team
 
 dp[i] stores the maximum score that can be obtained when i-th player is
 included and all other players are between indices 0 and i-1
+dp[i] = (0 <= j < i) max(dp[j] + player[i].second)
 */

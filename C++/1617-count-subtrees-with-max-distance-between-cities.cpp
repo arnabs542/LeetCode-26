@@ -27,7 +27,7 @@ public:
                     // dia > 0 as res[dia - 1]
                     if (dia > 0 && nodes == (bitset<16> (mask)).count())
                         ++res[dia - 1]; // -1 as 0 indexed
-                    break; // only visit any one node
+                    break; // only run dfs on any one node
                 }
             }
         }

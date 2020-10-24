@@ -54,7 +54,7 @@ class Solution:
 # Unlike regular dfs which is preorder, it is postorder. Here we consider
 # node visited if there are no unexplored nodes and we have to backtrack.
 # Also, this is complicated to do using an iterative stack
-# Notice that we cycle only exist if being visited not is called again,
+# Notice that we say cycle only exist if being visited not is called again,
 # not the visited node.
 # By stack I mean virtual stack not recursion stack.
 
