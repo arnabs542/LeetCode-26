@@ -11,6 +11,7 @@ public:
             // or .push_back({f[1], f[2]})
         using T = tuple<int, int, int>;
         priority_queue<T, vector<T>, greater<T>> min_heap;
+        // K intermediate vertices ----> K+1 edges
         min_heap.emplace(0, src, K+1);
         // stops mean edges remaining not vertices
         while (!min_heap.empty()) {
