@@ -1,98 +1,98 @@
 // Tags: Union-find Math WC211
-// Failed attempt: stack-overflow
-class Solution {
-public:
-    vector<bool> areConnected(int n, int threshold, vector<vector<int>>& queries)
-    {
-        vector<vector<int>> adj(n);
-        for (int i = 0; i < n; ++i) {
-            for (int j = i + 1; j < n; ++j) {
-                if (common(i + 1, j + 1) > threshold) {
-                    adj[i].push_back(j);
-                    adj[j].push_back(i);
-                }
-            }
-        }
-        // int i = 0;
-        // for (auto &a: adj) {
-        //     cout << i;
-        //     for (auto &b: a) {
-        //         cout << b;
-        //     }
-        //     cout << endl;
-        //     ++i;
-        vector<bool> res;
-        for (auto &query: queries) {
-            if (dfs(query[0] - 1, -1, query[1] - 1, adj))
-                res.push_back(true);
-            else
-                res.push_back(false);
-        }
-        return res;
-    }
-
-    int common(int a, int b) {
-        int x = min(a, b);
-        int y = max(a, b);
-        int res = 1;
-        for (int i = 2; i <= x; i++) {
-            if (x%i == 0 && y%i == 0)
-                res = i;
-        }
-        return res;
-    }
-
-    // parent was added to prevent endless recursion
-    bool dfs(int src, int parent, int dest, vector<vector<int>> &graph) {
-        if (src == dest)
-            return true;
-        if (graph[src].empty())
-            return false;
-        for (auto &child: graph[src]) {
-            if (child == parent)
-                continue;
-            if (dfs(child, src, dest, graph))
-                return true;
-        }
-        return false;
-    }
-};
-
-
-// Time: O(n + m), where m is the number of queries
-// Union Find method
-// Space: O(n) for the disjoint set
-class UnionFind {
-  vector<int> parent, size;
-public:
-  UnionFind(int n) {
-    parent.resize(n);
-    size.resize(n);
-    for (int i = 0; i < n; ++i) {
-      parent[i] = i; // self loop
-      size[i] = 1; // only 1 elem
-    }
-
-    int find(int x) {
-      if(x == parent[x])
-        return x;
-      return parent[x] = find(parent[x]); // path compression
-    }
-
-    bool Union(int u, int v) {
-      int pu = find(u), pv = find(v);
-      if (pu == pv) return false; // already merged
-      if (size[pu] > size[pv]) {
-        size[pu] += size[pv];
-        parent[pv] = pu;
-      } else {
-        size[pv] += size[pu];
-        parent[pu] = pv;
-      }
-      return true;
-    }
-  }
-}
+// Failed attempt: stack-overflow as graph as cycles which causes
+// recursive call to already visited ancestor node
+// class Solution {
+// public:
+//     vector<bool> areConnected(int n, int threshold, vector<vector<int>>& queries)
+//     {
+//         vector<vector<int>> adj(n);
+//         for (int i = 0; i < n; ++i) {
+//             for (int j = i + 1; j < n; ++j) {
+//                 if (common(i + 1, j + 1) > threshold) {
+//                     adj[i].push_back(j);
+//                     adj[j].push_back(i);
+//                 }
+//             }
+//         }
+//         // int i = 0;
+//         // for (auto &a: adj) {
+//         //     cout << i;
+//         //     for (auto &b: a) {
+//         //         cout << b;
+//         //     }
+//         //     cout << endl;
+//         //     ++i;
+//         vector<bool> res;
+//         for (auto &query: queries) {
+//             if (dfs(query[0] - 1, -1, query[1] - 1, adj))
+//                 res.push_back(true);
+//             else
+//                 res.push_back(false);
+//         }
+//         return res;
+//     }
+//
+//     int common(int a, int b) {
+//         int x = min(a, b);
+//         int y = max(a, b);
+//         int res = 1;
+//         for (int i = 2; i <= x; i++) {
+//             if (x%i == 0 && y%i == 0)
+//                 res = i;
+//         }
+//         return res;
+//     }
+//
+//     bool dfs(int src, int parent, int dest, vector<vector<int>> &graph) {
+//         if (src == dest)
+//             return true;
+//         if (graph[src].empty())
+//             return false;
+//         for (auto &child: graph[src]) {
+//             if (child == parent)
+//                 continue;
+//             if (dfs(child, src, dest, graph))
+//                 return true;
+//         }
+//         return false;
+//     }
+// };
+//
+//
+// // Time: O(n + m), where m is the number of queries
+// // Union Find method
+// // Space: O(n) for the disjoint set
+// class UnionFind {
+//   vector<int> parent, size;
+// public:
+//   UnionFind(int n) {
+//     parent.resize(n);
+//     size.resize(n);
+//     for (int i = 0; i < n; ++i) {
+//       parent[i] = i; // self loop
+//       size[i] = 1; // only 1 elem
+//     }
+//
+//     int find(int x) {
+//       if(x == parent[x])
+//         return x;
+//       return parent[x] = find(parent[x]); // path compression
+//     }
+//
+//     bool Union(int u, int v) {
+//       int pu = find(u), pv = find(v);
+//       if (pu == pv) return false; // already merged
+//       if (size[pu] > size[pv]) {
+//         size[pu] += size[pv];
+//         parent[pv] = pu;
+//       } else {
+//         size[pv] += size[pu];
+//         parent[pu] = pv;
+//       }
+//       return true;
+//     }
+//   }
+// }
 
 class Solution {
 public:

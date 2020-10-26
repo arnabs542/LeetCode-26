@@ -1,30 +1,31 @@
 // Tags: WC212 Binary search Graph
-// Failed attempt: stack-overflow
-class Solution {
-public:
-    int minimumEffortPath(vector<vector<int>>& heights) {
-        int res = numeric_limits<int>::max();
-        dfs(0, 0, res, numeric_limits<int>::min(), heights);
-        return res;
-    }
-
-    void dfs(int i, int j, int &res, int cost, vector<vector<int>>& heights) {
-        if (i == heights.size() - 1 && j == heights[0].size() - 1) {
-            res = min(res, cost);
-            return;
-        }
-
-        if (i != heights.size() - 1)
-            dfs(i + 1, j, res, max(cost, heights[i+1][j] - heights[i][j]), heights);
-        if (i != 0)
-            dfs(i - 1, j, res, max(cost, heights[i-1][j] - heights[i][j]), heights);
-
-        if (j != heights[0].size() - 1)
-            dfs(i, j + 1, res, max(cost, heights[i][j+1] - heights[i][j]), heights);
-        if (j != 0)
-            dfs(i, j - 1, res, max(cost, heights[i][j-1] - heights[i][j]), heights);
-    }
-};
+// Failed attempt: stack-overflow as graph as cycles which causes
+// recursive call to already visited ancestor node
+// class Solution {
+// public:
+//     int minimumEffortPath(vector<vector<int>>& heights) {
+//         int res = numeric_limits<int>::max();
+//         dfs(0, 0, res, numeric_limits<int>::min(), heights);
+//         return res;
+//     }
+//
+//     void dfs(int i, int j, int &res, int cost, vector<vector<int>>& heights) {
+//         if (i == heights.size() - 1 && j == heights[0].size() - 1) {
+//             res = min(res, cost);
+//             return;
+//         }
+//
+//         if (i != heights.size() - 1)
+//             dfs(i + 1, j, res, max(cost, heights[i+1][j] - heights[i][j]), heights);
+//         if (i != 0)
+//             dfs(i - 1, j, res, max(cost, heights[i-1][j] - heights[i][j]), heights);
+//
+//         if (j != heights[0].size() - 1)
+//             dfs(i, j + 1, res, max(cost, heights[i][j+1] - heights[i][j]), heights);
+//         if (j != 0)
+//             dfs(i, j - 1, res, max(cost, heights[i][j-1] - heights[i][j]), heights);
+//     }
+// };
 
 // Time:  O(m * n * log(m * n))
 // Space: O(m * n)

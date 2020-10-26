@@ -38,4 +38,4 @@ public:
 // used because of k limitation, we can choose another one.
 // Also, its like bellmann ford whether we keep considering same vertex again if
 // there is another edge leading to it.
-// Difference from Djistras: Instead of decrease key, we push new copy.
+// Difference from Dijkstras: Instead of decrease key, we push new copy.
