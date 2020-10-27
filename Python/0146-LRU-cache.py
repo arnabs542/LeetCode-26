@@ -16,7 +16,6 @@ class LRUCache:
         self.tail.prev = self.head
 
 
-
     def get(self, key: int) -> int:
         if key in self.dic:
             node = self.dic[key]
@@ -50,8 +49,6 @@ class LRUCache:
         node.prev = p
         node.next = self.tail
         self.tail.prev = node
-
-
 
 
 # Your LRUCache object will be instantiated and called as such:
