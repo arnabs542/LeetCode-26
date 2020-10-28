@@ -3,7 +3,8 @@
 // Space: O(n), not sure
 class Solution {
 public:
-    vector<string> mostVisitedPattern(vector<string>& username, vector<int>& timestamp, vector<string>& website)
+    vector<string> mostVisitedPattern(vector<string>& username,
+      vector<int>& timestamp, vector<string>& website)
     {
         // unordered map of map ordered by keys(timestamp)
         unordered_map<string, map<int, string>> m;
