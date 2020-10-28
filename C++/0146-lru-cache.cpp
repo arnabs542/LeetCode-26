@@ -19,6 +19,7 @@ private:
             list_.erase(it->second);
         list_.emplace_back(key, value);
         map_[key] = --list_.end();
+        // or prev(end(list_))
     }
 public:
     LRUCache(int capacity): cap_ {capacity} {
