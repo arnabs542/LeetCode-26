@@ -1,3 +1,4 @@
+// Tags: Amazon Pattern
 // Time: O(2 ^ n), where n is the number of cells (not days).
 // for 8 cells, we can have 64 different states.
 // (each cell can have two states, therefore 2^n)
