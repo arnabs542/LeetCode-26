@@ -56,3 +56,28 @@ private:
 /*
 opt[t] = sigma nums[0] <= n <= nums[-1] (opt[t-n])
 */
+
+
+
+// Time: O(nlogn + n * t), t is the value of target.
+// Space: O(t)
+// DP Bottom-Up Approach
+class Solution {
+public:
+    int combinationSum4(vector<int>& nums, int target) {
+        int n = nums.size();
+        // number of ways can't be negative
+        vector<uint32_t> dp(target + 1, 0);
+
+        // base case
+        dp[0] = 1;
+        sort(nums.begin(), nums.end());
+        for (int i = 1; i <= target; ++i)
+            for (const auto &num: nums)
+                if (num <= i)
+                    dp[i] += dp[i - num];
+                else
+                    break;
+        return dp[target];
+    }
+};

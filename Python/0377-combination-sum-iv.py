@@ -1,4 +1,4 @@
-# Time: O(nlon + n * t), t is the value of target.
+# Time: O(nlogn + n * t), t is the value of target.
 # Space: O(t)
 # DP Bottom-Up Approach
 class Solution:
