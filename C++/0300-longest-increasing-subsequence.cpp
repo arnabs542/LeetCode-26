@@ -75,3 +75,41 @@ Algorithm to find actual subsequences of each length:
 3. If A[i] is in between, find the list with the largest end number that is smaller than A[i]. Clone and append A[i] to this list.
 4. Discard all other lists of the same length as that of this modified list.
 */
+
+
+// Same as above but using lower_bound for binary search
+class Solution {
+public:
+    int lengthOfLIS(vector<int>& nums) {
+        vector<int> tails;
+
+        for (const auto &n: nums) {
+            auto it = lower_bound(tails.begin(), tails.end(), n);
+
+            if (it == tails.end())
+                tails.push_back(n);
+            else
+                *it = n;
+        }
+        return tails.size();
+    }
+};
+
+
+
+// Time:  O(n^2)
+// Space: O(n)
+// Traditional DP solution.
+class Solution {
+public:
+    int lengthOfLIS(vector<int>& nums) {
+        if (nums.empty())
+            return 0;
+        vector<int> dp(nums.size(), 1);
+        for (int i = 0; i < nums.size(); ++i)
+            for (int j = 0; j < i; ++j)
+                if (nums[j] < nums[i])
+                    dp[i] = max(dp[i], dp[j] + 1);
+        return *max_element(dp.begin(), dp.end());
+    }
+};

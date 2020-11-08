@@ -50,6 +50,8 @@ class Solution:
                     dp[k][x] = 0
                     continue
                 if coins[k-1] > x:
+                    # integer overflow here in C++ ("inf" + 1)
+                    # temp sol: take inf == amount + 1
                     dp[k][x] = dp[k-1][x]
                 else:
                     dp[k][x] = min(dp[k-1][x], dp[k][x-coins[k-1]] + 1)
@@ -61,4 +63,8 @@ opt[k, x] = min(opt[k-1, x], opt[k, x-dk] + 1)
 Base case:
 opt[k, 0] = 0
 
+Note: initial value is taken inf so that min(opt[0, x], opt[1, x - d1] + 1)
+gives 1 not 0
+
+opt[k, x] = opt[k - 1, x] if dk > x, we can't pick this coin ever
 """

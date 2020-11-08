@@ -1,4 +1,4 @@
-// DP: Top down approach
+// DP: Top-down approach
 // Time: O(amount*n)
 // Space: O(n), due to memoization table.
 // Also maximum height of tree is n for denomination of 1
@@ -35,3 +35,27 @@ f(s) = min(F(s - ci) + 1)
     s.t s-ci >= 0
 f(s) = 0, if s=0
 */
+
+
+// Time:  O(n * k), n is the number of coins, k is the amount of money
+// Space: O(k)
+// Bottom-up DP, tabulation
+class Solution {
+public:
+    int coinChange(vector<int>& coins, int amount) {
+        int n = coins.size();
+        // numeric_limits<int>::max() not used to prevent integer buffer overflow
+        int INF = amount + 1;
+        vector<int> dp(amount + 1, INF);
+
+        dp[0] = 0;
+
+        for (int x = 1; x <= amount; ++x) {
+            for (const auto &coin: coins) {
+                if (coin <= x)
+                    dp[x] = min(dp[x], dp[x - coin] + 1);
+            }
+        }
+        return (dp[amount] == INF) ? -1 : dp[amount];
+    }
+};
