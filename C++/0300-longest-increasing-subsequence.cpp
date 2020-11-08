@@ -1,6 +1,6 @@
 // Time:  O(nlogn)
 // Space: O(n)
-// Binary search solution
+// Binary-search solution, maintaining active list
 class Solution {
 public:
     int lengthOfLIS(vector<int>& nums) {

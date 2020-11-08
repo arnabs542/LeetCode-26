@@ -1,6 +1,6 @@
 // Time:  O(m * n)
 // Space: O(min(m, n))
-
+// DP solution
 class Solution {
 public:
     int longestCommonSubsequence(string text1, string text2) {
@@ -21,4 +21,8 @@ public:
 Notes:
 We assume text2 is always smaller in length.
 i means the ith element of X and ith element of X is at index i-1
+
+opt[i][j] = (s[i - 1] == s[j - 1]) ? opt[i-1, j-1] : max(opt[i - 1, j], opt[i, j - 1]);
+Base case:
+opt[i][0] = opt[0][j] = 0;
 */
