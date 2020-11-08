@@ -1,8 +1,8 @@
-// Tags: Amazon Hash table Heap Trie
+// Tags: Amazon Hash-table Heap Trie
 // Similar Question: 0347
 // Time:  O(n + klogk) on average
 // Space: O(n)
-// Quick Select Solution
+// Quick-select Solution
 class Solution {
 public:
     vector<string> topKFrequent(vector<string>& words, int k) {
@@ -55,4 +55,4 @@ public:
 
 
 
-// To do: Bucket Sort solution
+// To do: Bucket-sort solution

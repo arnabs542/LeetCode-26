@@ -7,7 +7,7 @@
  * };
  */
 
-// Tags: Amazon Linked list Divide and conquer heap
+// Tags: Amazon Linked-list D&C Heap
 // Divide & Conquer Solution
 // Time = O(n*logk)
 // Space = O(logk), due to recursion
