@@ -14,7 +14,6 @@ public:
                     dp[i] = true;
                     break;
                 }
-
             }
         return dp[nums.size()-1];
 

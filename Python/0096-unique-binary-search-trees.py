@@ -55,14 +55,18 @@ class Solution:
             return n
 
         dp = [0] * (n+1)
+
         # for only left or only right
         # unlike previous solution, we don't need to have a separate case for
         # r==i and r==j
         dp[0] = 1
+
         # just 1 elem
         dp[1] = 1
         for l in range(2, n+1):
             for leftLen in range(l):
+                # root is the very next elem after leftlen ie. leftlen represents
+                # range from ith to (r-1)th elem
                 dp[l] += dp[leftLen]*dp[l-leftLen-1]
         return dp[n]
 

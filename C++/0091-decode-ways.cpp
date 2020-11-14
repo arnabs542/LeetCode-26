@@ -31,6 +31,6 @@ opt[i] = number of ways to decode string from 0,.......i
 
 opt[i] += opt[i-1], appending "s[i]"" to strings for opt[i-1]
 
-opt[i] += opt[i-2] if s[i-1] == 1 or (s[i] == 2 and s[i] <= 6), appending
+opt[i] += opt[i-2] if s[i-1] == 1 or (s[i-1] == 2 and s[i] <= 6), appending
 "s[i-1]s[i]" to strings for opt[i-2]
 */
