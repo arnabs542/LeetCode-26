@@ -1,5 +1,5 @@
-# Time: O(n)
-# Space: O(1)
+# Time: O(n*m)
+# Space: O(m)
 
 class Solution:
     def change(self, amount: int, coins: List[int]) -> int:
@@ -19,3 +19,6 @@ class Solution:
 #
 # outer loop of coins gives combinations similar to knapsack whereas
 # inner loop of coins gives permutations as req in combination iv
+# (This is exactly same as Knapsack problem with O(n) space &
+# coin change O(n * k) solution)
+# (Knapsack dp problem considers combinations not permutations)

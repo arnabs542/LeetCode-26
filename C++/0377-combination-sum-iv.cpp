@@ -81,3 +81,10 @@ public:
         return dp[target];
     }
 };
+
+/*
+Here we are talking about permutations not combinations.
+This can't be done using knapsack dp format which only considers
+combinations.
+(Look at coin change O(n * k) and coin change 2 O(n) space)
+*/

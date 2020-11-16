@@ -7,7 +7,6 @@ public:
     int maxProfit(vector<int>& inv, int orders) {
         sort(inv.begin(), inv.end());
         long res = 0, colors = 1;
-
         for (size_t i = inv.size() - 1; i != -1; --i, ++colors) {
             long cur = inv[i], prev = i > 0 ? inv[i - 1] : 0;
             long rounds = min(orders / colors, cur - prev);
@@ -19,7 +18,6 @@ public:
             }
         }
         return res;
-
     }
 };
 
@@ -31,5 +29,7 @@ colors = 4, [2 4 4 4 4], rounds = 2     =>  4 + 4 + 4 + 4 + 3 + 3 + 3 + 3
 colors = 5, [2 2 2 2 2], rounds = 2     =>  2 + 2 + 2 + 2 + 2 + 1 + 1 + 1 + 1 + 1
 
 In the last iteration the numbers of orders left will fall short ie cur - prev > rounds
-If the remaining number of orders are not exactly divisible by colors, we increment the result by orders number of balls of value (cur - rounds) and break the loop. Otherwise, if it is exactly divisible, we add 0 to res (since orders would be 0) and break the loop.
+If the remaining number of orders are not exactly divisible by colors, we increment the
+result by orders number of balls of value (cur - rounds) and break the loop. Otherwise,
+if it is exactly divisible, we add 0 to res (since orders would be 0) and break the loop.
 */
