@@ -11,8 +11,9 @@ public:
         vector<int> first_c, next_c(cells.size());
 
         // predecrement (start of loop) for N because it denotes how many iterations are left
-        // postincrement (end of loop) for cycle as it denotes how many iterations are done
-        for (int cycle = 0; --N > 0; ++cycle, cells = next_c) {
+        // postincrement (end of loop) for cycle as it denotes how many iterations are done 
+        // (including current)
+        for (int cycle = 0; N-- > 0; ++cycle, cells = next_c) {
             for (int i = 1; i < cells.size() - 1; ++i)
                 next_c[i] = cells[i - 1] == cells[i + 1];
             if (cycle == 0)
