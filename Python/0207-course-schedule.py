@@ -54,7 +54,7 @@ class Solution:
 # Unlike regular dfs which is preorder, it is postorder. Here we consider
 # node visited if there are no unexplored nodes and we have to backtrack.
 # Also, this is complicated to do using an iterative stack
-# Notice that we say cycle only exist if being visited not is called again,
+# Notice that we say cycle only exist if being visited node is called again,
 # not the visited node.
 # By stack I mean virtual stack not recursion stack.
 
@@ -137,6 +137,6 @@ class Solution:
 # we will never push each node twice to our queue as it will become -1
 # Therefore visited array not requireds
 #
-# Whenever we pop from stack, we add that elem to our topological ordering.
-# Here we are using the idea that it we are able to include all nodes in our
+# Whenever we pop from queue, we add that elem to our topological ordering.
+# Here we are using the idea that if we are able to include all nodes in our
 # ordering, we have a topological order and hence no cycle.
