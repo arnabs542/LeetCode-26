@@ -1,3 +1,4 @@
+// Tage: Amazon
 // Time:  O(nlogn), using ordered map instead of unordered_map
 // Space: O(n)
 class Solution {
@@ -40,10 +41,12 @@ public:
         int i = 0, j = 0;
         while (i < starts.size()) {
             if (starts[i] < ends[j]) {
+                // acquire the room
                 ++cur;
                 result = max(result, cur);
                 ++i;
             } else {
+                // release the room
                 --cur;
                 ++j;
             }
@@ -51,3 +54,9 @@ public:
         return result;  
     }
 };
+
+/* If the current start time comes before the current end time, we
+increase the count and i. However, if the current end time comes before
+the current start time, we decrease the count but increment j.
+Repeat for all start times.
+*/
