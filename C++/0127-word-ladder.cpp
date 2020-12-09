@@ -43,7 +43,7 @@ public:
 // can either be in head set or tail set, as we keep removing them from dict
 // hence list_length.
 // Space: O(list_length)
-// Two-end search method, (each BFS using two sets (temp, phead) instead of a queue)
+// Two-end BFS search method, (each BFS uses two sets (nextlev, phead) instead of a queue)
 // Here, we alternatively travel from startWord and endWord.
 class Solution {
 public:
@@ -88,7 +88,7 @@ public:
                 }
             }
             ++ladder;
-            *phead = nextlev;
+            *phead = nextlev; // or phead->swap(temp);
         }
         return 0;
     }
