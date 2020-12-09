@@ -6,7 +6,7 @@ class Solution {
     int timer = 0;
     // entry time of each node
     vector<int> in;
-    // lowest encestor that can be reached from a node
+    // (entry time of) lowest encestor that can be reached from a node
     vector<int> low;
     vector<int> visited;
     vector<vector<int>> res;
@@ -25,7 +25,9 @@ public:
     }
 
     void dfs(const vector<vector<int>> &adj, int u, int parent) {
+        // mark it visited
         visited[u] = true;
+        // initialize low and in values
         in[u] = low[u] = timer++;
 
         for (const auto &child: adj[u]) {
@@ -39,8 +41,10 @@ public:
             } else {
                 // edge u - child is a forward edge
                 dfs(adj, child, u);
+                // indicates that child is not connected to an ancestor of u i.e. not making a cycle
                 if (in[u] < low[child])
                     res.push_back({u, child});
+                // if a child can reach an ancestor, current node can also reach ancestor via the child
                 low[u] = min(low[u], low[child]);
             }
         }
