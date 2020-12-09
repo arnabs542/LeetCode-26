@@ -18,6 +18,8 @@ public:
         // std::pair
         for (auto u: m) {
             unordered_set<string> ts;
+            // shoulde be prev(u.second.end(), 2), prev(u.second.end()), u.second.end()
+            // why it works with u.second.end() in every case?
             for (auto it = begin(u.second); it != end(u.second); ++it)
                 for (auto it1 = next(it); it1 != end(u.second); ++it1)
                     for (auto it2 = next(it1); it2 != end(u.second); ++it2)
