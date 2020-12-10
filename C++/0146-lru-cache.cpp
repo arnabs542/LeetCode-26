@@ -37,6 +37,7 @@ public:
 
     void put(int key, int value) {
         if (!map_.count(key) && cap_ == list_.size()) {
+            // definitely adding this node will increase size
             auto del_key = list_.front().first; list_.pop_front();
             map_.erase(del_key);
         }
@@ -50,3 +51,75 @@ public:
  * int param_1 = obj->get(key);
  * obj->put(key,value);
  */
+
+
+
+class Node {
+public:
+    int key, val;
+    Node *prev, *next;
+    Node(int k, int v): key {k}, val {v}, prev {nullptr}, next {nullptr} {
+
+    }
+};
+
+class LRUCache {
+    int capacity;
+    unordered_map<int, Node*> dict;
+    Node *head, *tail;
+public:
+    LRUCache(int capacity) {
+        this->capacity = capacity;
+        head = new Node(0, 0);
+        tail = new Node(0, 0);
+        head->next = tail;
+        tail->prev = head;
+    }
+    
+    void remove(Node *node) {  
+        node->prev->next = node->next;
+        node->next->prev = node->prev;
+        //delete node;
+    }
+    
+    void add(Node *node) {
+        tail->prev->next = node;
+        node->prev = tail->prev;
+        node->next = tail;
+        tail->prev = node;
+    }
+    
+    int get(int key) {
+        if (dict.count(key)) {
+            Node *node = dict[key];
+            remove(node);
+            add(node);
+            return node->val;
+        }
+        return -1;
+    }
+    
+    void put(int key, int value) {
+        if (dict.count(key)) {
+            remove(dict[key]);
+            delete dict[key];
+        }
+        Node *node = new Node(key, value);
+        add(node);
+        dict[key] = node;
+        if (dict.size() > capacity) {
+            Node *p = head->next;
+            remove(head->next);
+            dict.erase(p->key);
+            delete p;
+        }
+        }
+};
+
+/**
+ * Your LRUCache object will be instantiated and called as such:
+ * LRUCache* obj = new LRUCache(capacity);
+ * int param_1 = obj->get(key);
+ * obj->put(key,value);
+ */
+ 

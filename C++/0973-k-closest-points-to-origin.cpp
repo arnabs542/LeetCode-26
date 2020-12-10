@@ -9,7 +9,6 @@ public:
             t.emplace_back(distance(p[0], p[1]), p[0], p[1]);
         }
         nth_element(t.begin(), t.begin() + K - 1, t.end());
-
         vector<vector<int>> res;
         for (int i = 0; i < K; ++i) {
             auto [d, x, y] = t[i];

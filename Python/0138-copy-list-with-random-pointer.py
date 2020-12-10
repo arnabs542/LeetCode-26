@@ -12,9 +12,12 @@ class Node:
 
 class Solution:
     def copyRandomList(self, head: 'Node') -> 'Node':
+        # head of the new linked list
         dummy = Node(0)
+
         curr, prev = head, dummy
         copies = {}
+        # (dummy node) (node1 copy) (node2 copy)
         while curr:
             copied = Node(curr.val)
             prev.next = copied
@@ -36,6 +39,7 @@ class Solution:
 class Solution:
     def copyRandomList(self, head: 'Node') -> 'Node':
         # copy and combine copied list with original list
+        # (node1) (node1 copy) (node2) (node2 copy)
         curr = head
         while curr:
             copied = Node(curr.val)
@@ -47,6 +51,7 @@ class Solution:
         curr = head
         while curr:
             if curr.random:
+                # the very next node to a node is its copy
                 curr.next.random = curr.random.next
             curr = curr.next.next
 
