@@ -1,6 +1,6 @@
-//hash table
-//time O(n)
-//space O(n)
+// Tags: Amazon Hash-table
+// Time: O(n)
+// Space: O(n)
 class Solution {
 public:
   vector<int> twoSum(vector<int>& nums, int target){

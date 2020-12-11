@@ -1,4 +1,4 @@
-// Tags: Amazon Hash-table Heap Trie
+// Tags: Amazon Hash-table Heap
 // Similar Question: 0347
 // Time:  O(n + klogk) on average
 // Space: O(n)

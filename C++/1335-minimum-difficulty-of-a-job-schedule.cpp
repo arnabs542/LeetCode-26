@@ -1,4 +1,4 @@
-// Tags: Dp Amazon
+// Tags: DP Amazon
 // Time complexity O(nnd)
 // Space complexity O(n)
 class Solution {

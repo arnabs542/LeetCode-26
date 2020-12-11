@@ -1,4 +1,4 @@
-// Tags: Amazon Heap Sort D&C
+// Tags: Amazon Heap Sort
 // Time:  O(n) on average
 // Space: O(n)
 class Solution {

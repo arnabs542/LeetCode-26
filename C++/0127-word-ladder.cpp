@@ -1,4 +1,4 @@
-// Tags: Amazon
+// Tags: Amazon BFS
 // Time: O(list_length * word_length * lookup_time), there can only be list_length
 // number of elements in the queue.
 // Space: O(list_length)

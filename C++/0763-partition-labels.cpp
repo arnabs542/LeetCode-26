@@ -1,4 +1,4 @@
-// Tags: Amazon Two pointers Greedy
+// Tags: Amazon Two-pointers Greedy
 // Time: O(n)
 // Space: O(n)
 class Solution {

@@ -1,12 +1,3 @@
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
- * };
- */
-
 // Tags: Amazon Linked-list D&C Heap
 // Divide & Conquer Solution
 // Time = O(n*logk)
@@ -16,6 +7,14 @@
 // No. of levels = h = logk
 // => T(k) = n*logk
 
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
 class Solution {
 public:
     ListNode* mergeKLists(vector<ListNode*>& lists) {
@@ -147,6 +146,7 @@ public:
         }
         return lists[0];
     }
+
     ListNode* merge(ListNode* l1, ListNode* l2) {
         ListNode dummy {0};
         ListNode *curr = &dummy;

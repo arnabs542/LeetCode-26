@@ -34,3 +34,22 @@ private:
         return s && (isSame(s, t) || preOrderTraverse(s->left, t) || preOrderTraverse(s->right, t));
     }
 };
+
+
+
+
+class Solution {
+    bool isSame(TreeNode *s, TreeNode *t) {
+        if (!s && !t)
+            return true;
+        if (!s || !t)
+            return false;
+        return s->val == t->val && isSame(s->left, t->left) && isSame(s->right, t->right);
+    }
+
+public:
+    bool isSubtree(TreeNode* s, TreeNode* t) {
+        return s && (isSame(s, t) || isSubtree(s->left, t) || isSubtree(s->right, t));
+    }
+};
+

@@ -1,6 +1,6 @@
+// Tags: Two-pointers
 // Time O(n)
 // Space O(1)
-
 class Solution {
 public:
     int maxArea(vector<int>& height) {

@@ -40,7 +40,8 @@ class Solution:
                     if i > 0 and j > 0:
                         cur[j] += min(pre[j-1], cur[j-1], pre[j])
                 result = max(result, cur[j])
-                pre = cur
+            pre = cur
+            cur = [0]*len(cur)
 
         return result*result
 

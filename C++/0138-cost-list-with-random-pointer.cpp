@@ -1,3 +1,6 @@
+// Tags: Amazon Hash-table Linked-list
+// Time:  O(n)
+// Space: O(1)
 /*
 // Definition for a Node.
 class Node {
@@ -13,9 +16,6 @@ public:
     }
 };
 */
-
-// Time:  O(n)
-// Space: O(1)
 class Solution {
 public:
     Node* copyRandomList(Node* head) {
