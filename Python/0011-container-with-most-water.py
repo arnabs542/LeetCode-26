@@ -1,6 +1,6 @@
+# Tags: Two-pointer
 # Time O(n)
 # Space O(1)
-
 class Solution:
     def maxArea(self, height: List[int]) -> int:
         max_area, i, j = 0, 0, len(height)-1
