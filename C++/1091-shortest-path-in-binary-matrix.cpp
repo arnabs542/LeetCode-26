@@ -83,7 +83,7 @@ public:
                             if (i >= 0 && j >= 0 && i < n && j < n && !grid[i][j])
                                 q.push({i, j}); // or q1.push({i, j});
             }
-            // swap(q, q1);
+            // or swap(q, q1);
         }
         return -1;
     }
