@@ -1,4 +1,4 @@
-// Tags: Amazon Greedy Sort
+// Tags: Amazon Greedy Sort Premium
 // Time:  O(nlogn), using ordered map instead of unordered_map
 // Space: O(n)
 class Solution {

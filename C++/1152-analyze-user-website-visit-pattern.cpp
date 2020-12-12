@@ -1,4 +1,4 @@
-// Tags: Amazon Hash-table Sort Array
+// Tags: Amazon Hash-table Sort Array Premium
 // Time:  O(n^3)
 // Space: O(n), not sure
 class Solution {

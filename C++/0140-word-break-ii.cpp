@@ -6,6 +6,8 @@ class Solution {
 public:
     vector<string> wordBreak(string s, vector<string>& wordDict) {
         unordered_set<string> dict(wordDict.begin(), wordDict.end());
+        // could also use vector<vector<string>> dp(s.size()); instead
+        // dp[s.size()] = {""};
         unordered_map<int, vector<string>> dp {{s.size(), {""}}};
 
         // returns a list of all sentences that can be built from 
