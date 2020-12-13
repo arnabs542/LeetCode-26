@@ -32,5 +32,5 @@ class Solution:
 # see image:
 # https://assets.leetcode.com/static_assets/discuss/uploads/files/1488858512318-monosnap-2017-03-06-22-48-17.jpg
 #
-# May be better solution exits:
+# May be better solution exists:
 # https://leetcode.com/problems/search-a-2d-matrix-ii/discuss/66154/is-theres-a-ologmlogn-solution-i-know-onm-and-omlogn
