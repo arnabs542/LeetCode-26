@@ -1,3 +1,4 @@
+// Tags: Amazon Hash-table String
 // Time O(n*slogs + n*glogg), g is the max size of groups, s in max size of strings
 // Space O(n)
 class Solution {
@@ -18,6 +19,7 @@ public:
         
         for (const auto &group : groups){
             vector<string> instances {group.second};
+            // sorting not necessary
             sort(instances.begin(),instances.end());
             anagrams.emplace_back(move(instances));
         }
