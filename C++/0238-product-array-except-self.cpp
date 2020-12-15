@@ -1,10 +1,6 @@
-
-
-
+// Tags: Amazon Array
 // Time O(n)
 // Space O(1)
-#include<vector>
-using namespace std;
 class Solution {
 public:
     vector<int> productExceptSelf(vector<int>& nums) {
