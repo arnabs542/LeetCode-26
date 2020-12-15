@@ -35,7 +35,6 @@ public:
                 // Now get max of left elements and min of right elements 
                 // to get the median in case of even length combined array size
                 // or get max of left for odd length combined array size.
-                
                 return ((x + y) % 2 == 0) ? (max(maxleftx, maxlefty) + min(minrightx, minrighty)) / 2.0 :
                     max(maxleftx, maxlefty);
             } else if(maxleftx > minrighty) {
