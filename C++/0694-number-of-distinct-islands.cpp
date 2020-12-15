@@ -1,4 +1,4 @@
-// Tags: Amazon DFS Hash-table
+// Tags: Amazon DFS Hash-table Premium
 // Time:  O(m * n)
 // Space: O(m * n)
 // Simpler solution
@@ -23,10 +23,10 @@ public:
             return;
         grid[i][j] = 0;
         path.push_back(dir);
-        helper(grid, i + 1, j, path, 'd');
-        helper(grid, i - 1, j, path, 'u');
         helper(grid, i, j + 1, path, 'r');
+        helper(grid, i + 1, j, path, 'd');
         helper(grid, i, j - 1, path, 'l');
+        helper(grid, i - 1, j, path, 'u');
         path.push_back('b');
     }
 };
@@ -37,11 +37,11 @@ public:
 {1, 1, 0},
 {0, 1, 0}
 
-First shape: odbrbb
+First shape: orbdb
 Last shape: ordbbb
 
 If we dont use a "b" for our backtracking step, 
-we will end up considering both the above islands as 1, whereas they are different.
+we will end up considering both the above islands as 1 (ord), whereas they are different.
 */
 
 
