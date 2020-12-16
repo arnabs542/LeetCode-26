@@ -27,6 +27,7 @@ class Solution:
                     result.append(cur.val)
                 cur = cur.right
         return result
+# We visit each node only when it is popped
 
 
 

@@ -23,6 +23,8 @@ public:
         while (!s.empty() || cur) {
             if (cur) {
                 s.emplace_back(cur);
+                // if h is greater than k, we can pop old nodes
+                // which we pushed during the forward pass
                 if (s.size() > k)
                     s.pop_front();
                 cur = cur->left;
@@ -40,5 +42,6 @@ public:
 };
 
 /* Using deque instead of stack saves space
- * Deque behaves like max heap
+ * (Deque behaves like max heap in case of kth largest element
+ * (online algorithm))
  */

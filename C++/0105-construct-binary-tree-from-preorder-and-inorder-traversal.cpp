@@ -1,3 +1,6 @@
+// Tags: Amazon Array Tree DFS Pre-order
+// Time O(n^2)
+// Space O(n)
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -9,15 +12,14 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
-
-// Time O(n^2)
-// Space O(n)
 class Solution {
 public:
     TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
         return helper(0, 0, inorder.size() - 1, preorder, inorder);
     }
     TreeNode *helper(int preStart, int inStart, int inEnd, vector<int> &preorder, vector<int> &inorder) {
+        // inStart and inEnd denotes the range of nodes that fall under the
+        // current subtree rooted at preStart
         if (preStart > preorder.size() - 1 || inStart > inEnd)
             return nullptr;
 
@@ -30,12 +32,14 @@ public:
         }
 
         root->left = helper(preStart + 1, inStart, inIndex - 1, preorder, inorder);
-        root->right = helper(preStart + inIndex - inStart + 1, inIndex + 1, inEnd, preorder, inorder);
         // get the immediate right child index by
         // skipping all the nodes on the left branches/subtrees of current node.
+        root->right = helper(preStart + inIndex - inStart + 1, inIndex + 1, inEnd, preorder, inorder);
+
         return root;
     }
 };
+// We are doing dfs preorder traversal to build tree.
 
 
 // Improvement to use hashmap to cache inorder[] positions.
@@ -51,9 +55,9 @@ public:
             //.insert(make_pair(inorder[i], i))
             // lookup[inorder[i]] = i
         }
-        return helper(0, 0, inorder.size() - 1, preorder, inorder, lookup);
+        return helper(0, 0, inorder.size() - 1, preorder, lookup);
     }
-    TreeNode *helper(int preStart, int inStart, int inEnd, vector<int> &preorder, vector<int> &inorder, const unordered_map<int, int> &lookup) {
+    TreeNode *helper(int preStart, int inStart, int inEnd, vector<int> &preorder, const unordered_map<int, int> &lookup) {
         // first condition is not required
         if (preStart > preorder.size() - 1 || inStart > inEnd)
             return nullptr;
@@ -62,10 +66,10 @@ public:
         int inIndex = lookup.at(root->val);
         // = lookup[root->val]
 
-        root->left = helper(preStart + 1, inStart, inIndex - 1, preorder, inorder, lookup);
-        root->right = helper(preStart + inIndex - inStart + 1, inIndex + 1, inEnd, preorder, inorder, lookup);
+        root->left = helper(preStart + 1, inStart, inIndex - 1, preorder, lookup);
         // get the immediate right child index by
         // skipping all the nodes on the left branches/subtrees of current node.
+        root->right = helper(preStart + inIndex - inStart + 1, inIndex + 1, inEnd, preorder, lookup);
         return root;
     }
 };
