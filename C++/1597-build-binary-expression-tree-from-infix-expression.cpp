@@ -29,22 +29,22 @@ class Solution {
 public:
     Node* expTree(string s) {
         // stack of lists having a list for each (....)
-        vector<list<Node*>> sl(1);
+        vector<list<Node*>> st(1);
         for (auto i = 0; i < s.length(); ++i) {
             if (s[i] == '(') {
-                sl.push_back(list<Node*>());
+                st.push_back(list<Node*>());
             } else if (s[i] == ')') {
                 // processing a (....)
-                auto root = op(op(sl.back(), '*', '/'), '+', '-').front();
-                sl.pop_back();
+                auto root = op(op(st.back(), '*', '/'), '+', '-').front();
+                st.pop_back();
                 // adding root to previous list
-                sl.back().push_back(root);
+                st.back().push_back(root);
             } else {
-                sl.back().push_back(new Node(s[i]));
+                st.back().push_back(new Node(s[i]));
             }
         }
         // finally only 1 list in the stack
-        return op(op(sl.back(), '*', '/'), '+', '-').front();
+        return op(op(st.back(), '*', '/'), '+', '-').front();
     }
 };
 

@@ -25,9 +25,9 @@ class Solution:
 
 """
 Notes:
-OPT[i][0]: represents the maximum profit earned until ith day if we don't
+OPT[i][0]: represents the maximum profit earned (money in hand) until ith day if we don't
 have a stock on ith day
-OPT[i][1]: represents the maximum profit earned until ith day if we have
+OPT[i][1]: represents the maximum profit earned (money in hand) until ith day if we have
 a stock on ith day.
 
 Case 1: OPT[i][0]: We don't have a stock : MAX of the following
@@ -49,6 +49,7 @@ b. Carry forward
     OPT[i-1][1]
 
 """
+
 
 
 # Time:  O(n)
@@ -79,7 +80,8 @@ class Solution:
         return cur_dp0
 
 
-# Doesn't work
+
+# Doesn't work (discarded)
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
         if len(prices) <= 1:
