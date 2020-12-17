@@ -1,3 +1,4 @@
+# Tags: Amazon Tree
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
@@ -17,7 +18,7 @@ class Solution:
 
     # traverse through the tree
     # At each node, call test()
-    def dfs(self, node, target):
+    def pathSumFrom(self, node, target):
         if node is None:
             return
         # order doesn't matter here
@@ -36,12 +37,10 @@ class Solution:
 
         self.test(node.left, target - node.val)
         self.test(node.right, target - node.val)
-
-
 # Notes:
 # the master theorem for "pathSumFrom" is T(N) = 2T(N/2)+O(1),
 # and with call to "test" is T(N)=2T(N/2)+O(N), where the O(N)
-# is from the result of "test". So it's O(N log N).
+# is from the result of "test". So it's O(N log N). 
 #
 # Detailed Explanation:
 # For a balanced tree:
@@ -57,8 +56,6 @@ class Solution:
 # Then next question is how many levels we have to visit ? That s the height of
 # tree, log N.
 # Hence we have O(NLogN)
-
-
 
 
 
@@ -93,6 +90,7 @@ class Solution:
             sum_count[running_sum] -= 1
 
         result = 0
+        # sum_count will either be 1 or 0 (to check)
         sum_count = defaultdict(int)
         sum_count[0] = 1
         dfs(root, 0)

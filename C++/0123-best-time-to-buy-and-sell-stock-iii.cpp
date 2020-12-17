@@ -1,3 +1,4 @@
+// Tags: Amazon DP Array
 // Time: O(kn^2)
 // Space: O(kn)
 // Time limit exceeded
@@ -55,7 +56,7 @@ public:
 
 
 // Time: O(kn)
-// Space: O(kn) 
+// Space: O(kn)
 class Solution {
 public:
     int maxProfit(vector<int>& prices) {
