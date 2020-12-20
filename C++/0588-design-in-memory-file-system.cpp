@@ -1,3 +1,4 @@
+// Tags: Amazon Design Premium
 // Time:  ls: O(l + klogk), l is the path length, k is the number of entries in the last level directory
 //        mkdir: O(l)
 //        addContentToFile: O(l + c), c is the content size
