@@ -82,8 +82,10 @@ public:
     }
 
     int Find(int x) {
+        // topmost root
         if (x == parent[x])
             return x;
+        // find root of root and perform path compression
         return parent[x] = Find(parent[x]);
     }
     

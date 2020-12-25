@@ -1,5 +1,5 @@
 // Tags: Amazon Math String
-// Time: O(n/3)
+// Time: O(n/3), where n = number of digits in num
 // Space: O(n/3)
 class Solution {
     vector<string> upto19 = {"", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"};
