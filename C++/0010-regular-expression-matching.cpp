@@ -1,11 +1,11 @@
-// Tags: DP String
+// Tags: DP String Backtracking
 // Time: O(m*n)
 // Space: O(m*n)
 // Dp solution
 class Solution {
 public:
     bool isMatch(string s, string p) {
-        vector<vector<int>> dp(s.length() + 1, vector<int>(p.length() + 1, false));
+        vector<vector<bool>> dp(s.length() + 1, vector<bool>(p.length() + 1, false));
         dp[0][0] = true;
         // s = "" and p = "a*" or "a*b*" or "a*b*c*".. so on
         for (auto j = 2; j < dp[0].size(); ++j) {
