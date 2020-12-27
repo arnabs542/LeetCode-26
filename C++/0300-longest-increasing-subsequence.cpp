@@ -1,6 +1,7 @@
 // Time:  O(nlogn)
 // Space: O(n)
-// Binary-search solution, maintaining active list
+// Binary-search solution, maintaining active list 
+// (Similar to Insertion sort)
 class Solution {
 public:
     int lengthOfLIS(vector<int>& nums) {
