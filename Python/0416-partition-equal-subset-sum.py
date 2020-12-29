@@ -1,5 +1,5 @@
 # Time:  O(n * s), s is the sum of nums
-# Space: O(s)
+# Space: O(n*s)
 class Solution:
     def canPartition(self, nums: List[int]) -> bool:
         target = sum(nums)
@@ -23,6 +23,10 @@ class Solution:
 
 
 # Notes:
+# We essentially just need to find a subset such that sum(subset) = total sum/2
+# This also means that the total sum has to be even, otherwise there can't be
+# a subset with +ve integers having sum(subset) = total sum/2
+#
 # OPT[k, x] = true if a subset of sum x can be created using first k numbers
 # Base case: OPT[0][0] = true (zero number consists of sum 0)
 # OPT[k, x] = (OPT[k-1, x-xk] || OPT[k-1, x])
@@ -30,6 +34,9 @@ class Solution:
 # Actually, this is a 0/1 knapsack problem, for each number, we can pick it or not.
 
 
+
+# Time: O(n*s)
+# Space: O(s)
 class Solution:
     def canPartition(self, nums: List[int]) -> bool:
         target = sum(nums)

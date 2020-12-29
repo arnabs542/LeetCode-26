@@ -7,12 +7,12 @@ public:
         int n = nums.size(), minVal = INT_MAX, maxVal = INT_MIN;
         int end = -2, beg = -1;
         for (int i = 0; i < n; ++i) {
-            // moving left to right (considering subarray A[:end + 1])
+            // moving left to right (consider subarray nums[:end + 1])
             maxVal = max(maxVal, nums[i]);
             if (nums[i] < maxVal)
                 end = i;
             
-            // moving right to left (considering subarray A[beg: ])
+            // moving right to left (consider subarray nums[beg: ])
             minVal = min(minVal, nums[n - 1 - i]);
             if (nums[n - 1 - i] > minVal)
                 beg = n - 1 - i;
@@ -31,5 +31,6 @@ Unsorted [2,6,4,8,10,9,15]
 
 Sorted [2 4 6 8 9 10 15]
 
-In sorted array, (nums[i] < maxVal) and (nums[n - 1 - i] > minVal) will not ever satisfy.
+In sorted array, conditions (nums[i] < maxVal) and (nums[n - 1 - i] > minVal)
+will not ever satisfy.
 */
