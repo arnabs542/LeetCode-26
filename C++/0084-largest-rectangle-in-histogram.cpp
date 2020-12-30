@@ -1,5 +1,5 @@
 // Tags: Array Stack Top-100-liked Top-interview
-// Time: O(n), 2*n
+// Time: O(n), 2*n (each number can be pushed & popped only once)
 // Space: O(n)
 class Solution {
 public:
