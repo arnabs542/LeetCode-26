@@ -1,6 +1,7 @@
 // Tags: Array Stack Top-100-liked Top-interview
 // Time: O(n), 2*n (each number can be pushed & popped only once)
 // Space: O(n)
+// Using Stack, monotone increasing sequence
 class Solution {
 public:
     int largestRectangleArea(vector<int>& heights) {
