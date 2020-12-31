@@ -1,6 +1,7 @@
 // Tags: Array Greedy Top-100-liked
 // Time: O(n)
 // Space: O(1)
+// Greedy solution
 class Solution {
 public:
     int jump(vector<int>& nums) {
