@@ -1,7 +1,7 @@
-// Tags: Memoization DFS Topological-sort
+// Tags: Memoization DFS Topological-sort Top-interview
 // Time: O(m*n)
 // Space: O(m*n)
-// Dfs + Memoization
+// Using dfs + memoization
 class Solution {
     vector<pair<int, int>> directions {{0, 1}, {0, - 1}, {1, 0}, {-1, 0}};
 
@@ -53,7 +53,7 @@ will be look-ups except for the first one
 
 // Time:  O(m * n)
 // Space: O(m * n)
-// Topological sort solution
+// Using topological sort
 class Solution {
     vector<pair<int, int>> directions {{0, 1}, {0, - 1}, {1, 0}, {-1, 0}};
 public:
