@@ -64,14 +64,14 @@ added tracking of those right-to-left jumps.
 
 
 
-// Time:  O(nlogn) ~ O(n^2)
+// Time:  O(nlogn) ~ O(n^2) 
+// (Balanced Tree ~ One-sided linked list)
 // Space: O(n)
 // Binary Search Tree solution
 class Solution {
     class TreeNode {
         public:
-        // value, number of nodes smaller than this node
-        // (in the left subtree of this node)
+        // value, number of nodes in the left subtree
         int val, smallerCnt;
         TreeNode *left, *right;
         TreeNode (int v, int s): left(nullptr), right(nullptr), val(v), smallerCnt(s) {
