@@ -1,4 +1,4 @@
-// Tags: Top-interview Heap Line-sweep
+// Tags: Top-interview Heap Line-sweep D&C
 // Time: O(nlogn), each point is added and removed only once
 // Space: O(n)
 // Priority queue (max heap) + line sweep
@@ -66,3 +66,5 @@ For each iteration,
    point or
    a building is removed)
 */
+
+// To do: Divide & Conquer solution
