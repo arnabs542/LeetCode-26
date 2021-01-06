@@ -11,7 +11,7 @@ public:
                 // and start calculating new result
                 stack.push_back(result);
                 stack.push_back(sign);
-                //reset the sign, num and result for the value in the parenthesis
+                // reset the sign, num and result for the value in the parenthesis
                 result = 0;
                 num = 0;
                 sign = 1;

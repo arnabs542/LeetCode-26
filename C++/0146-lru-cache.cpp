@@ -14,7 +14,7 @@ private:
     // in the map
     void update(int key, int value) {
         auto it = map_.find(key);
-        // if key exists
+        // if key exists, remove from list
         if (it != map_.end())
             list_.erase(it->second);
         list_.emplace_back(key, value);
@@ -44,6 +44,7 @@ public:
         update(key, value);
     }
 };
+/* keep most recently used at tail and least recently used at head*/
 
 /**
  * Your LRUCache object will be instantiated and called as such:

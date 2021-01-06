@@ -20,7 +20,7 @@ public:
             // a 3 sequence may occur multiple times for a user, but we only take it once
             unordered_set<string> ts;
 
-            // shoulde be prev(u.second.end(), 2), prev(u.second.end()), u.second.end()
+            // should be prev(u.second.end(), 2), prev(u.second.end()), u.second.end()
             // why it works with u.second.end() in every case?
             for (auto it = begin(u.second); it != end(u.second); ++it)
                 for (auto it1 = next(it); it1 != end(u.second); ++it1)

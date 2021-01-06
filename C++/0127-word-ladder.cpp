@@ -88,7 +88,7 @@ public:
                 }
             }
             ++ladder;
-            *phead = nextlev; // or phead->swap(temp);
+            *phead = nextlev; // or phead->swap(nextlev);
         }
         return 0;
     }

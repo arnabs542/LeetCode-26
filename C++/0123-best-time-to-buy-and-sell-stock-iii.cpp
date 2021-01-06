@@ -11,8 +11,9 @@ public:
         for (int k = 1; k <= 2; ++k) {
             dp[k][1] = max(prices[1] - prices[0], 0);
             for (auto i = 2; i < prices.size(); ++i) {
-                int maxa = -prices[0];
+                int maxa = -prices[0]; // bought on 0th day
                 for (int j = 1; j <= i - 1; ++j) {
+                    // bought on jth day
                     maxa = max(dp[k - 1][j - 1] - prices[j], maxa);
                 }
                 dp[k][i] = max(dp[k][i - 1], maxa + prices[i]);

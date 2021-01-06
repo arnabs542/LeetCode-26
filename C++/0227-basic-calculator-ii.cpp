@@ -16,6 +16,7 @@ public:
             // perform operation using the previous
             // operator and push into stack
             if (!isdigit(c) && !isspace(c) ||  i == s.length() - 1) {
+                // notice that sign is previous operator (just like in 0224)
                 if (sign == '+') {
                     stack.push_back(num);
                 } else if (sign == '-') {

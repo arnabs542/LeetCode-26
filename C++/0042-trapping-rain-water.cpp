@@ -29,3 +29,8 @@ public:
         return res;
     }
 };
+
+/*
+If left_max > right_max, we keep moving from right to left
+until either right_max becomes > left_max or j becomes = i
+*/

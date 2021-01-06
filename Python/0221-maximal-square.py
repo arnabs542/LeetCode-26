@@ -22,6 +22,8 @@ class Solution:
 # opt[i, j] represents the side of biggest square that can be drawn
 # having matrix[i,j] as the bottom right element.
 
+
+
 # DP using two colums
 # Time: O(m * n)
 # Space: O(n)

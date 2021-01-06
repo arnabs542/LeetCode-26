@@ -36,7 +36,7 @@ public:
         for (const auto& word : words) {
             ++counts[word];
         }
-        priority_queue<pair<int, string>> heap;
+        priority_queue<pair<int, string>> heap; // min_heap
         for (const auto& kvp : counts) {
             heap.emplace(-kvp.second, kvp.first);
             if (heap.size() == k + 1) {

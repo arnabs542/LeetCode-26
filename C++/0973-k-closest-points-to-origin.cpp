@@ -81,5 +81,7 @@ heapify, then we pop K elements.
 
 priority_queue<vector<int>, vector<vector<int>>, decltype(cmp)> pq(points.begin(), points.end(), cmp);
 
-Time: O(n + nlogK)
+Time: O(n + klogn) ~ O(n)
+
+Faster than online algorithm.
 */
