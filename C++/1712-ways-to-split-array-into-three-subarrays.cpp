@@ -39,9 +39,11 @@ public:
         partial_sum(nums.begin(), nums.end(), nums.begin());
         for (int i = 0; i < n - 2; ++i) {
             int j = i + 1;
+            // left most partition, keep moving as long as condition is not satisfied
             while (j < n - 1 && nums[j] - nums[i] < nums[i])
                 ++j;
             int k = j;
+            // right most partition, keep moving as long as condition is satisfied
             while (k < n - 1 && nums[n - 1] - nums[k] >= nums[k] - nums[i])
                 ++k;
             res = (res + k - j) % 1000000007;

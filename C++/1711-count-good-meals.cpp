@@ -1,4 +1,4 @@
-// Tags: Hash-table Array
+// Tags: WC222 Hash-table Array
 // Time: O(n)
 // Space: O(n)
 class Solution {
