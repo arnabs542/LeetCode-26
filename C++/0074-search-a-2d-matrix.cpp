@@ -10,6 +10,7 @@ public:
         int l = 0, r = m*n - 1;
         while (l <= r) {
             int mid = l + (r - l)/2;
+            // row, column
             int i = mid/n, j = mid%n;
             if (matrix[i][j] == target)
                 return true;
