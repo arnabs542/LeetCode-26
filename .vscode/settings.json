@@ -3,6 +3,8 @@
         "deque": "cpp",
         "string": "cpp",
         "vector": "cpp",
-        "limits": "cpp"
+        "limits": "cpp",
+        "*.tcc": "cpp",
+        "unordered_map": "cpp"
     }
 }

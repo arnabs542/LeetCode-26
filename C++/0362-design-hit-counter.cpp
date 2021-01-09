@@ -1,4 +1,4 @@
-// Tags: Amazon Design
+// Tags: Amazon Design Premium
 // Time: O(1)
 // Space: O(300) ~ O(1)
 class HitCounter {

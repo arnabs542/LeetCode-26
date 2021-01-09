@@ -1,4 +1,4 @@
-// Tags: Amazon Design
+// Tags: Amazon Design Hash-table Premium
 // Time: O(1), except constructor
 // Space: O(n)
 class FirstUnique {
@@ -16,6 +16,7 @@ public:
     }
     
     void add(int value) {
+        // or iter.find(value) == iter.end()
         if (!iter.count(value)) {
             unique.push_back(value);
             iter.insert({value, prev(unique.end())});
