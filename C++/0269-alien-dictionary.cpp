@@ -1,4 +1,4 @@
-// Tags: Top-interview Premium Graph Topological-sort
+// Tags: Top-interview Premium Graph Topological-sort Amazon
 // Time:  O(n), n be the total length of all the words
 // in the input list, added together
 // Space: O(|V|+|E|) = O(26 + 26^2) = O(1)

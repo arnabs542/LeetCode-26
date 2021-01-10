@@ -2,8 +2,11 @@
 // Time: O(n/3), where n = number of digits in num
 // Space: O(n/3)
 class Solution {
-    vector<string> upto19 = {"", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"};
-    vector<string> tens = {"", "Ten", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"};
+    vector<string> upto19 = {"", "One", "Two", "Three", "Four", "Five", "Six", "Seven",
+        "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen",
+        "Sixteen", "Seventeen", "Eighteen", "Nineteen"};
+    vector<string> tens = {"", "Ten", "Twenty", "Thirty", "Forty", "Fifty", "Sixty",
+        "Seventy", "Eighty", "Ninety"};
 public:
     string numberToWords(int num) {
         if (!num)
@@ -29,5 +32,14 @@ public:
         ret = ret.back() == ' ' ? ret.substr(0, ret.size() - 1) : ret;
         ret = ret.front() == ' ' ? ret.substr(1) : ret;
         return ret;
+        // or
+        // int i = 0;
+        // while (ret[i] == ' ')
+        //     ++i;
+        // int j = ret.length() - 1;
+        // while (ret[j] == ' ')
+        //     --j;
+        // return ret = ret.substr(i, j - i + 1);
+    }
     }
 };

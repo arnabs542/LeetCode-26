@@ -1,6 +1,6 @@
+// Tags: Array Two-pointers Amazon
 // Time O(n^2)
 // Space O(1)
-
 class Solution {
 public:
     vector<vector<int>> threeSum(vector<int>& nums) {
@@ -33,3 +33,8 @@ public:
         return output;
     }
 };
+
+/*
+ If I fix two elements, there will only be one possible choice for third one.
+ Here sorting is done so that we can avoid duplicate elements
+*/
