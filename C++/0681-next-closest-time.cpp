@@ -1,7 +1,7 @@
 // Tags: String Amazon Premium
 // Time:  O(1)
 // Space: O(1)
-// Elegant solution
+// Elegant & concise
 class Solution {
 public:
     string nextClosestTime(string time) {
@@ -27,7 +27,8 @@ public:
                 if (i >= 3 && stoi(res.substr(3, 2)) < 60 || i < 2 && stoi(res.substr(0, 2)) < 24)
                     return res;
             }
-            // else, take the smallest number
+            // if not legal time or largest number
+            // take the smallest number
             res[i] = *sorted.begin();
         }
         return res;
