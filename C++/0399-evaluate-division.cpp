@@ -1,4 +1,4 @@
-// Tags: DFS BFS Union-find Floyd-warshall
+// Tags: DFS BFS Union-find Floyd-warshall Amazon
 // Time: O(e + n*(v + e*2)), build graph + n queries * (|V| + |E|)
 // where e = no of equations, v = no of variables, n = no of queries
 // Space: O(v^2)
