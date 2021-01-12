@@ -45,9 +45,13 @@ public:
 // Space: O(list_length)
 // Two-end BFS search method, (each BFS uses two sets (nextlev, phead) instead of a queue)
 // Here, we alternatively travel from startWord and endWord.
+// (It is faster as we have a bigger search space for the editted word to be searched
+// in ptail set, unlike checking word == endWord multiple times)
 class Solution {
 public:
     int ladderLength(string beginWord, string endWord, vector<string>& wordList) {
+        // set is used for head and tail so that we can search if word is in ptail set
+        // in O(1) time
         unordered_set<string> dict(wordList.begin(), wordList.end()), head, tail, *phead, *ptail;
         if (dict.find(endWord) == dict.end())
             return 0;
