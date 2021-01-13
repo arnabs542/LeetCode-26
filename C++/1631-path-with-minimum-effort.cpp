@@ -67,8 +67,8 @@ public:
 Unlike prob 0787-cheapest-flights-within-k-stops, we shouldn't put multiple
 copies of same node in heap, as it will lead to TLE.
 
-Like regular shortest path problem, we do decrease key i.e only put new effort
-if it is less than previous effort to ni, nj
+Like regular shortest path problem, we do decrease key (using dist matrix) 
+i.e only put new effort if it is less than previous effort to ni, nj
 */
 
 // To do: Bellmann ford & Binary search-BFS solution
