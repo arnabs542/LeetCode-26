@@ -30,8 +30,7 @@ public:
                 //    skip this edge. (this is because if we are visiting the same 
                 //    cell again it obviously has either same or larger steps values
                 //    (due to BFS structure)
-                // (ideally we should check if larger eliminate value to the one
-                //  already visited)
+                // (ideally we should check if larger eliminate value), not sure
                 if (grid[nrow][ncol] == 1 && eliminate > 0 && 
                     !visited.count(prefix + to_string(eliminate - 1))) {
                     visited.insert(prefix + to_string(eliminate - 1));
