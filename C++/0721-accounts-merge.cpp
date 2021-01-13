@@ -1,4 +1,4 @@
-// Tags: DFS Union-find
+// Tags: DFS Union-find Amazon
 // Time: O(n), where n = no of emails, we only visit each email once
 // Space: O(n)
 // Dfs solution
