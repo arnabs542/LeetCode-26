@@ -5,6 +5,7 @@
         "vector": "cpp",
         "limits": "cpp",
         "*.tcc": "cpp",
-        "unordered_map": "cpp"
+        "unordered_map": "cpp",
+        "string_view": "cpp"
     }
 }
