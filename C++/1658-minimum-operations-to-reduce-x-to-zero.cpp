@@ -26,7 +26,6 @@ public:
         return res == INT_MAX ? -1 : res;
     }
 };
-
 /*
 Seems like a O(k*n^2) Dp problem, but the constraints are too large.
 */
