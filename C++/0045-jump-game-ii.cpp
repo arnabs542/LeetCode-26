@@ -1,4 +1,4 @@
-// Tags: Array Greedy Top-100-liked
+// Tags: Array Greedy Top-100-liked Amazon
 // Time: O(n)
 // Space: O(1)
 // Greedy solution
@@ -8,12 +8,14 @@ public:
         int n = nums.size(), step = 0;
         int start = 0, end = 0;
         // in worst case the previous level will end just before nums[n - 1]
+        // (like while (!q.empty()))
         while (end < n - 1) {
             // increment before as at some point we return without
             // reaching the end of the loop
             ++step;
-            // maxend will be atleast the star of the next level
+            // maxend will be atleast the start of the next level
             int maxend = end + 1;
+            // (iterating elements in current level [start, end])
             for (int i = start; i <= end; ++i) {
                 if (i + nums[i] >= n - 1)
                     return step;

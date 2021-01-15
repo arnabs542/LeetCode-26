@@ -73,7 +73,6 @@ public:
     int getCountLessThan(int num) {
         return getUtil(0, num, 0, n, 0);
     }
-    
 };
 
 class Solution {
