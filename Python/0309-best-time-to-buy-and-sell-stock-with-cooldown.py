@@ -1,4 +1,5 @@
-# Time:  O(n)
+# Tags: Amazon DP
+# Time: O(n)
 # Space: O(n*2) -> O(n)
 # Similar to house rober iii, 0337
 class Solution:

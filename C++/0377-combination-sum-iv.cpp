@@ -24,6 +24,8 @@ private:
     }
 };
 
+
+
 // Time: O(n*t)
 // Space: O(t), for nums[i] = 1 at each level
 // DP Top-Down Approach
@@ -52,7 +54,6 @@ private:
         return combns;
     }
 };
-
 /*
 opt[t] = sigma nums[0] <= n <= nums[-1] (opt[t-n])
 */
@@ -71,6 +72,7 @@ public:
 
         // base case
         dp[0] = 1;
+        // sorting helps in skipping some entries in nums
         sort(nums.begin(), nums.end());
         for (int i = 1; i <= target; ++i)
             for (const auto &num: nums)
@@ -81,10 +83,12 @@ public:
         return dp[target];
     }
 };
-
 /*
+(Similar to coin change O(n) space)
+dp[t] = sigma nums[0] <= n <= nums[-1] (dp[t-n])
+where n is the last number chosen
+
 Here we are talking about permutations not combinations.
 This can't be done using knapsack dp format which only considers
-combinations.
-(Look at coin change O(n * k) and coin change 2 O(n) space)
+combinations. (Look at coin change O(n * k) and coin change 2 O(n) space)
 */

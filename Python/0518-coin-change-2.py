@@ -12,7 +12,7 @@ class Solution:
         return dp[amount]
 
 # Notes:
-# Unlike combination sum iv, here we are talking about combinations
+# Unlike 0377-combination-sum-iv, here we are talking about combinations
 # not permutations
 # opt[k, s] = opt[k, s - ck] + opt[k-1, s], where k represent 1,....,k
 # denominations and amount s.
