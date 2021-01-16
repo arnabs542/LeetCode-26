@@ -7,7 +7,7 @@ class Node:
         self.right = right
         self.next = next
 """
-# Time: O(n), Not accepted (extra elems in output)
+# Time: O(n)
 # Space: O(n)
 # Iterative, level order traversal
 class Solution:
@@ -15,9 +15,9 @@ class Solution:
         que = collections.deque([root])
         while que:
             size = len(que)
-            for _ in range(size):
+            for i in range(size):
                 node = que.popleft()
-                node.next = que[0] if que else None
+                node.next = que[0] if i < size - 1 else None
                 if node.left and node.right:
                     que.append(node.left)
                     que.append(node.right)
