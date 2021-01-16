@@ -23,10 +23,13 @@ public:
     }
 };
 /*
-dp[k, i] = maximum profit achieved on ith day, doing k transactions
+dp[k, i] = maximum profit achieved on ith day (stock is obviously
+           not available on the ith day), doing k transactions
 dp[k, i] = max(dp[k, i-1], prices[i] - prices[j] + dp[k-1, j-1]), 
            for j=[0..i-1]
+           (either don't trade on ith day or buy on jth and sell on ith)
 Base Case:
+dp[0, i] = 0
 dp[k, 0] = 0
 dp[k, 1] = max(prices[1] - prices[0], 0)
 */
