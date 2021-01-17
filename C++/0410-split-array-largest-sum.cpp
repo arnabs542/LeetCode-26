@@ -46,20 +46,25 @@ class Solution {
 public:
     int splitArray(vector<int>& nums, int m) {
         // smallest possible value of largestSum
+        // (all integers in individual subarrays)
         int left = *max_element(nums.begin(), nums.end());
         // largest possible value of largestSum
+        // (all integers in one subarray)
         int right = accumulate(nums.begin(), nums.end(), 0);
         int ans = -1;
-        // O(logs)
+        // O(logs), find the minimum (tightest) largestSumLimit
+        // such that it is splitable into atmost m subarrays,
+        // range looks like this [false false true true true true]
+        // (we want to find the index of the first true)
         while (left <= right) {
             int mid = left + (right - left)/2;
-            if (split(nums, mid) <= m) {
+            if (splitable(nums, mid, m) <= m) {
                 // (region of interest)
                 ans = mid;
-                // decreasing largestSum to increase subarrays count
+                // decreasing largestSumLimit to increase subarrays count
                 right = mid - 1;
             } else {
-                // increasing largestSum to decrease subarrays count
+                // increasing largestSumLimit to decrease subarrays count
                 left = mid + 1;
             }
         }
@@ -67,18 +72,23 @@ public:
         
     }
 private:
-    // returns the numbers of subarrays nums can be split
-    // into for the given largestSum, O(n)
-    int split(vector<int> &nums, int largestSum) {
+    // O(n), finds the numbers of subarrays nums can be split
+    // into for the given largestSumLimit and checks if it is
+    // <= m
+    bool splitable(vector<int> &nums, int largestSumLimit) {
         int subarrays = 1;
         int tmpSum = 0;
         for (const auto &num: nums) {
-            if (tmpSum + num > largestSum) {
+            if (tmpSum + num > largestSumLimit) {
                 tmpSum = num;
                 ++subarrays;
             } else
                 tmpSum += num;
         }
-        return subarrays;
+        // we check if no of subarrays is <= m, because if an array
+        // can be split into k subarray (when k < m) with this
+        // largestSumLimit, it can always be made to split into m
+        // subarrays (not fitting tightly)
+        return subarrays <= m;
     }
 };
