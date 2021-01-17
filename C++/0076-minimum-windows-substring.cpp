@@ -27,6 +27,8 @@ public:
             cur_cnt[s[right]]++;
             // keep increasing window until count becomes t.length()
             if ( cur_cnt[s[right]] <= exp_cnt[s[right]]){
+                // (once count reaches t.length(), this will not be executed
+                // again)
                 count++;
             }
 
