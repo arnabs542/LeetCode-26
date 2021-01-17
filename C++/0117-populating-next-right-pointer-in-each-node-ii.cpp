@@ -1,3 +1,4 @@
+// Tags: Amazon Tree DFS
 // Time: O(n)
 // Space: O(1)
 // Iterative level order
@@ -41,5 +42,5 @@ any node can have just one child, so we cant use
 2. head = head->left to move to next level
 
 That's why here we keep track of the last child in the current
-level using a pointer last.
+level using a pointer 'last'.
 */
