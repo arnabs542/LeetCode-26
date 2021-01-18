@@ -43,7 +43,7 @@ public:
 
 // Time: O(n)
 // Space: O(n)
-// Two-pointers
+// Two pointers
 class Solution {
 public:
     string removeDuplicates(string s, int k, bool replaced = true) {
