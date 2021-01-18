@@ -1,3 +1,4 @@
+// Tags: Premium
 // Time: O(n)
 // Space: O(1)
 // Same as 0340-longest-substring-with-at-most-k-distinct-characters

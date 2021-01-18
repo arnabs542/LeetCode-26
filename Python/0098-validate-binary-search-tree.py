@@ -41,6 +41,6 @@ class Solution:
         return True
 
 """
-At each step we check if the current node's value is less than
+At each step we check if the current node's value is greater than
 the right most node of the left subtree.
 """

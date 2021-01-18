@@ -16,8 +16,9 @@ public:
         auto b = max(p->val, q->val);
 
         while (root->val < s || root->val > b)
-            return root = s <= root.val ? root->left : root->right;
-
+            // Keep searching since root is outside of [s, b]
+            root = s <= root.val ? root->left : root->right;
+        // s <= root.val <= b
         return root;
     }
 };
