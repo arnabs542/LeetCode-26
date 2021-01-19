@@ -17,7 +17,7 @@ public:
 
 
 
-// Time: O(n * n/k), atmost n/k recursive calls
+// Time: O(n * n/k), atmost n/k iterations in while loop
 // Space: O(1)
 // Brute force, iterative
 class Solution {
@@ -46,8 +46,8 @@ public:
 // Two pointers
 class Solution {
 public:
-    string removeDuplicates(string s, int k, bool replaced = true) {
-        // track the running count for each character
+    string removeDuplicates(string s, int k) {
+        // (track) the running count for character at jth index
         vector<int> cnt(s.length(), 1);
 
         // next index in the resultant string
