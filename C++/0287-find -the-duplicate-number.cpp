@@ -1,4 +1,4 @@
-// Tags: Array Two-pointers Binary-search
+// Tags: Array Two-pointers Binary-search Amazon
 // Time:  O(nlogn), search logn times
 // Space: O(1)
 // Binary search method (search space)

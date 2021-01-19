@@ -1,4 +1,4 @@
-// Tags: Array Top-100-liked
+// Tags: Array Top-100-liked Amazon
 // Time: O(n)
 // Space: O(1)
 class Solution {
