@@ -1,4 +1,4 @@
-// Tags: Design Amazon Premium
+// Tags: Design Amazon
 // Time: O(1)
 // Space: O(k)
 // Fifo like design (tail replaces wp & head replaces rp)

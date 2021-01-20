@@ -1,4 +1,4 @@
-// Tags: Tree Amazon
+// Tags: Tree Amazon Premium
 // Time:  O(n)
 // Space: O(h)
 class Solution {
