@@ -1,11 +1,4 @@
 # Tags: Amazon Tree
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
-
 # Brute force solution
 # Time: O(h*n), O(nlogn) (balanced tree) to O(n^2) (one sided tree)
 # Space: O(h), O(logn) (balanced tree) to O(n) (single sided tree)
@@ -53,7 +46,7 @@ class Solution:
 # L = 0 means the root of the tree. T(N/1) * 1 --> O(N)
 # L = H (height, LogN) means the leaves. T(N/2^LogN) * 2^LogN -> T(1) * N --> O(N)
 # So at every level L total number of operations is O(N)
-# Then next question is how many levels we have to visit ? That s the height of
+# Then next question is how many levels we have to visit ? That's the height of
 # tree, log N.
 # Hence we have O(NLogN)
 

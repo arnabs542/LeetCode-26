@@ -1,15 +1,4 @@
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
- *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
- * };
- */
-
+// Tags: Amazon Tree DFS
 // Time:  O(n)
 // Space: O(h), h is height of binary tree
 class Solution {
@@ -24,6 +13,7 @@ public:
     int PathSum (TreeNode* node){
         if (node == nullptr)
             return 0;
+        // if any branch returns negative path sum, we can skip that branch
         int left = max(0, PathSum(node->left));
         int right = max(0, PathSum(node->right));
 
