@@ -1,6 +1,7 @@
 // Tags: Union-find WC223 Greedy
 // Time:  O(n * α(n)) ~= O(n)
 // Space: O(n)
+// Union find + greedy
 class UnionFind {
     vector<int> parent, size;
 public:
