@@ -1,6 +1,9 @@
 // Tags: Graph BFS Amazon
-// Time: O
-// Space: O
+// Time:  O(n * n!/(c_a!*...*c_f!), n is the length of A, B,
+//                                  c_a...c_f is the count of each alphabet,
+//                                  n = sum(c_a...c_f)
+// Space: O(n * n!/(c_a!*...*c_f!)
+// where n!/(c_a!*...*c_f! is the number of ways string A can be arranged
 class Solution {
 public:
     int kSimilarity(string A, string B) {
