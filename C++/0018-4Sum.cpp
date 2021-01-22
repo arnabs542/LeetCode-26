@@ -39,5 +39,5 @@ public:
     }
 };
 /*
-In general if k sum : O(n^k) can be reduced to O(n^(k-1))
+In general if k-sum : O(n^k) can be reduced to O(n^(k-1))
 */
