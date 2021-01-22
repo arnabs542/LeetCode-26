@@ -58,7 +58,7 @@ public:
                 if (b & 1<<i)
                     sums[b] += jobs[i];
         }
-        // total k jobs & 2^n subsets
+        // total k workers & 2^n subsets
         vector<vector<int>> dp(k + 1, vector<int>(1 << n));
         // base case
         for (int b = 0; b < 1<<n; ++b)
