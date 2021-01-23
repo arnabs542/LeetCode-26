@@ -1,4 +1,4 @@
-// Tags: DP Top-100-liked Stack
+// Tags: DP Top-100-liked Stack Amazon
 // Time: O(m*n)
 // Space: O(m*n)
 class Solution {
@@ -7,6 +7,7 @@ public:
         if (matrix.empty())
             return 0;
         int m = matrix.size(), n = matrix[0].size();
+        // left bound, right bound and height for a row
         vector<int> left(n, 0), right(n, n), height(n, 0);
         int res = 0;
         for (int i = 0; i < m; ++i) {
@@ -45,7 +46,7 @@ Finding the maximum height of the rectangle by iterating upwards
 until a 0 is reached.
 
 Finding the maximum width of the rectangle by iterating outwards
-left and right until a height that doesn't accommodate the maximum
+left and right until a width that doesn't accommodate the maximum
 height of the rectangle.
 
 For each point h = height, l = left bound, r = right bound
@@ -64,7 +65,6 @@ cur_right = the leftmost occurrence of zero we have encountered
             by one, like how we increment cur_left)
 
 => the base of the rectangle is defined as [l r)
-
 */
 
 
