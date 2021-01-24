@@ -58,7 +58,7 @@ public:
         // (we want to find the index of the first true)
         while (left <= right) {
             int mid = left + (right - left)/2;
-            if (splitable(nums, mid, m) <= m) {
+            if (splitable(nums, mid, m)) {
                 // (region of interest)
                 ans = mid;
                 // decreasing largestSumLimit to increase subarrays count
