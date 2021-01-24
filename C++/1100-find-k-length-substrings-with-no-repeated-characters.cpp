@@ -14,6 +14,7 @@ public:
             mp[S[right]] = right;
             if (right - left + 1 == K) {
                 ++res;
+                // keep shifting window
                 ++left;
             }
         }
