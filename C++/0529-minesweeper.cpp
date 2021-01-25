@@ -43,6 +43,8 @@ public:
                                 q.push(next_click);
                                 // Optimization: Avoid this cell to be added again by any of
                                 // the 8 adjacent cells being added currently
+                                // (this is not required in Dfs as it goes into the depth 
+                                // and visit this cell first)
                                 board[nr][nc] = 'C';
                             }
                         }
