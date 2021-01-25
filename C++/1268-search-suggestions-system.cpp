@@ -38,8 +38,8 @@ in the sorted list, and check if the next 3 words are valid suggestions
 //       suggest -> O(l^2)
 // Space: O(t), t = number of nodes in trie
 struct TrieNode {
-    // stores smallest 3 string strings that are present in the
-    // prefix tree rooted at this node
+    // stores smallest 3 strings that are present in the
+    // prefix tree rooted at this node (with current prefix)
     priority_queue<string> max_heap;
     unordered_map<char, TrieNode*> children;
 };

@@ -50,7 +50,6 @@ public:
 
         }
 
-
         if (min_width == numeric_limits<int>::max()){
             return "";
         }
