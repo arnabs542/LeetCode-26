@@ -1,4 +1,4 @@
-// Tags: Array Amazon
+// Tags: Array Amazon Premium
 // Time: O(n)
 // Space: O(1)
 class Solution {
@@ -18,7 +18,7 @@ public:
         // a celebrity
         for (int i = 0; i < n; ++i) {
             // if candidate knows someone or someone doesn't know candidate
-            // it is not a celebrity
+            // he is not a celebrity
             if (i != candidate && (knows(candidate, i) || !knows(i, candidate)))
                 return -1;
         }
