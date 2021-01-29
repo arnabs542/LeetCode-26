@@ -2,16 +2,6 @@
 // Time: O(n)
 // Space: O(1)
 // Recursive solution
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode() : val(0), next(nullptr) {}
- *     ListNode(int x) : val(x), next(nullptr) {}
- *     ListNode(int x, ListNode *next) : val(x), next(next) {}
- * };
- */
 class Solution {
 public:
     ListNode* reverseKGroup(ListNode* head, int k) {
@@ -26,8 +16,8 @@ public:
             // if k+1 node is found
             // reverse list with k+1 node as head
             new_head = reverseKGroup(new_head, k);
-            // head - head-pointer to direct part
-            // new_head - head-pointer to reversed part
+            // head is head-pointer to direct part
+            // new_head is head-pointer to reversed part
             // reverse current k-group
             /* Reversing approach: we pop a node from front of direct list & 
              prepend it to new reversed linked list we started from other end */
@@ -37,6 +27,7 @@ public:
                 new_head = head;
                 head = next;
             }
+            // update head
             head = new_head;
         }
         return head;
@@ -73,6 +64,7 @@ public:
     }
 private:
     // reverses the list between begin and end (excluding them)
+    // (begin and end are boundary nodes)
     /* Reversing approach: iterate from left to right, keep reversing
        next pointers, when you reach end, set first.next = end
        (i.e. flip the list) */
