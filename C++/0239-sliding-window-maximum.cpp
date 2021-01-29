@@ -1,5 +1,7 @@
+// Tags: Sliding-window Deque Amazon
 // Time: O(n) (amortized), as each element is pushed and popped only once
 // Space: O(n)
+// Monotonic decreasing deque
 class Solution {
 public:
     vector<int> maxSlidingWindow(vector<int>& nums, int k) {
@@ -41,6 +43,7 @@ Algo:
 2. We discard elements smaller than a[i] from the tail. This is because
 if a[x] < a[i] and x < i, then a[x] has no chance to be the "max" in [i-(k-1),i],
 or any other subsequent window: a[i] would always be a better candidate.
-3. As a result the resulting elements are ordered both in sequence and their value.
-   Also, at each step the head of the deque is the max element in [i-(k-1),i]
+3. As a result the resulting elements are ordered both in sequence and their value
+   (monotonic decreasing in values). Also, at each step the head of the deque is the
+   max element in [i-(k-1),i]
 */

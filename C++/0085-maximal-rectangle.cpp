@@ -72,7 +72,7 @@ cur_right = the leftmost occurrence of zero we have encountered
 // Time: O(n*m)
 // Space: O(n)
 // Reusing 0084-largest-rectangle-in-histogram
-// Monotone increasing stack
+// Monotonic increasing stack
 class Solution {
 public:
     int maximalRectangle(vector<vector<char>>& matrix) {

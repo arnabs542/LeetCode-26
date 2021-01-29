@@ -7,7 +7,7 @@ public:
         unordered_map<int, int> m;
         for (auto t : target)
             m[t] = m.size();
-        // monotonic stack (stack which is either strictly increasing or decreasing)
+        // Monotonic stack (stack which is either strictly increasing or decreasing)
         vector<int> tails;
         for (auto n : arr) {
             auto it = m.find(n);

@@ -1,7 +1,7 @@
 // Tags: Array Stack Top-100-liked Top-interview Amazon
 // Time: O(n), 2*n (each number can be pushed & popped only once)
 // Space: O(n)
-// Monotone increasing stack
+// Monotonic increasing stack
 class Solution {
 public:
     int largestRectangleArea(vector<int>& heights) {
