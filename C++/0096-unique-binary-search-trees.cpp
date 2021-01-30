@@ -1,6 +1,8 @@
+// Tags: DP Tree Amazon
 // Time: O(n^3)
 // Space: O(n^2)
-// DP solution.
+// DP solution
+// Check Python version for comments
 class Solution {
 public:
     int numTrees(int n) {
@@ -24,5 +26,26 @@ public:
                 }
             }
         return dp[0][n-1];
+    }
+};
+
+
+
+// Time:  O(n^2)
+// Space: O(n)
+// DP solution
+// Check Python version for comments
+class Solution {
+public:
+    int numTrees(int n) {
+        vector<int> dp(n + 1);
+        dp[0] = 1;
+        dp[1] = 1;
+        for (int l = 2; l <= n; ++l) {
+            for (int left_l = 0; left_l < l; ++left_l) {
+                dp[l] += dp[left_l]*dp[l - left_l - 1];
+            }
+        }
+        return dp[n];
     }
 };

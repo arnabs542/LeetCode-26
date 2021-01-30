@@ -1,4 +1,4 @@
-// Tags: Top-interview Heap Line-sweep D&C
+// Tags: Top-interview Heap Line-sweep D&C Amazon
 // Time: O(nlogn), each point is added and removed only once
 // Space: O(n)
 // Priority queue (max heap) + line sweep
@@ -39,11 +39,12 @@ public:
 };
 
 /*
-The idea is to do "line sweep" and just process the buildings only at
+The idea is to do "line sweep" and process the buildings only at
 the start and end points (and output to resulting vector when there are
 changes in the height).
 
 We use a priority queue to save all the buildings that are still "alive".
+(overlapping)
 
 The queue is sorted by its height and end time (the larger height first
 and if equal height, the one with a bigger end time first)

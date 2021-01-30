@@ -11,7 +11,7 @@ public:
         
     }
     
-    // like merge intervals
+    // like 0056-merge-intervals
     // (find correct place for the interval
     // to be put. Also keep merging i.e. creating a bigger
     // interval if it overlaps with some interval)

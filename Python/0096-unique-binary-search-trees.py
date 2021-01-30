@@ -1,4 +1,3 @@
-# Tags: DP
 # Time: O(n^3)
 # Space: O(n^2)
 # DP solution.
@@ -30,8 +29,6 @@ class Solution:
                         dp[i][j] += dp[i][r-1]*dp[r+1][j]
 
         return dp[0][n-1]
-
-
 #     Notes:
 #     Brute Force: Catalan number, O(4**n)
 #     DP:
@@ -44,6 +41,7 @@ class Solution:
 #     BST for [i, r-1] and for [r+1, j] (left and right subtrees are independent)
 #     Now, total number of BST using elements from i to j will be the sum of
 #     instances where root can take positions from i to j
+
 
 
 # Time:  O(n^2)
@@ -69,8 +67,6 @@ class Solution:
                 # range from ith to (r-1)th elem
                 dp[l] += dp[leftLen]*dp[l-leftLen-1]
         return dp[n]
-
-
 # Notes:
 # Sometimes the definition of interval can influence the algorithm performance
 # If we find the relationships between intervals, they might be able to be merged
