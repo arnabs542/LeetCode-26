@@ -5,10 +5,10 @@
 class Solution {
 public:
     ListNode* reverseBetween(ListNode* head, int m, int n) {
-        // beg is left boundary node
         // dummy is required as m could be 1
         ListNode dummy;
         dummy.next = head;
+        // beg is left boundary node
         ListNode *beg = &dummy;
         for (int i = 0; i < m - 1; ++i)
             beg = beg->next;

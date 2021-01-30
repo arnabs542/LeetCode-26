@@ -1,10 +1,3 @@
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
-
 # Time:  O(n)
 # Space: O(h), h is height of binary tree
 # Recursive post order traversal
@@ -105,6 +98,8 @@ pre = 2
          \
           6
 """
+
+
 
 # Similar to morris traversal, flatten from top to down (iterative)
 # Time: O(n), each node is visited at most twice
