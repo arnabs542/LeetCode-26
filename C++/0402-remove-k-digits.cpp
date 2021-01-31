@@ -1,5 +1,5 @@
 // Tags: Greedy Stack Amazon
-// Time:  O(n)
+// Time: O(n)
 // Space: O(n)
 class Solution {
 public:
