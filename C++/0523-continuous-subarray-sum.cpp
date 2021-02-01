@@ -1,4 +1,4 @@
-// Tags: Math Hash-table
+// Tags: Math Hash-table Amazon
 // Time: O(n)
 // Space: O(n)
 // Reusing 0560-subarray-sum-equal-k and
@@ -18,9 +18,12 @@ public:
             // seen before and subarray of size atleast 2
             // (prev->second != i - 1)
             if (prev != mp.end()) {
+                // if running_sum present
                 if (i - prev->second > 1)
                     return true;
             } else {
+                // don't update map if running_sum already present
+                // (in order to retain the farthest index)
                 mp[running_sum] = i;
             }
         }
