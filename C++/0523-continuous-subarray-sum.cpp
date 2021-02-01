@@ -26,6 +26,8 @@ public:
                 // (in order to retain the farthest index)
                 mp[running_sum] = i;
             }
+            // cant do mp[running_sum] = min(i, mp[running_sum]) as
+            // if key is not present default value is 0
         }
         return false;
     }
@@ -40,7 +42,7 @@ sub-array (i,j] contains a desired sum.
 
 running sum values can only be between 0 to k - 1 (circular fifo)
 so if we are at j and the same running sum was seen at index i earlier,
-subarray [i, j] contains the desired sum.
+subarray (i, j] contains the desired sum.
 
 In other words, (a - (n * k)) % k is same as (a % k).
 For e.g. in case of the array [23,2,6,4,7]

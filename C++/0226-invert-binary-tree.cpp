@@ -1,3 +1,4 @@
+// Tags: Tree Amazon
 // Time O(n)
 // Space o(h)
 // DFS Recursive solution, Preorder, Top to down
@@ -5,6 +6,8 @@ class Solution {
 public:
     TreeNode* invertTree(TreeNode* root) {
         if (root != nullptr){
+            // swaps pointers (meaning the subtrees on
+            // left and right)
             swap (root->left, root->right);
             invertTree(root->left);
             invertTree(root->right);
@@ -12,6 +15,9 @@ public:
         return root;
     }
 };
+
+
+
 
 // Time O(n)
 // Space o(h)
