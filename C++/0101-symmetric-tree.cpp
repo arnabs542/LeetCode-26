@@ -9,7 +9,9 @@ class Solution {
             return true;
         if (!left || !right)
             return false;
-        return left->val == right->val && isSymmetricHelper(left->left, right->right) && isSymmetricHelper(left->right, right->left);
+        return left->val == right->val &&
+            isSymmetricHelper(left->left, right->right) &&
+            isSymmetricHelper(left->right, right->left);
     }
 public:
     bool isSymmetric(TreeNode* root) {

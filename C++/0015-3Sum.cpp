@@ -22,7 +22,7 @@ public:
                         while(low<high && nums[high]==nums[high-1]) high--;
                         low++;
                         high--;
-                }else if (nums[low] + nums[high] > sum){
+                } else if (nums[low] + nums[high] > sum){
                         high--;
                     } else {
                         low++;
