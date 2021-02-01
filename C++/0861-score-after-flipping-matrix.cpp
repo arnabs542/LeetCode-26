@@ -5,7 +5,7 @@ class Solution {
 public:
     int matrixScore(vector<vector<int>>& A) {
         int m = A.size(), n = A[0].size();
-        // column 0 made all 1's (toggling rows, if needed)
+        // column 0 filled with all 1's (toggling rows, if needed)
         int res = (1 << (n - 1))*m;
         for (int j = 1; j < n; ++j) {
             // score due to current column j
