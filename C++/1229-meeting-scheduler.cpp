@@ -34,7 +34,7 @@ public:
         priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> min_heap;
         
         for (auto s : slots1) {
-            if (s[1] - s[0] >= duration)
+            if (s[1] - s[0] >= duration) // optimization
                 min_heap.push({s[0], s[1]});
         }
         for (auto s : slots2) {
