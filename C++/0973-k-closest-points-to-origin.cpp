@@ -1,5 +1,5 @@
 // Tags: Amazon Heap Sort
-// Time:  O(n) on average
+// Time: O(n) on average
 // Space: O(n)
 class Solution {
 public:
@@ -44,6 +44,7 @@ public:
 };
 
 
+
 // Time:  O(nlogk), online algorithm (adding data one by one)
 // Space: O(k)
 class Solution {
@@ -76,7 +77,7 @@ public:
 };
 
 /*
-There is also an offline algorithm using min_heap. First we create heap using
+There is also an offline algorithm using min_heap. First we create heap (min heap) using
 heapify, then we pop K elements.
 
 priority_queue<vector<int>, vector<vector<int>>, decltype(cmp)> pq(points.begin(), points.end(), cmp);

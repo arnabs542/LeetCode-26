@@ -34,6 +34,7 @@ public:
 };
 
 
+
 // Time: O(n^2)
 // Space: O(n), matrix M already behaves as an adjacency list
 class Solution {
@@ -43,6 +44,7 @@ public:
         vector<int> visited(n);
         for (int i = 0; i < n; ++i)
             if (visited[i] == 0) {
+                // visited[i] = 1
                 dfs(M, i, visited);
                 ++count;
             }  
@@ -60,6 +62,7 @@ public:
         }
     }
 };
+
 
 
 // Time:  O(n^2)

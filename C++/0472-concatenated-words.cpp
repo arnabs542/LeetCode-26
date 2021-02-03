@@ -1,7 +1,7 @@
 // Tags: DP Amazon Trie
 // Time: O(n * l^2), n = length of word list, l = average length of a word
 // Space: O(n)
-// Using Word Break 0139
+// Using 0139-word-break
 class Solution {
 public:
     vector<string> findAllConcatenatedWordsInADict(vector<string>& words) {

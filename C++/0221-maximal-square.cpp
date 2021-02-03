@@ -2,6 +2,7 @@
 // DP using two colums
 // Time: O(m * n)
 // Space: O(n)
+// Check Python version for comments
 class Solution {
 public:
     int maximalSquare(vector<vector<char>>& matrix) {

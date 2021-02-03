@@ -12,9 +12,10 @@ public:
         for (char c : b)
             ++cnt2[c - 'a'];
         int res = m + n;
+        // iterate over pivot points
         for (int i = 0; i < 26; ++i) {
             // condition 3:
-            // total - number of most frequent count (not prefix sum)
+            // total - #_most_frequent_count (not prefix sum)
             res = min(res, m + n - cnt1[i] - cnt2[i]);
             if (i > 0) {
                 // update prefix sum
@@ -22,8 +23,8 @@ public:
                 cnt2[i] += cnt2[i - 1];
             }
             if (i < 25) {
-                /* think a to z is a stone spread on a line, from left to right.
-                E.g. for condition 1:
+                /* Think a to z is a stone spread on a line, from left to right.
+                e.g. for condition 1:
                 If I pick a stone pile (imagine red line at ith position), to make all
                 stones in A to be smaller than B, we will need to move all the piles
                 on the right to red line in A to left of red line, Also, make all the

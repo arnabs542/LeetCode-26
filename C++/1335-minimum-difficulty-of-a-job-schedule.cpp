@@ -10,6 +10,8 @@ public:
         vector<int> dp(n + 1, inf);
         dp[n] = 0;
         for (int d = 1; d <= D; ++d) {
+            // iterate left to right so that for every dp[i]
+            // dp[j + 1] is dp[d - 1][j + 1] not dp[d][j + 1]
             for (int i = 0; i <= n - d; ++i) {
                 // reset dp[i] calculated for d - 1 days
                 dp[i] = inf; 

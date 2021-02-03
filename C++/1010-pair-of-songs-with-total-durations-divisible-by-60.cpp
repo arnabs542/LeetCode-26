@@ -1,5 +1,5 @@
 // Tags: Amazon Array
-// Time:  O(n)
+// Time: O(n)
 // Space: O(1)
 class Solution {
 public:
@@ -26,4 +26,5 @@ which is valid for the most cases.
 
 But if t % 60 = 0, x % 60 = 0 instead of 60.
 Therefore we use x % 60 = (60 - t % 60) % 60.
+(e.g. (120, 60), (0, 60), pair of multiples of 60)
 */

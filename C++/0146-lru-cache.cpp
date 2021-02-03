@@ -39,13 +39,13 @@ public:
         if (!map_.count(key) && cap_ == list_.size()) {
             // definitely adding this node will increase size
             auto del_key = list_.front().first; list_.pop_front();
+            // this is the reason we store key in list as well
             map_.erase(del_key);
         }
         update(key, value);
     }
 };
-/* keep most recently used at tail and least recently used at head*/
-
+/* keep most recently used at tail and least recently used at head */
 /**
  * Your LRUCache object will be instantiated and called as such:
  * LRUCache* obj = new LRUCache(capacity);
@@ -55,6 +55,7 @@ public:
 
 
 
+// Using class object instead of pair<int, int>
 class Node {
 public:
     int key, val;
@@ -71,6 +72,7 @@ class LRUCache {
 public:
     LRUCache(int capacity) {
         this->capacity = capacity;
+        // boundary dummy nodes
         head = new Node(0, 0);
         tail = new Node(0, 0);
         head->next = tail;
@@ -116,7 +118,6 @@ public:
         }
         }
 };
-
 /**
  * Your LRUCache object will be instantiated and called as such:
  * LRUCache* obj = new LRUCache(capacity);

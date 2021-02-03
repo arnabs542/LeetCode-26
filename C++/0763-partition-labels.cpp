@@ -1,4 +1,4 @@
-// Tags: Amazon Two-pointers Greedy
+// Tags: Amazon Sliding-window Greedy
 // Time: O(n)
 // Space: O(n)
 class Solution {
