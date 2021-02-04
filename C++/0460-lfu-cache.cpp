@@ -38,6 +38,7 @@ public:
     }
     
     void put(int key, int value) {
+        // edge case
         if (!capacity)
             return;
 
@@ -54,6 +55,8 @@ public:
             } else {
                 ++size;
             }
+            // whenever new element is pushed, minFreq resets
+            // to 1
             minfreq = 1;
             fkeys[1].push_back(key);
             values[key] = {value, 1};

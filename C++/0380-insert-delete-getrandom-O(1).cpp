@@ -1,6 +1,6 @@
-// Time:  O(1)
+// Tags: Design Array Hash-table Amazon
+// Time: O(1)
 // Space: O(n)
-
 class RandomizedSet {
 private:
     vector<int> set;
@@ -25,6 +25,8 @@ public:
     bool remove(int val) {
         if (!getindex.count(val))
             return false;
+        // put last element at location from where val is to
+        // be removed
         getindex[set.back()] = getindex[val];
         swap(set[getindex[val]], set.back());
         getindex.erase(val);
@@ -37,15 +39,6 @@ public:
         return set[rand() % set.size()];
     }
 };
-
-/**
- * Your RandomizedSet object will be instantiated and called as such:
- * RandomizedSet* obj = new RandomizedSet();
- * bool param_1 = obj->insert(val);
- * bool param_2 = obj->remove(val);
- * int param_3 = obj->getRandom();
- */
-
 // Notes:
 // Can't use hashmap/hashset as getrandom can't be implemented
 // because map doesn't have indices
