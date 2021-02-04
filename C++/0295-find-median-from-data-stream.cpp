@@ -24,6 +24,8 @@ public:
             }
         } else {
             max_heap.emplace(num);
+            // size of both heaps could be equal
+            // (when #_of_total_elem is even)
             if (max_heap.size() > min_heap.size()) {
                 min_heap.emplace(max_heap.top());
                 max_heap.pop();
@@ -36,19 +38,11 @@ public:
             (max_heap.top() + min_heap.top()) / 2.0 : min_heap.top();
     }
 };
-
-/**
- * Your MedianFinder object will be instantiated and called as such:
- * MedianFinder* obj = new MedianFinder();
- * obj->addNum(num);
- * double param_2 = obj->findMedian();
- */
-
-
 // Notes:
 // max_heap covers first half and min_heap covers the second half.
 // Our balancing strategy is to keep min_heap with size either equal
 // or 1 greater than max_heap size.
+
 
 
 // Time: O(logn + n) ~ O(n), per addNum
@@ -76,10 +70,11 @@ public:
     double findMedian() {
         int n = data.size();
         return n & 1 ? data[n/2] : ((double) data[n/2 - 1] + data[n/2])/2;
-
     }
+
     int search(int num) {
         int left = 0, right = data.size() - 1, ans = -1;
+        // find greatest number ie <= num
         while (left <= right) {
             int mid = left + (right - left)/2;
             if (data[mid] <= num) {
