@@ -7,6 +7,11 @@ class TrieNode {
     TrieNode(): isWord {false} {
         
     }
+    ~TrieNode() {
+        for (auto& kvp : children)
+            if (kvp.second)
+                delete kvp.second;
+    }
 };
 
 class Trie {
@@ -46,22 +51,31 @@ public:
     void dfs(vector<vector<char>> &board, TrieNode *cur, int i, int j, string sofar, vector<string> &res) {
         if (cur->isWord) {
             res.push_back(sofar);
+            // we can also use res as unordered_set
+            // then we don't have to mark isWord = false
             cur->isWord = false;
             //return;
         }
+        // invalid state
         if (i < 0 || i >= board.size() || j < 0 || j >= board[0].size())
             return;
+
+        // not in trie or already visited   
         char c = board[i][j];
-        if (!cur->children.count(c))
+        if (!cur->children.count(c) || c == '#')
             return;
         
+        // mark visited (temporarily)
         board[i][j] = '#';
         
+        // try each direction
         vector<pair<int, int>> directions {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
         for (auto &d: directions) {
             int ni = i + d.first, nj = j + d.second;
             dfs(board, cur->children[c], ni, nj, sofar + c, res);
         }
+
+        // unmark visited
         board[i][j] = c;
     }
 };

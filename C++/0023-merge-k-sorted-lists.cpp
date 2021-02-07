@@ -6,42 +6,34 @@
 // Work done at each level = O(n)
 // No. of levels = h = logk
 // => T(k) = n*logk
-
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
- * };
- */
 class Solution {
 public:
     ListNode* mergeKLists(vector<ListNode*>& lists) {
-        return mergeKListsHelper(lists,0,lists.size()-1);
+        return mergeKListsHelper(lists, 0, lists.size()-1);
     }
 private:
     ListNode* mergeKListsHelper(const vector<ListNode*> &lists, int begin, int end){
-        if (begin>end){
+        if (begin > send) {
             return nullptr;
         }
-        if (begin == end){
+        if (begin == end) {
             return lists[begin];
         }
         // mergeTwoLists() is our O(n) combining step
-        return mergeTwoLists(mergeKListsHelper(lists, begin, (begin+end)/2), mergeKListsHelper(lists, (begin+end)/2 +1, end));
+        return mergeTwoLists(mergeKListsHelper(lists, begin, (begin+end)/2), 
+            mergeKListsHelper(lists, (begin+end)/2 + 1, end));
     }
 
     ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
         ListNode dummy {0};
         ListNode *curr = &dummy;
 
-        while(l1 && l2){
-            if(l1->val < l2->val){
+        while (l1 && l2){
+            if (l1->val < l2->val){
                 curr->next = l1;
                 l1 = l1->next;
 
-            }else{
+            } else {
                 curr->next = l2;
                 l2  = l2->next;
             }
@@ -78,7 +70,6 @@ public:
             }
         }
 
-
         while(!min_heap.empty()){
             auto *node = min_heap.top();
             min_heap.pop();
@@ -92,6 +83,7 @@ public:
         return dummy.next;
     }
 };
+
 
 
 // Heap solution without lambda function
@@ -119,7 +111,6 @@ public:
         return dummy.next;
     }
 };
-
 /*
 Here we created a heap of size k. Then at each iteration we pop one elem and if that
 particular elem has next elements in its linked list, we push that.

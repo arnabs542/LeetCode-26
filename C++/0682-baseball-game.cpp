@@ -4,18 +4,18 @@
 class Solution {
 public:
     int calPoints(vector<string>& ops) {
-        vector<int> res;
+        vector<int> st;
         for (size_t i = 0; i < ops.size(); ++i) {
-            int n = res.size();
+            int n = st.size();
             if (ops[i] == "+")
-                res.push_back(res[n - 1] + res[n - 2]);
+                st.push_back(st[n - 1] + st[n - 2]);
             else if (ops[i] == "C")
-                res.pop_back();
+                st.pop_back();
             else if (ops[i] == "D")
-                res.push_back(res[n - 1]*2);
+                st.push_back(st[n - 1]*2);
             else
-                res.push_back(stoi(ops[i]));
+                st.push_back(stoi(ops[i]));
         }
-        return accumulate(res.begin(), res.end(), 0);
+        return accumulate(st.begin(), st.end(), 0);
     }
 };

@@ -1,6 +1,7 @@
 // Tags: Amazon Greedy Sort Premium
 // Time:  O(nlogn), using ordered map instead of unordered_map
 // Space: O(n)
+// Also check 0759-employee-free-time
 class Solution {
 public:
     int minMeetingRooms(vector<vector<int>>& intervals) {
@@ -16,12 +17,12 @@ public:
         return result;
     }
 };
-
 /*
 First collect the changes: at what times the number of meetings 
 goes up or down and by how much. Then go through those changes 
 in ascending order and keep track of the current and maximum 
 number of rooms needed. */
+
 
 
 // Time:  O(nlogn)

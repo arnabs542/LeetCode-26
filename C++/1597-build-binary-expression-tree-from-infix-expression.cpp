@@ -52,7 +52,8 @@ public:
   Convert all characters into nodes and store them in list l.
   Recursion: if we detect a group (...), call expTree recursively and insert the returned tree root into l.
 * Pass 1 for elements in l, O(n):
-  For * and / leaf nodes, 'adopt' left and right neighbors to be its children (neighbors are removed from the list).
+  For * and / leaf nodes, 'adopt' left and right neighbors to be its children (neighbors are removed from
+  the list).
 * Pass 2 for the remaining elements in l, O(n):
   Do the same as in pass 1 for + and - leaf nodes.
 After this, we should have one element remaining in l - our root node

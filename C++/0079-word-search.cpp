@@ -15,12 +15,14 @@ public:
         return false;
     }
 
-    bool searchWord(vector<vector<char>> &board, string word, int cur, int i, int j, vector<vector<bool>> &visited)
+    bool searchWord(vector<vector<char>> &board, string word, int cur, int i, int j,
+        vector<vector<bool>> &visited)
     {
         if (cur == word.length())
             return true;
 
-        if (i < 0 || i >= board.size() || j < 0 || j >= board[0].size() || visited[i][j] || board[i][j] != word[cur] )
+        if (i < 0 || i >= board.size() || j < 0 || j >= board[0].size() || visited[i][j]
+            || board[i][j] != word[cur] )
             return false;
 
         visited[i][j] = true;
@@ -36,6 +38,7 @@ public:
 
     }
 };
+
 
 
 // Time:  O(m * n * l)

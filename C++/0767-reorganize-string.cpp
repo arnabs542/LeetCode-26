@@ -1,5 +1,6 @@
 // Tags: String Heap Greedy Amazon
-// Time: O(nlog26) ~ O(n)
+// Time: O(nlog26) ~ O(n), each pair can be pushed and popped multiple
+//       times, but total operations never exceed n = S.length()
 // Space: O(26)
 // Heap solution
 class Solution {
@@ -29,7 +30,6 @@ public:
         return res.length() == S.length() ? res : "";
     }
 };
-
 /*
 Unlike 0621-task-schedular, where we placed all occurences of max freq element
 at once, here we are placing each occurence one by one and also ensuring that
@@ -41,6 +41,7 @@ no two same char are placed together.
 // Time: O(n)
 // Space: O(n)
 // Greedy solution
+// Similar idea as 0621-task-schedular (cooldown period of 1)
 class Solution {
 public:
     string reorganizeString(string S) {
@@ -59,9 +60,13 @@ public:
             i += 2;
             --cnt[mostFreq];
         }
+        // complete the first round filling even gaps 
+        // if i still < S.size()
+        // then start new round filling odd gaps
         for (int k = 0; k < 26; ++k) {
-            while(cnt[k]) {
-                if(i >= S.size()) i = 1;
+            while (cnt[k]) {
+                if (i >= S.size())
+                    i = 1;
                 S[i] = 'a' + k;
                 --cnt[k];
                 i += 2;

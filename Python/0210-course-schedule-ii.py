@@ -10,6 +10,7 @@ class Solution:
 
         for i, j in prerequisites:
             adj[j].append(i)
+
         def dfs(u):
             if visit[u] == -1:
                 return False
@@ -26,6 +27,7 @@ class Solution:
             result.append(u)
             visit[u] = 1
             return True
+
         for i in range(numCourses):
             if not dfs(i):
                 return []

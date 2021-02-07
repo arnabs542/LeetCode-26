@@ -18,8 +18,10 @@ private:
 
     // convert path into a list of strings dereferenced by /
     vector<string> getStrs(string path) {
+        // paths always begin with '/'
         int i = 1, j = 1;
         vector<string> res;
+        // same as what getline does
         while (j <= path.length()) {
             if (i != j && (j == path.length() || path[j] == '/')) {
                 res.push_back(path.substr(i, j - i));
@@ -58,7 +60,7 @@ public:
         sort(res.begin(), res.end());
         return res;
     }
-    
+
     void mkdir(string path) {
         vector<string> strs = getStrs(path);
         TrieNode* cur = root;

@@ -1,6 +1,6 @@
 // Tags: Top-interview Premium Graph Topological-sort Amazon
 // Time:  O(n), n be the total length of all the words
-// in the input list, added together
+//        in the input list, added together
 // Space: O(|V|+|E|) = O(26 + 26^2) = O(1)
 // Using BFS (Kahn's algorithm)
 class Solution {
@@ -9,7 +9,7 @@ public:
         unordered_map<char, int> indegree;
         unordered_map<char, unordered_set<char>> graph;
         
-        // initialize
+        // initialize (all chars found)
         for (auto i = 0; i < words.size(); ++i)
             for (auto j = 0; j < words[i].size(); ++j) {
                 char c = words[i][j];
@@ -64,14 +64,14 @@ public:
     string alienOrder(vector<string>& words) {
         // 26 characters
         unordered_map<char, unordered_set<char>> graph;
-        // 26 characters
+        // 26 characters (-2 means 'does not exist')
         vector<int> visit(26, -2);
         
         // initialize
         for (auto i = 0; i < words.size(); ++i)
             for (auto j = 0; j < words[i].size(); ++j) {
                 char c = words[i][j];
-                visit[c - 'a'] = 0;
+                visit[c - 'a'] = 0; // exists but not visited
         }
         
         // build graph and record indegree

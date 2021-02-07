@@ -1,15 +1,6 @@
 // Tags: Amazon DFS Tree
 // Time: O(n)
 // Space: O(n)
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
- */
 class Solution {
     unordered_map<TreeNode*, TreeNode*> parent;
     unordered_set<TreeNode*> visited;

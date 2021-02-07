@@ -1,11 +1,13 @@
 // Tags: Amazon Two-pointers Array
-// Time:  O(n)
+// Time: O(n)
 // Space: O(1)
 class Solution {
 public:
     int trap(vector<int>& height) {
         if (height.empty())
             return 0;
+        // these two heights are always boundaries
+        // (will never act as gap to fill the water with)
         int i = 0, j = height.size() - 1;
         int left_max = height[0], right_max = height[height.size() - 1];
         int res = 0;
@@ -32,5 +34,6 @@ public:
 
 /*
 If left_max > right_max, we keep moving from right to left
-until either right_max becomes > left_max or j becomes = i
+until either right_max becomes > left_max (larger height is seen)
+or j becomes = i.
 */

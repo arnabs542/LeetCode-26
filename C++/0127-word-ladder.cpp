@@ -1,7 +1,7 @@
 // Tags: Amazon BFS
 // Time: O(list_length * word_length * lookup_time), there can only be list_length
-// number of elements in the queue.
-// Space: O(list_length)
+//       number of elements in the queue., lookup_time = O(1) here
+// Space: O(list_length * word_length)
 // Time limit exceeded
 class Solution {
 public:
@@ -18,6 +18,7 @@ public:
                 string cur = q.front(); q.pop();
                 if (cur == endWord)
                     return ladder + 1;
+                // don't go back to visited strings
                 dict.erase(cur);
                 // replace char at every index
                 for (int i = 0; i < cur.length(); ++i) {
@@ -39,14 +40,14 @@ public:
 };
 
 
+
 // Time: O(list_length * word_length * lookup_time), each word in wordList
-// can either be in head set or tail set, as we keep removing them from dict
-// hence list_length.
-// Space: O(list_length)
-// Two-end BFS search method, (each BFS uses two sets (nextlev, phead) instead of a queue)
-// Here, we alternatively travel from startWord and endWord.
-// (It is faster as we have a bigger search space for the editted word to be searched
-// in ptail set, unlike checking word == endWord multiple times)
+//       can either be in head set or tail set, as we keep removing them from dict
+//       hence list_length. (same complexity but search time reduces to half),
+//       lookup_time = O(1) here. 
+// Space: O(list_length * word_length)
+// Two-end BFS search method
+// (Bidirectional Bfs)
 class Solution {
 public:
     int ladderLength(string beginWord, string endWord, vector<string>& wordList) {
@@ -97,3 +98,22 @@ public:
         return 0;
     }
 };
+/*
+Each BFS uses two sets (nextlev, phead) instead of a queue
+Here, we alternatively travel from startWord and endWord.
+(It is faster as we are pruning Bfs tree by avoiding choices that absolute has no
+chance of leading to the final result)
+
+Why Bidirectional Breadth First Search?
+The search space considered by breadth first search algorithm depends upon the
+branching factor of the nodes at each level. If branching factor remains same for
+all nodes (atmost 26*word_length choices), search space increases exponentially
+along with the no. of levels.
+We can considerably cut down search space of the standard breadth first search
+algorithm if we launch two simulatenous BFS. One from beginWord and one from
+endWord. We progress one node at a time from both sides and at any point in time
+if we find a common node in both the searches, we stop the search.
+
+So bidirectional Bfs considerably cuts down the search space and
+hence reduces time and space complexity.
+*/

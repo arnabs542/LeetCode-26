@@ -1,6 +1,6 @@
-// Tags: Array Two-pointers Sliding-window Amazon
+// Tags: Array Sliding-window Binary-search Amazon
 // Time: O(n), each element will be visited by l and
-// r for at most once
+//       r for at most once
 // Space: O(1)
 class Solution {
 public:

@@ -27,7 +27,8 @@ public:
         colJudge[col] += add;
         diag += row == col ? add : 0;
         anti += row == total - 1 - col ? add : 0;
-        if (abs(diag) == total || abs(anti) == total || abs(rowJudge[row]) == total || abs(colJudge[col]) == total)
+        if (abs(diag) == total || abs(anti) == total || abs(rowJudge[row]) == total
+            || abs(colJudge[col]) == total)
             return player;
         return 0;
     }

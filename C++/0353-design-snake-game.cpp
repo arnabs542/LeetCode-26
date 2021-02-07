@@ -7,6 +7,7 @@ class SnakeGame {
     int foodIdx;
     // can also use deque<vector<int>> snakeBody;
     // (each element represents a unit of body part with its coordinates)
+    // (we need to push_front and pop_back, opposite of standard queue)
     deque<int> snakeBody;
     // for searching body parts in O(1) time
     // (unordered_set doesn't support pair or vector as a key
@@ -60,21 +61,15 @@ public:
         bodySet.insert(head);
         snakeBody.push_front(head);
         
-        // case2: eating food, keep tail, increase score, (add new head)
+        // case 2: eating food, keep tail, increase score, (add new head)
         if (foodIdx < food_.size() && food_[foodIdx][0] == rowHead && food_[foodIdx][1] == colHead) {
             ++foodIdx;
             bodySet.insert(snakeBody.back());
             return ++score;
         }
         
-        // case3: normal move, (remove tail, add head)
+        // case 3: normal move, (remove tail, add head)
         snakeBody.pop_back();
         return score;
     }
 };
-
-/**
- * Your SnakeGame object will be instantiated and called as such:
- * SnakeGame* obj = new SnakeGame(width, height, food);
- * int param_1 = obj->move(direction);
- */

@@ -11,7 +11,7 @@ public:
             for (int j = 0; j < i; ++j) {
                 // (if this is the first time this product is seen,
                 // res is not incremented)
-                /// Every tuple has 8 permutations //
+                // Every tuple has 8 permutations //
                 res += 8*productCnt[nums[i]*nums[j]];
                 ++productCnt[nums[i]*nums[j]];
             }

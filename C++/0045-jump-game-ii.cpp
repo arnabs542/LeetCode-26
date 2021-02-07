@@ -6,6 +6,7 @@ class Solution {
 public:
     int jump(vector<int>& nums) {
         int n = nums.size(), step = 0;
+        // boundaries of current level
         int start = 0, end = 0;
         // in worst case the previous level will end just before nums[n - 1]
         // (like while (!q.empty()))

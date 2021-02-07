@@ -65,6 +65,7 @@ public:
         vector<vector<bool>> dp(n, vector<bool>(n));
         string res;
         for (int j = 0; j < n; ++j) {
+            // try all length substrings (1, 2, ....) ending at j
             for (int i = j; i >= 0; --i) {
                 if (s[i] == s[j] && (j - i < 2 || dp[i + 1][j - 1])) {
                     dp[i][j] = true;
@@ -81,6 +82,8 @@ public:
 
 /*
 opt[i, j] = true if the substring si,.......,sj is a palindrome
+
+opt[i, j] = opt[i + 1, j - 1] && s[i] == s[j]
 
 base case:
 opt[i, i] = true
