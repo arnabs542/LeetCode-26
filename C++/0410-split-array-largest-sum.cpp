@@ -8,7 +8,8 @@ public:
         int n = nums.size();
         // 1 indexed for both dimensions
         vector<vector<int>> dp(m + 1, vector<int>(n + 1, INT_MAX));
-        // 1 indexed prefix sum where prefix[i] = nums[1] +......+ nums[i]
+        // 1 indexed prefix sum where
+        // prefix[i] = nums[1] +......+ nums[i] or nums[0] + ..... + nums[i - 1]
         vector<int> preSum(n + 1, 0);
         for (int i = 0; i < n; ++i) {
             preSum[i + 1] = preSum[i] + nums[i];
@@ -30,7 +31,7 @@ public:
 dp[k][i] = minimum largest subarray sum for splitting
 nums[0....i] into k parts.
 
-dp[k][i] = min over 0<=j<=i {max(dp[k - 1][j],
+dp[k][i] = min over 0<=j<=i-1 {max(dp[k - 1][j],
     nums[j + 1]......nums[i])}
 
 Base case:
@@ -42,6 +43,8 @@ dp[0][0] = 0, rest are INFINITY
 // Time:  O(logs * n), s is the sum of nums
 // Space: O(1)
 // Binary Search + Greedy
+// (Refer 1011-capacity-to-ship-packages-within-d-days
+// for simpler explanation and code)
 class Solution {
 public:
     int splitArray(vector<int>& nums, int m) {
@@ -55,6 +58,7 @@ public:
         // O(logs), find the minimum (tightest) largestSumLimit
         // such that it is splitable into atmost m subarrays,
         // range looks like this [false false true true true true]
+        //                       [ >m    >m    =m   =m   <m   <m ]
         // (we want to find the index of the first true)
         while (left <= right) {
             int mid = left + (right - left)/2;

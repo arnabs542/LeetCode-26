@@ -1,7 +1,7 @@
 // Tags: BFS Amazon
 // Time:  O(b^(d/2)), b is the branch factor of bfs, d is the result depth
 // Space: O(w * l), w is the number of words, l is the max length of words
-// Two-end BFS + Backtracking
+// Bidirectional BFS + Backtracking
 class Solution {
 public:
     vector<vector<string>> findLadders(string beginWord, string endWord, vector<string>& wordList) {
@@ -12,8 +12,8 @@ public:
         unordered_set<string> head {beginWord}, tail {endWord};
         bool isFound = false, isReversed = false;
         while (!head.empty()) {
-            // we can remove all word in the list
-            // at the start (different from word-ladder)
+            // we remove all word in the list
+            // at the start, necessary (different from word-ladder)
             for (const auto& word : head)
                 dict.erase(word);
             unordered_set<string> new_head;
@@ -26,9 +26,12 @@ public:
                         // not a valid word
                         if (!dict.count(new_word))
                             continue;
-                        if (tail.count(new_word))
+                        if (tail.count(new_word)) {
                             isFound = true; // endWord found
-                        else
+                            // don't break right away
+                            // update tree and also continue visiting rest of the nodes
+                            // in the current level as they might also find endWord
+                        } else
                             new_head.insert(new_word);
                         
                         // build parent tree
@@ -59,9 +62,11 @@ private:
     // although we have a backward tree (child to parent), we are
     // interating from top to bottom only (parent to child), as we
     // are performing postorder traversal
+    // similar to sentences() of 0126-word-break-ii
     vector<vector<string>> backtracking(const unordered_map<string, 
             unordered_set<string>> &tree, const string &beginWord, 
             const string &word) {
+        // current res (just like current root in postorder)
         vector<vector<string>> res;
         if (word == beginWord) {
             res.push_back({beginWord});

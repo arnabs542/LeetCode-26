@@ -1,4 +1,4 @@
-// Tags: DP String Top-100-liked
+// Tags: DP String Top-100-liked Amazon
 // Time: O(n*m)
 // Space: O(n*m)
 class Solution {
@@ -13,9 +13,10 @@ public:
         for (int i = 1; i <= m; ++i) {
             for (int j = 1; j <= n; ++j) {
                 if (word1[i - 1] == word2[j - 1])
-                    dp[i][j] = dp[i - 1][j - 1];
+                    dp[i][j] = dp[i - 1][j - 1]; // match
                 else
                     dp[i][j] = min({dp[i - 1][j - 1], dp[i - 1][j], dp[i][j - 1]}) + 1;
+                    // replace, delete, insert
             }
         }
         return dp[m][n];
@@ -32,8 +33,8 @@ dp[i][j] = dp[i - 1][j - 1] if s[i] == s[j]
             
             min(Replace, Delete, Insert)
 Base case:
-    dp[i][0] = i
-    dp[0][j] = j
+    dp[i][0] = i (all delete)
+    dp[0][j] = j (all insert)
 */
 
 
@@ -61,6 +62,7 @@ public:
             }
             fill(pre.begin(), pre.end(), 0);
             swap(pre, cur);
+            // pre.swap(cur);
             // or pre = cur;
             // fill(cur.begin(), cur.end(), 0);
         }

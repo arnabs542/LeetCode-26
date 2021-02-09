@@ -2,8 +2,11 @@
 // Time:  O(n * n!/(c_a!*...*c_f!), n is the length of A, B,
 //                                  c_a...c_f is the count of each alphabet,
 //                                  n = sum(c_a...c_f)
+// (the given string can be arranged in n!/(c_a!*...*c_f!) ways, at max we would
+// try each of those arrangements at each level)
 // Space: O(n * n!/(c_a!*...*c_f!)
 // where n!/(c_a!*...*c_f! is the number of ways string A can be arranged
+// BFS templace 1.0
 class Solution {
 public:
     int kSimilarity(string A, string B) {
@@ -52,4 +55,8 @@ wrong and it happends to be the target character of i-th position.
 
 So that in each round we will repair the first unordered character
 (ith char) and as a result move forward at least 1 step.
+
+Note:
+We could also do Bfs like in 0909-snakes-and-ladders (a little faster
+as we don't have to go through all level completely)
 */

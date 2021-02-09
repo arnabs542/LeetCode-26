@@ -1,5 +1,6 @@
 // Tags: Amazon Trie String
 // Time: O(NlogN) for sorting, O(logN) for each prefix query
+// => O(l*logN), not sure
 // Space: O(l), l is length of each query
 class Solution {
 public:
@@ -35,7 +36,7 @@ in the sorted list, and check if the next 3 words are valid suggestions
 
 // Time: build tree -> O(n * l), n = number of products
 //       l = average length of product names
-//       suggest -> O(l^2)
+//       suggest -> O(l^2) // or O(l), not sure
 // Space: O(t), t = number of nodes in trie
 struct TrieNode {
     // stores smallest 3 strings that are present in the
@@ -65,9 +66,9 @@ public:
             cur = cur->children[c];
             priority_queue<string> maxHeapCopy = cur->max_heap;
             while (!maxHeapCopy.empty()) {
-                tmp.push_back(maxHeapCopy.top()); maxHeapCopy.pop();
+                tmp.push_back(maxHeapCopy.top()); maxHeapCopy.pop(); // O(3log3)
             }
-            reverse(tmp.begin(), tmp.end());
+            reverse(tmp.begin(), tmp.end()); // O(3)
             res[i] = tmp;
         }
         return res;

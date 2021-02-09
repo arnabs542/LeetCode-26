@@ -1,6 +1,7 @@
 // Tags: Backtracking Amazon Premium
-// Time: C(len(pattern), len(str)), essentially we just 
-//       want to partition str into len(pattern) groups.
+// Time: C(len(s), len(pattern)), essentially we just
+//       want to partition s into len(pattern) groups.
+//       (out of those, one might satify the condition)
 // Space: O(len(pattern) + len(str))
 // Similar to 0010-regular-expression-matching
 // & 0044-wildcard-matching

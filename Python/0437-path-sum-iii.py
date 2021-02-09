@@ -42,12 +42,12 @@ class Solution:
 # In each level in tree, as you go down, N* is halved. Finally you call pathSumFrom
 # for the leaves whose cost is T(1) (as N* is 1).
 # But yes, you call pathSumFrom at level L for 2^L nodes/subtrees.
-# So at every level L total number of operations is T(N/ 2^L) * 2^L
+# So at every level L total number of operations is T(N/2^L) * 2^L, T(N/b^h) * a^h
 # L = 0 means the root of the tree. T(N/1) * 1 --> O(N)
 # L = H (height, LogN) means the leaves. T(N/2^LogN) * 2^LogN -> T(1) * N --> O(N)
 # So at every level L total number of operations is O(N)
 # Then next question is how many levels we have to visit ? That's the height of
-# tree, log N.
+# tree, log N (for balanced tree).
 # Hence we have O(NLogN)
 
 

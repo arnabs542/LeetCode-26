@@ -25,6 +25,7 @@ public:
             if (countDays(weights, mid) <= D) {
                 ans = mid;
                 // decrease capacity to increase number of days
+                // (or find lower ans taking D days)
                 r = mid - 1;
             } else {
                 // increase capacity to decrease number of days
@@ -51,6 +52,10 @@ We decrease the capacity if it takes less days than D, and increase
 otherwise. Note that, when the number of days equals D, this algorithm
 keeps decreasing the capacity while it can, therefore finding the
 smallest capacity required.
+
+range looks like this [false false true true true true]
+                      [ >D    >D    =D   =D   <D   <D ]
+(we want to find the index of the first true)
 */
 
 /* Dp solution gives TLE, O(D*(n^2)) */

@@ -25,7 +25,7 @@ public:
 };
 
 /*
-The rating is similar to 'wave', increase of decrease
+The rating is similar to 'wave', increase and decrease
 
 let's look at this case:
 ratings: [1,3,6,9,4,2]

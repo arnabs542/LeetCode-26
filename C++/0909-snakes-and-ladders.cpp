@@ -1,6 +1,7 @@
 // Tags: BFS Amazon
 // Time: O(n^2), we only visit each cell once
 // Space: O(n^2)
+// BFS templace 1.1, (Best BFS template)
 class Solution {
 public:
     int snakesAndLadders(vector<vector<int>>& board) {
@@ -20,7 +21,7 @@ public:
                     int r = (next - 1)/n, c = (next - 1) % n;
                     // coordinates if origin is considered at top left
                     // 0th row (even) is always iterated from left to right
-                    c = (r % 2 == 0) ? c : n - 1 - c;
+                    c = (r % 2 == 0) ? c : n - 1 - c; // (using old r)
                     r = n - 1 - r;
                     if (board[r][c] > 0)
                         next = board[r][c];
@@ -28,6 +29,8 @@ public:
                         return moves;
                     // prevent from going back if snake is encounted
                     // we simply skip that move
+                    // (also prevent pushing multiple copies of same square
+                    //  by different squares on same level)
                     if (visited.find(next) == visited.end()) {
                         q.push(next);
                         visited.insert(next);

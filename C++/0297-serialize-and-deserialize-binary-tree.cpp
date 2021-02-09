@@ -1,21 +1,13 @@
-// Time O(n)
-// Space O(n)
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
- */
+// Tags: Tree Design Amazon
+// Time: O(n)
+// Space: O(n)
 class Codec {
 public:
-
     // Encodes a tree to a single string.
     string serialize(TreeNode* root) {
         ostringstream out;
         serializeHelper(root, out);
+        // convert stream to string
         return out.str();
     }
 
@@ -24,20 +16,18 @@ public:
         istringstream in {data};
         return deserializeHelper(in);
     }
-
 private:
+    // preorder traversal (push entries into stack)
     void serializeHelper(TreeNode* root, ostringstream &out) {
-
         if (root) {
-            out << root->val << ' ';
+            out << root->val << ' '; // add space
             serializeHelper(root->left, out);
             serializeHelper(root->right, out);
         } else {
-            out << "# ";
+            out << "# "; // add space
+            }
         }
-
-        }
-
+    // preorder traversal (pop stack entries from bottom side, same order)
     TreeNode *deserializeHelper(istringstream &in){
         string val {};
         in >> val;
@@ -51,7 +41,8 @@ private:
         return node;
     }
 };
-
-// Your Codec object will be instantiated and called as such:
-// Codec codec;
-// codec.deserialize(codec.serialize(root));
+/*
+Encode in preorder fashion using insertion operator.
+Similary using extraction operation we can retrieve back
+the values in the same order.
+*/

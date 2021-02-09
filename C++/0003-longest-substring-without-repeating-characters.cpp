@@ -11,6 +11,7 @@ public:
             if (lookup.count(s[right])){
                 // max ensures left pointer either stays where it is
                 // or shifted to right but never moves back to left
+                // e.g "abba"
                 left = max(left, lookup[s[right]] + 1);
             }
             lookup[s[right]] = right;

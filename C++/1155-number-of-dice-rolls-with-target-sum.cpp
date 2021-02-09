@@ -23,7 +23,9 @@ public:
 };
 
 /*
-dp[k][x] = number of possible ways to achieve total sum x using d dices
+dp[k][x] = number of possible ways to achieve total sum x using k dices
+
+dp[k][x] = sigma over [1 <= num <= f] dp[k - 1][x - num]
 
 Base cases:
 dp[1][1] = dp[1][2] = dp[1][3] ...... dp[1][f] = 1

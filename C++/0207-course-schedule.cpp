@@ -1,4 +1,5 @@
-// Topological Sort using BFS
+// Tags: DFS BFS Graph Topological-sort Amazon
+// Topological sort using BFS
 // Time: O(V+E)
 // Space: O(V), without adjacency list
 // Kahn's algorithm
@@ -32,15 +33,16 @@ public:
         return n==0;
     }
 };
-
-/* Notes:
+/*
 Since we first decrement and then check if indegree == 0,
-we will never push each node twice to our queue
-Prerequisites could be in format vector<pair<int, int>>& prerequisites*/
+we will never push any node twice to our queue.
 
-/* Whenever we pop from queue, we add that elem to our topological ordering.
- Here we are using the idea that if we are able to include all nodes in our
- ordering, we have a topological order and hence no cycle */
+Prerequisites could be in format vector<pair<int, int>>& prerequisites.
+
+Whenever we pop from queue, we add that elem to our topological ordering.
+Here we are using the idea that if we are able to include all nodes in our
+ordering, we have a topological order and hence no cycle
+*/
 
 
 

@@ -26,7 +26,7 @@ public:
 /*
 Since directed, no need to worry about going back to parent
 and since acyclic, no need to worry about forming cyclic with ancestor
-as well. Therefore, we don't need to mark a node visited which performing
+as well. Therefore, we don't need to mark a node visited while performing
 dfs.
 
 Time complexity:

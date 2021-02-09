@@ -4,6 +4,7 @@
 class HitCounter {
     // timestamp, count;
     queue<pair<int, int>> q;
+    // number of hits in last 300s
     int hits;
 public:
     /** Initialize your data structure here. */

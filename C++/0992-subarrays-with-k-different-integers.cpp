@@ -1,6 +1,7 @@
 // Tags: Sliding-window Hash-table Amazon
 // Time: O(n)
 // Space: O(n)
+// Reusing 0340-longest-substring-with-at-most-k-distinct-characters
 class Solution {
     // returns the number of subarrays having atmost k distinct
     // integers

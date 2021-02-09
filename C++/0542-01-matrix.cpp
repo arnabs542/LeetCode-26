@@ -2,6 +2,7 @@
 // Time: O(m*n)
 // Space: O(m*n)
 // Bfs solution
+// BFS template 2.0
     vector<vector<int>> updateMatrix(vector<vector<int>>& matrix) {
         queue<pair<int, int>> q;
         const vector<pair<int, int>> dirs = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
@@ -86,7 +87,7 @@ we move only in one direction say top-left, the down and right cell aren't updat
 there might be better paths beneath them which aren't also not updated yet.
 
 First Run: cells have best top-left paths
-Second Run: cells are now additionally aware of best bottom- right paths and choose the
+Second Run: cells are now additionally aware of best bottom-right paths and choose the
             one with smallest distance
 
 We need both to have best paths from all directions!

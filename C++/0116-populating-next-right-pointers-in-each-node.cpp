@@ -1,4 +1,4 @@
-// Tags: Tree DFS BFS
+// Tags: Tree DFS BFS Amazon
 // Time: O(n)
 // Space: O(n)
 // Level order traversal using queue (Bfs)
@@ -13,6 +13,7 @@ public:
             int sz = q.size();
             for (int i = 0; i < sz; ++i) {
                 Node* node = q.front(); q.pop();
+                // point to next node on the current level, except for the last node
                 node->next = i == sz - 1 ? nullptr : q.front();
                 if (node->left)
                     q.push(node->left);
@@ -32,8 +33,10 @@ public:
 class Solution {
 public:
     Node* connect(Node* root) {
+        // until second last level
         if (!root || !root->left)
             return root;
+        // setting pointers for both children
         if (root->left)
             root->left->next = root->right;
         if (root->next)

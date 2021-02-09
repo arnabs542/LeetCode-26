@@ -35,9 +35,9 @@ public:
     }
 };
 /*
-Store the available digits (< 4) in set(sorted from minimum to maximum naturally);
+Store the available digits (< 4) in set(sorted from minimum to maximum naturally).
 Start from end of the time string, replace it with the next larger number in the set. 
-    If available and a legal time (mm < 60 && hh <24), return the result;
+    If available and a legal time (mm < 60 && hh < 24), return the result;
 Else replace it the smallest number in the set , go to the next digit in the time string.
 */
 
@@ -53,12 +53,12 @@ public:
         vector<char> digits {time[0], time[1], time[3], time[4]}; 
         sort(digits.begin(), digits.end());
 
-        /* find the next bigger digit which is no more than limit. 
+        /* find the next bigger digit which is no more than (<=) limit. 
            If no such digit exists in digits[], return the minimum one
            i.e. digits[0]
         */
         auto findNext = [&] (char cur, char limit) {
-            if (cur == limit)
+            if (cur == limit) // not needed
                 return digits[0];
             auto it = upper_bound(digits.begin(), digits.end(), cur);
             if (it == digits.end() || *it > limit)

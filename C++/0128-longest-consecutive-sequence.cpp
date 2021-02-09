@@ -1,6 +1,7 @@
 // Tags: Array Amazon
 // Time O(n)
 // Space O(n)
+// Better solution
 class Solution {
 public:
     int longestConsecutive(vector<int>& nums) {

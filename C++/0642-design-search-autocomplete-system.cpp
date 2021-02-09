@@ -1,12 +1,14 @@
 // Tags: Trie Amazon Premium
-// Time:  O(p^2), p is the length of the prefix
+// Time:  O(p^2), p is the length of the prefix (each time new char is entered,
+//        we start searching from the root)
 // Space: O(p * t + s), t is the number of nodes of trie
 //                    , s is the size of the sentences
 // Similar to 1268-search-suggestions-system
 struct TrieNode {
     unordered_map<char, TrieNode*> children;
     // count of sentences that have string upto current
-    // node as their prefix
+    // node as their prefix (used map so times can be updated in
+    // O(1) time)
     unordered_map<string, int> counts;
 };
 class AutocompleteSystem {
@@ -53,7 +55,7 @@ public:
             pq.push({kvp.second, kvp.first});
         }
         vector<string> res;
-        // remove the top 3
+        // remove the top 3, if atleast 3 present
         for (int i = 0; i < 3 && !pq.empty(); ++i)
             res.push_back(pq.top().second), pq.pop();
         return res;
