@@ -48,6 +48,8 @@ class Solution {
 public:
     string removeDuplicates(string s, int k) {
         // (track) the running count for character at jth index
+        // (try out eg. s = "deeedbbcccbdaa", k = 3 to find out why
+        // it is required instead of a single variable for counter)
         vector<int> cnt(s.length(), 1);
 
         // next index in the resultant string
@@ -63,6 +65,7 @@ public:
             if (cnt[j] == k)
                 j -= k;
         }
+        // we modified the same string
         return s.substr(0, j);
     }
 };

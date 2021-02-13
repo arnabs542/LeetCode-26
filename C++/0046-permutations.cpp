@@ -35,5 +35,10 @@ public:
 /*
 Instead of using an added & cur array, we can swap elements
 in the nums array before calling recursive function
+swap(num[begin], num[i]);
+
 and then swap back to original configuration.
+swap(num[begin], num[i]);
+
+where begin is current index to be filled 0 <= begin < nums.size()
 */

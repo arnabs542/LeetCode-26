@@ -24,7 +24,7 @@ public:
 };
 /*
 Simply sorting the numbers converted into strings in decreasing order
-will not work. 
+will not work (because prefix will be considered smaller)
 Take the following case:
     [3,30,34,5,9]
 If we do so, Output would be

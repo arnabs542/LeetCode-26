@@ -18,7 +18,7 @@ public:
                 res = max(res, pathLen[depth - 1] + (int)name.length());
             } else {
                 // it is a subdirectory
-                // + 1 for '/'
+                // + 1 for '/' (after name)
                 // pathLen[-1 (npos)] = name.length() + 1, eg "dir"
                 // pathLen[0] = pathLen[-1] + name.length() + 1, eq "\tsubdir"
                 pathLen[depth] = pathLen[depth - 1] + name.length() + 1;
@@ -37,4 +37,19 @@ For each filename, calculate the path length by the current depth and
 update the maximum path length.
 
 Note: \t is a single character
+
+E.g.
+dir
+
+\tsubdir1
+\t\tfile1.ext
+\t\tsubsubdir1
+
+\tsubdir2
+\t\tsubsubdir2
+\t\t\tfile2.ext
+
+We have two files:
+"dir/subdir1/file1.ext" of length 21
+"dir/subdir2/subsubdir2/file2.ext" of length 32
 */

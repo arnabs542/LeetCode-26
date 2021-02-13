@@ -11,6 +11,7 @@ public:
         TreeNode* left = lowestCommonAncestor(root->left, p, q);
         TreeNode* right = lowestCommonAncestor(root->right, p, q);
 
+        // last right could also be nullptr (Case 3)
         return left ? (right ? root : left) : right;
         // or if (left && right)
         //     return root;
@@ -21,13 +22,14 @@ public:
 Think of a node in each call as a subtree rooted at
 that node.
 
-If the current (sub)tree contains both p and q then return
-current node. 
+There are three cases:
+1. If the current (sub)tree contains both p and q then return
+   current node. 
 
-If only one of them is in that subtree, then return that node.
-(helps sending the resultant node back to the root)
+2. If only one of them is in that subtree, then return that node.
+   (helps sending the resultant node back to the root)
 
-If neither are in that subtree, the return nullptr.
+3. If neither are in that subtree, the return nullptr.
 */
 
 
@@ -75,3 +77,8 @@ public:
         return pathP[n - 1];
     }
 };
+/*
+Unlike preorder traversal using stack, in postorder whenever we reach a target
+node, stack at that point contains only the nodes along the path that leads to
+that.
+*/

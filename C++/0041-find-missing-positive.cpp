@@ -23,6 +23,8 @@ public:
         // Step 2
         for (int i = 0; i < n; ++i) {
             int index = abs(nums[i]) - 1;
+            // there could be duplicate numbers including 1
+            // (bucket not marked before)
             if (nums[index] > 0)
                 nums[index] *= -1;
         }

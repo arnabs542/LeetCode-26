@@ -1,5 +1,5 @@
 // Tags: DP Amazon
-// Time:  O(n^4), for each cell i, j, k, we iterate i...j to find m
+// Time: O(n^4), for each cell i, j, k, we iterate i...j to find m
 // Space: O(n^3)
 // Top-down Dp, Memoization
 class Solution {

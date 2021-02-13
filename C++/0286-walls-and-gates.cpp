@@ -34,7 +34,7 @@ public:
             }
             
             // right
-            while (col < n - 1 && rooms[row][col + 1] == INT_MAX) {
+            if (col < n - 1 && rooms[row][col + 1] == INT_MAX) {
                 rooms[row][col + 1] = rooms[row][col] + 1;
                 q.push({row, col + 1});
             }

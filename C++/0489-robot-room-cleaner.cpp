@@ -19,10 +19,11 @@
  *     void clean();
  * };
  */
-
 class Solution {
     // Up, Right, Down, Left
     vector<pair<int, int>> directions{{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
+    // curDirNum % 4 tells us the direction to which the robot moved to reach current cell
+    // (i.e the direction it is currently facing)
     void clean(Robot& robot, int x, int y, int curDirNum, unordered_set<string> &visited) {
         // clean current cell
         robot.clean();

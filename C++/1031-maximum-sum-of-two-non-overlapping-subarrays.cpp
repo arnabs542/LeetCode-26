@@ -8,6 +8,7 @@ public:
         for (int i = 1; i < A.size(); ++i)
             A[i] = A[i - 1] + A[i];
         int res = A[L + M - 1], Lmax = A[L - 1], Mmax = A[M - 1];
+        // i starts from L + M as L + M - 1 already considered
         for (int i = L + M; i < A.size(); ++i) {
             // previous Lsum could be Lmax
             Lmax = max(Lmax, A[i - M] - A[i - L - M]);

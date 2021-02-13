@@ -1,9 +1,10 @@
 // Tags: Tree Amazon
 // Time: O(n) ~ O(n^2), at each node, creation of serial
-// may take O(n)
+// may take O(n), string concatenation
 // Space: O(n) ~ O(n^2), due to count
 class Solution {
-    string postOrderTraversal(TreeNode* node, unordered_map<string, int> *count, vector<TreeNode*> *res) {
+    string postOrderTraversal(TreeNode* node, unordered_map<string, int> *count,
+        vector<TreeNode*> *res) {
         if (!node)
             return "#";
         // serial string
@@ -39,7 +40,8 @@ However, in actual, say for the root node,
 // Space: O(n)
 class Solution {
     int t;
-    int postOrderTraversal(TreeNode* node, unordered_map<int, int> *count, vector<TreeNode*> *res, unordered_map<string, int> &s2id) {
+    int postOrderTraversal(TreeNode* node, unordered_map<int, int> *count,
+        vector<TreeNode*> *res, unordered_map<string, int> &s2id) {
         if (!node)
             return 0;
         string s = to_string(node->val) + ",";
@@ -73,4 +75,3 @@ public:
 We can improve this to O(n) by replacing full serializations with
 serial ids instead. Now each s.length() == 5.
 */
-

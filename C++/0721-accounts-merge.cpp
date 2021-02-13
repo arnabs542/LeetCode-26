@@ -38,7 +38,8 @@ public:
     }
 
 private:
-    void dfs(unordered_map<string, unordered_set<string>> &adj, unordered_set<string> &visited, string email, vector<string> &cur) {
+    void dfs(unordered_map<string, unordered_set<string>> &adj, unordered_set<string> &visited,
+        string email, vector<string> &cur) {
         cur.push_back(email);
         for (string next: adj[email]) {
             if (!visited.count(next))  {
@@ -84,8 +85,6 @@ struct UnionFind {
         parent[min(pu, pv)] = max(pu, pv);
     }
 };
-
-
 
 // Time:  O(nlogn), n is the number of total emails, 
 // or O(n) if we consider O(1) amortized cost for Union-find

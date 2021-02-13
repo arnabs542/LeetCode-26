@@ -40,6 +40,7 @@ f(s) = 0, if s=0
 // Time:  O(n * k), n is the number of coins, k is the amount of money
 // Space: O(k)
 // Bottom-up Dp, tabulation
+// (Similar to 0377-combination-sum-iv, taking permutations)
 class Solution {
 public:
     int coinChange(vector<int>& coins, int amount) {
@@ -62,6 +63,8 @@ public:
 /*
 Note: This approach only possible as we may have an infinite number
     of each kind of coin, as per the question.
+    (and we only care about minimum or for target 5 if 1 + 4 and 4 + 1
+    considered as separate permutations it doesn't make our result wrong)
 
 opt[s] - minimum number of coins needed to make change for
 amount s using coin dominations [c0,......, cn-1]

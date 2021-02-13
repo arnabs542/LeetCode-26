@@ -17,7 +17,7 @@ public:
     }
 };
 /*
-Unlike 0377-combination-sum-iv (& coin-change O(n) space), 
+Unlike 0377-combination-sum-iv (& coin-change O(k) space), 
 here we are talking about combinations not permutations
 opt[k, s] = opt[k, s - ck] + opt[k-1, s], where k represent 1,....,k
 denominations and amount s.

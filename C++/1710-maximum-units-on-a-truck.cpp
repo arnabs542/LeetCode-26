@@ -12,12 +12,12 @@ public:
         for (const auto& boxType : boxTypes) {
             if (truckSize > boxType[0]) {
                 // available truckSize > total number of boxes of this type
-                // (still have to go to the next boxType)
+                // (still have to go to the next boxType, so put all boxes)
                 truckSize -= boxType[0];
                 res += boxType[0]*boxType[1];
             } else {
                 // available truckSize <= boxType[0]
-                // (last type to be put)
+                // (last type to be put, put only truckSize boxes)
                 res += truckSize*boxType[1];
                 break;
             }

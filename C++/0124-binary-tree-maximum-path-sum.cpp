@@ -1,5 +1,5 @@
 // Tags: Amazon Tree DFS
-// Time:  O(n)
+// Time: O(n)
 // Space: O(h), h is height of binary tree
 class Solution {
 public:

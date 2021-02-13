@@ -1,6 +1,7 @@
 // Tags: Amazon Hash-table Design
-// Time: O(1) ~ O(10000)
-// Space: O(10000)
+// Time: O(1) ~ O(100), in worst case atmost 100 operations (1000000/10000)
+//       can end up at same bucket
+// Space: O(10000 + 10000), 10000 buckets and 10000 operations (unique keys)
 // Implementing Chaining (open hashing technique)
 class MyHashMap {
     size_t numChains = 10000;
@@ -44,10 +45,8 @@ public:
     }
 };
 
-/**
- * Your MyHashMap object will be instantiated and called as such:
- * MyHashMap* obj = new MyHashMap();
- * obj->put(key,value);
- * int param_2 = obj->get(key);
- * obj->remove(key);
- */
+/*
+A prime number like 997 in hash function reduce number of collisions by neutralizing the effect
+of patterns in the keys by distribution of collisions (two different keys mapped 
+to the same address) of a hash function.
+*/
