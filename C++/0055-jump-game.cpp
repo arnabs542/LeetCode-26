@@ -39,7 +39,6 @@ public:
         return lastGoodIdx == 0;
     }
 };
-
 /*
 As expected Greedy solution takes less time than DP solution.
 lastGoodIdx = index from where we can reach the end.

@@ -17,8 +17,8 @@ public:
         // second pass: verifying if candidate found is actually
         // a celebrity
         for (int i = 0; i < n; ++i) {
-            // if candidate knows someone or someone doesn't know candidate
-            // he is not a celebrity
+            // if candidate knows someone (out of indices before candidate) or someone (out of all) 
+            // doesn't know candidate he is not a celebrity
             if (i != candidate && (knows(candidate, i) || !knows(i, candidate)))
                 return -1;
         }

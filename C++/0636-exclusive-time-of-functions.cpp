@@ -1,14 +1,17 @@
 // Tags: Stack Amazon
-// Time:  O(n)
+// Time: O(n)
 // Space: O(n)
 class Solution {
 public:
     vector<int> exclusiveTime(int n, vector<string>& logs) {
+        // function id, keeps track of latest function to be updated
         stack<int> st;
         vector<int> res(n);
-        int cur_start = 0; // start of current time duration
+        // start of current time duration
+        int cur_start = 0;
         for (const auto& log : logs) {
             vector<string> tokens = split(log, ':');
+            // end of current time duration
             if (tokens[1] == "start") {
                 if (!st.empty()) {
                     res[st.top()] += stoi(tokens[2]) - cur_start;

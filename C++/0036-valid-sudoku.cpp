@@ -11,6 +11,12 @@ public:
                 if (board[i][j] != '.') {
                     // -1 to make it 0-indexed
                     int num = board[i][j] - '0' - 1;
+                    // r\c 0 1 2
+                    //   0 0 1 2
+                    //   1 3 4 5   i/3 tells either 0, 1 or 2th row of blocks
+                    //   2 6 7 8   j/3 tells either 0, 1 or 2th col of blocks
+                    // now, think of all blocks arranged in one line i.e. 0 1 2 3 4 5 6 7 8
+                    // as we know row and col, we can encode as follows: x*3 + y
                     int k = (i/3)*3 + j/3;
                     if (used1[i][num] || used2[j][num] || used3[k][num])
                         return false;
@@ -51,6 +57,7 @@ public:
                         return false;
                     seen.insert(number + " in row " + to_string(i));
                     seen.insert(number + " in column " + to_string(j));
+                    // block in i/3th row and j/3th col
                     seen.insert(number + " in block " + to_string(i/3) + 
                         "-" + to_string(j/3));
                 }

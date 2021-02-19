@@ -18,14 +18,14 @@ public:
         // otherwise k = 0
         st.resize(st.length() - k);
 
-        // strip all leading '0
+        // strip all leading 0
         auto pos = st.find_first_not_of("0");
         return st.empty() || pos == string::npos ? "0" : st.substr(pos);
     }
 };
 /*
 Intuition:
-we should iterate from the left to right, when removing the digits.
+We should iterate from the left to right, when removing the digits.
 The more a digit to the left-hand side, the more weight it carries.
 
 Algo:
@@ -38,4 +38,10 @@ optimal solution step by step -> greedy paradigm.
 
 In other words, we want to maintain an monotonic increasing
 sequence.
+
+Edge cases:
+* empty num
+* all digits are increasingly sorted
+* leading 0's in st
+* all 0's in st
 */

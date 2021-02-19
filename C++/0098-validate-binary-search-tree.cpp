@@ -36,6 +36,7 @@ class Solution {
 public:
     bool isValidBST(TreeNode* root) {
         stack<TreeNode*> st;
+        // predecessor's value
         long left_child_val = numeric_limits<long>::min();;
         TreeNode* cur = root;
         while (!st.empty() or cur) {
@@ -55,7 +56,7 @@ public:
 };
 /*
   At each step we check if the current node's value is
-  greater than the right most node of the left subtree. 
+  greater than the value of right most node of the left subtree i.e. predecessor.
 */
 
 
@@ -68,7 +69,7 @@ public:
     bool isValidBST(TreeNode* root) {
         return helper(root, numeric_limits<long>::min(), numeric_limits<long>::max());
     }
-    // at each node we check if root-val is within limits
+    // at each node we check if root->val is within limits
     bool helper(TreeNode* root, long low, long high) {
         if (!root)
             return true;

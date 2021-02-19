@@ -17,6 +17,7 @@ public:
             if (i > 0 && arr[i] > arr[i - 1])
                 up[i] = up[i - 1] + 1;
             // else up[i] = 0
+
             if (up[i] && down[i])
                 res = max(res, up[i] + down[i] + 1);
         }

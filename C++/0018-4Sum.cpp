@@ -11,6 +11,7 @@ public:
         sort(nums.begin(), nums.end());
         for (int i = 0; i < static_cast<int>(nums.size()) - 3; ++i) {
             for (int j = i + 1; j < static_cast<int>(nums.size()) - 2; ++j) {
+                // total is what we want to search for
                 int total = target - nums[i] - nums[j];
                 int left = j + 1, right = nums.size() - 1;
                 while (left < right) {

@@ -52,6 +52,11 @@ public:
 /*
  Do inorder traversal (almost sorted array), find the two swapped elements
  then traverse tree again and swap values of those two nodes
+
+ Edge cases:
+ * swapped nodes are adjacent e.g. [1 3 2 4]
+   (swapped nodes are not adjacent e.g. [1 2 5 4 3 6])
+ * duplicate values
 */
 
 

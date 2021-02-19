@@ -6,7 +6,7 @@ class Solution {
 public:
     int subarraySum(vector<int>& nums, int k) {
         unordered_map<int, int> sum_cnt;
-        ++sum_cnt[0] = 1;
+        sum_cnt[0] = 1;
         int res = 0, running_sum = 0;
         for (int num : nums) {
             running_sum += num;

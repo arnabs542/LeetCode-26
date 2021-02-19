@@ -5,6 +5,7 @@
 // Space: O(n)
 class RangeModule {
 private:
+    // stores non-overlapping intervals
     vector<pair<int, int>> invals;
 public:
     RangeModule() {
@@ -53,6 +54,7 @@ public:
                 //  return true if [     )
                 //                  [  )
                 // if query spans over two intervals, it is definitely false
+                // (there is atleast 1 number missing between two intervals)
                 return invals[m].first <= left && invals[m].second >= right;
             }
         }

@@ -5,7 +5,7 @@
 class Solution {
 public:
     ListNode* reverseBetween(ListNode* head, int m, int n) {
-        // dummy is required as m could be 1
+        // dummy is required as m could be 1 (so we'd need a node to act as beg)
         ListNode dummy;
         dummy.next = head;
         // beg is left boundary node
@@ -27,3 +27,14 @@ public:
         return dummy.next;
     }
 };
+/*
+dummy -> 1 -> 2 -> 3 -> 4 -> 5
+        beg  first          end
+           <- 2 <- 3 <- 4
+                        prev cur
+         1 -> 4 -> 4 -> 2 -> 5
+
+Edge cases:
+* m = 1 : create dummy node
+* n = last node, cur will become nullptr in last iter : first->next = cur still works
+*/

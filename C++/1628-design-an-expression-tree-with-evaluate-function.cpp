@@ -9,7 +9,7 @@
 class Node {
 public:
     virtual ~Node () {};
-    virtual int evaluate() const = 0;
+    virtual int evaluate() const = 0; // pure virtual function
 protected:
     // define your fields here
 };
@@ -45,6 +45,7 @@ public:
 
 int opNode::evaluate() const {
     switch(_op) {
+        // evaluate() is called recursively until a numNode is found
         case '+':
             return _left->evaluate() + _right->evaluate();
         case '-':

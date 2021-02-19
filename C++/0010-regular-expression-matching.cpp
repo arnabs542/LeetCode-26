@@ -11,7 +11,7 @@ public:
         for (auto j = 2; j < dp[0].size(); ++j) {
             // p is 0th base indexed
             if (p[j - 1] == '*')
-                dp[0][j] = dp[0][j - 2];
+                dp[0][j] = dp[0][j - 2]; // skip current *x (0 occurence)
         }
         for (auto i = 1; i < dp.size(); ++i) {
             for (auto j = 1; j < dp[0].size(); ++j) {
@@ -61,7 +61,7 @@ Base Cases:
 // Recursion
 class Solution {
     bool helper(string s, string p, int i, int j) {
-        // if j has reached end of pattern means j should also reach end of text for match
+        // if j has reached end of pattern means i should also reach end of text for match
         // to happen
         if (j == p.length())
             return i == s.length();
@@ -70,6 +70,7 @@ class Solution {
         // or current value at pattern should be . in which case you can skip one character of text
         if (j == p.length() - 1 || p[j + 1] != '*')
             return i < s.length() && (p[j] == '.' || s[i] == p[j]) && helper(s, p, i + 1, j + 1);
+            // s[i] only exists for i < s.length()
 
         // if we have case like abc and ad*bc so here we totally skip d*
         if (helper(s, p, i, j + 2))
@@ -79,12 +80,12 @@ class Solution {
         // then try next b with b* and then c with c and so on.
         // if pattern current val is . then skip one character at time from text till we either reach end of text
         // or a match is found
+        // another e.g. s = "aaa" p = "a*a"
         while (i < s.length() && (s[i] == p[j] || p[j] == '.')) {
             if (helper(s, p, i + 1, j + 2))
                 return true;
             ++i;
         }
-
         return false;
     }
 
@@ -93,3 +94,7 @@ public:
         return helper(s, p, 0, 0);
     }
 };
+/*
+helper(s, p, i, j) returns true if regular expression matches from i.....s.length() in s (text)
+to j.......p.length() in p (pattern)
+*/

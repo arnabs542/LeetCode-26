@@ -1,6 +1,6 @@
 // Tags: Tree Recursion
-// Time:  O(n * 4^n / n^(3/2)) ~= n*Catalan number
-// Space: O(n * 4^n / n^(3/2)), not sure
+// Time:  O(n * 4^n / n^(3/2)) = n*Catalan number
+// Space: O(n * 4^n / n^(3/2))
 // Based on 0096-unique-binary-search-trees
 class Solution {
     TreeNode* clone(TreeNode* root) {
@@ -39,3 +39,11 @@ public:
         return helper(1, n);
     }
 };
+/*
+Time:
+construct all possible trees with a given root, that is actually 'catalan number'
+This is done n times, that results in time complexity n * 'catalan number'.
+
+Space:
+We keep 'catalan number' trees with n elements each.
+*/

@@ -6,6 +6,8 @@
 class Solution {
 public:
     vector<Interval> employeeFreeTime(vector<vector<Interval>> schedule) {
+        // OPEN is given a smaller number than CLOSE so that in the following case
+        // [5   6], [6, 8] we don't push {6, 6} in the result.
         int OPEN = 0, CLOSE = 1;
         vector<pair<int, int>> events;
         for (vector<Interval> employee : schedule) {
@@ -38,6 +40,11 @@ given a set of intervals, find all places where there are no intervals.
 For each interval [s, e], we can think of this as two events:
 balance++ when time = s, and balance-- when time = e. 
 We want to know the regions where balance == 0
+
+Line sweep:
+Break intervals into events.
+Sort event points.
+Then sweep (iterate from left to right)
 */
 
 
@@ -50,7 +57,7 @@ class Solution {
 public:
     vector<Interval> employeeFreeTime(vector<vector<Interval>> schedule) {
         vector<Interval> res;
-        // start time, employee id, interval id for this employee
+        // start time, employee id (i), interval id (j) (this employee's)
         using T = tuple<int, int, int>;
         // sorted by start time
         priority_queue<T, vector<T>, greater<T>> min_heap;

@@ -83,7 +83,7 @@ public:
             if (surCnt > 0) {
                 board[r][c] = surCnt + '0';
             } else {
-                board[r][c] = 'B';
+                board[r][c] = 'B'; // visited
                 for (int i = -1; i < 2; ++i) {
                     for (int j = -1; j < 2; ++j) {
                         if (i == 0 && j == 0)
@@ -92,7 +92,7 @@ public:
                         if (nr < 0 || nr >= m || nc < 0 || nc >= n)
                             continue;
                         vector<int> next_click = {nr, nc};
-                        if (board[nr][nc] == 'E')
+                        if (board[nr][nc] == 'E') // go to un-visited cells
                             updateBoard(board, next_click);
                     }
                 }

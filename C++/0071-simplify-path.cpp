@@ -22,3 +22,8 @@ public:
         return res.empty() ? "/" : res;
     }
 };
+/*
+Edge cases:
+* multiple.... in cur
+* path.empty() = true
+*/

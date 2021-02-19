@@ -29,7 +29,6 @@ of the left subtree of the other tree.
 
 
 
-
 // Time: O(n)
 // Space: O(h), h is the height of the binary tree.
 // Iterative solution
@@ -62,3 +61,6 @@ public:
         return true;
     }
 };
+/*
+Push and pop each pair of left and right nodes together.
+*/

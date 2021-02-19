@@ -16,7 +16,7 @@ public:
                 cur += A[i][j] == A[i][0];
             }
             // if m - cur > cur, we can toggle this column
-            res += max(cur, m - cur) * 1 << (n - 1- j);
+            res += max(cur, m - cur) * 1 << (n - 1 - j);
         }
         return res;
     }
@@ -37,7 +37,7 @@ E.g.
  [1,0,1,0],
  [1,1,0,0]]
  
-Toggle -> 1st row, 3rd col (cur - m > cur), 4th col (cur - m > cur)
+Toggle -> 1st row, 3rd col (m - cur > cur), 4th col (m - cur > cur)
  
 [[1,1,1,1],
  [1,0,0,1],

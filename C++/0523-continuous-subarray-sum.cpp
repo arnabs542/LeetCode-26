@@ -38,13 +38,15 @@ keeping track of the running sum mod k of the elements in the process.
 
 If we find that a running sum value at index j has been previously seen
 before in some earlier index i in the array, then we know that the
-sub-array (i,j] contains a desired sum.
+sub-array (i, j] contains a desired sum.
 
 running sum values can only be between 0 to k - 1 (circular fifo)
 so if we are at j and the same running sum was seen at index i earlier,
 subarray (i, j] contains the desired sum.
+s
+In other words, (a - (n * k)) % k is same as (a % k). 
+where a = current running sum.
 
-In other words, (a - (n * k)) % k is same as (a % k).
 For e.g. in case of the array [23,2,6,4,7]
 the running sum is [23,25,31,35,42] 
 and the remainders are [5,1,1,5,0]. 
