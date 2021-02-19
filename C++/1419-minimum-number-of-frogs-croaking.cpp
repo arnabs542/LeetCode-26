@@ -2,12 +2,15 @@
 class Solution {
 public:
     int minNumberOfFrogs(string croakOfFrogs) {
-        int cnt[5] = {}, frogs = 0, max_frogs = 0;
+        // count of each letter of "croak" by index
+        int cnt[5] = {};
+        // current frog count, max frog count achieved
+        int frogs = 0, max_frogs = 0;
         for (char ch : croakOfFrogs) {
             auto i = string("croak").find(ch);
             ++cnt[i];
             if (i == 0) {
-                // like bracket matching c -> ( and k -> )
+                // like bracket matching c -> '(' and k -> ')'
                 // for each c (opening bracket) seen before k, we increase the count
                 max_frogs = max(max_frogs, ++frogs);
             } else if (--cnt[i - 1] < 0) {
@@ -19,7 +22,7 @@ public:
             }
         }
         // frogs > 0 meaning k not seen for all frogs
-        // frogs < 0 meaning k is present more times than other letters
+        // frogs < 0 meaning k was present more times than other letters
         return frogs == 0 ? max_frogs : -1;
     }
 };
