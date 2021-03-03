@@ -2,6 +2,7 @@
 // Time: O(n^2)
 // Space: O(n^2)
 // Bottom-up Dp, tabulation
+// (Simpler explanation)
 class Solution {
 public:
     int stoneGameVII(vector<int>& stones) {
@@ -26,8 +27,9 @@ public:
 };
 
 /*
-Let dp[i][j] be the maximum difference the first player can get if the players play on A[i..j].
-dp[i][j] = max(
+Let dp[i][j] be the maximum difference (gain over other player) the first (current) player can get if the players
+play on A[i..j].
+dp[i][j] = max(                                 // 2 choices
                 sum(i + 1, j) - dp[i + 1][j],   // if the first player choose `A[i]`
                 sum(i, j - 1) - dp[i][j - 1]    // if the first player choose `A[j]`
               )
@@ -58,21 +60,25 @@ public:
             return 0;
         // remove s[i] or remove s[j]
         // the next dfs() denotes maximum gain in si+1....j or si....sj-1 (second player's turn)
-        return dp[i][j] ? dp[i][j] : dp[i][j] = max(sum - s[i] - dfs(s, i + 1, j, sum - s[i]), sum - s[j] - dfs(s, i, j - 1, sum - s[j]));
+        return dp[i][j] ? dp[i][j] : dp[i][j] = max(sum - s[i] - dfs(s, i + 1, j, sum - s[i]), 
+            sum - s[j] - dfs(s, i, j - 1, sum - s[j]));
     }
 };
 /*
 We are exploring all options such that the first player to start the game wins.
 
-Let dp[i][j] be the maximum difference the first player can get if the players play on A[i..j].
+Let dp[i][j] be the maximum difference (gain over other player) the current player can get if
+the players play on A[i..j].
 
-You need to think of the problem of maximizing the gain of each player. The only way Bob can reduce the difference is to select the max possible value from what he can get from the remaining.
+You need to think of the problem of maximizing the gain of each player. The only way Bob can
+reduce the difference is to select the max possible value from what he can get from the remaining.
 So it doesnot matter who is picking, they will try to get the max difference as possible.
 In this case, if Bob selects 5, he has a gain of 7 and if selecting 4, he has a gain of 6
 
 (If Bob removes 5, he will get 3 + 1 + 4, then Alice will remove either 3 or 4 to get 1 + (3 or 4), 
 but Bob will get back 3 or 4 by removing 1, so the total difference gain for Bob will be 
-3 + 1 + 4 - (1 + (3 or 4) ) + (3 or 4) = 7 which is (total gain(Bob) - total gain(Alice)) starting from second round.
+3 + 1 + 4 - (1 + (3 or 4) ) + (3 or 4) = 7 which is (total gain(Bob) - total gain(Alice)) starting
+from second round.
 On the other hand if Bob removes 4, he will get 5 + 3 + 1, then Alice will remove 1 to 
 get 5 + 3, and Bob can get back 5, yielding a total difference gain of 5 + 3 + 1 - (5 + 3) + 5 = 6
 So removing 5 is the better solution here)
