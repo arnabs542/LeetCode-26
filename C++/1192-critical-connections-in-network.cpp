@@ -6,9 +6,9 @@ class Solution {
     int timer = 0;
     // entry time of each node
     vector<int> in;
-    // (entry time of) lowest encestor that can be reached from a node
+    // (entry time of) lowest encestor that can be reached from node
     vector<int> low;
-    vector<int> visited;
+    vector<bool> visited;
     vector<vector<int>> res;
 public:
     vector<vector<int>> criticalConnections(int n, vector<vector<int>>& connections) {

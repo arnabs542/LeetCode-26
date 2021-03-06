@@ -11,6 +11,7 @@
         "initializer_list": "cpp",
         "unordered_set": "cpp",
         "iosfwd": "cpp",
-        "utility": "cpp"
+        "utility": "cpp",
+        "random": "cpp"
     }
 }
