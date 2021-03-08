@@ -9,7 +9,7 @@ public:
         unordered_set<string> dict(wordList.begin(), wordList.end());
         queue<string> q;
         q.push(beginWord);
-        int ladder = 0;
+        int ladder = 0; // or int ladder = 1;
         while (!q.empty()) {
             int n = q.size();
             // complete whole level before incrementing
@@ -17,7 +17,7 @@ public:
             while (n > 0) {
                 string cur = q.front(); q.pop();
                 if (cur == endWord)
-                    return ladder + 1;
+                    return ladder + 1; // or return ladder;
                 // don't go back to visited strings
                 dict.erase(cur);
                 // replace char at every index

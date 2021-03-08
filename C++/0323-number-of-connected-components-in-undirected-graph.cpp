@@ -1,7 +1,7 @@
 // Tags: Amazon Premium Union-find DFS Graph
 // Time:  O((m + n)ackr(n)) ~ O(m), m = number of operations/edges
 // Space: O(n)
-// Same as 0547-friend-circles
+// Same as 0547-number-of-provinces
 // Read 1627-graph-connectivity-with-threshold for time complexity
 class UnionFind {
     vector<int> parent;
