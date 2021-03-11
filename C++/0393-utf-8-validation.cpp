@@ -20,7 +20,7 @@ public:
             } else {
                 if (byte >> 6 != 0b10)
                     return false;
-                // following byte observed
+                // a following byte observed
                 --count;
             }
         }
