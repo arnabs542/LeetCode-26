@@ -27,24 +27,25 @@ public:
                 int left_part_of_num = num & mask;
                 prefixes.insert(left_part_of_num);
             }
-            // if i = 1 and before this iteration, the max_result we had was 1100, we wish
-            // the max_result to grow to 1110, so we ill try to find a candidate (if exists)
-            // which can give us the greedy_try
+            // If i = 1 and before this iteration, the max_result we had was 1000 
+            // (we didnt' get 1100), we wis the max_result to grow to 1010, so we ill try to
+            // find a candidate (if exists) which can give us the greedy_try
             int greedy_try = max_result | (1 << i);
+            // (This part is similar to Two Sum problem.)
             for (int p : prefixes) {
-                // coming from a fact that if a ^ b = c, then a ^ c = b, now we have 'c',
-                // which is greedy_try, and we have 'a', which is p.
-                // If we hope a ^ b = c to be valid, then we need 'b', and to get 'b', we
-                // need a ^ c, if a ^ c existed in the set, then we're good to go.
+                /* Coming from a fact that if a ^ b = c, then a ^ c = b, now we have 'c',
+                 * which is greedy_try, and we have 'a', which is p.
+                 * If we hope a ^ b = c to be valid, then we need 'b', and to get 'b', we
+                 * need a ^ c, if a ^ c existed in the set, then we're good to go.
+                 */
                 int another_num = p ^ greedy_try;
                 if (prefixes.count(another_num)) {
                     max_result = greedy_try;
                     break;
                 }
             }
-            // if unfortunately, we didn't get the greedy_try, we still have our max_result,
-            // which will stay at 1100
-        }
+            // if unfortunately, we didn't get the greedy_try, we still have our max_result
+            // from previous iterations
         return max_result;
     }
 };
