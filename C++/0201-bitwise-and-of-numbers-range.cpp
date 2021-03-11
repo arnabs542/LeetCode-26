@@ -16,7 +16,8 @@ public:
 
 /*
 One might notice that after the AND operation on all the numbers, 
-the remaining part of bit strings is the common prefix of all these bit strings.
+the remaining part of bit strings is the common prefix of all these bit strings
+(including starting and ending numbers).
 
 As a result, we then can reformulate the problem as
 "given two integer numbers, we are asked to find the common prefix of their binary strings."
