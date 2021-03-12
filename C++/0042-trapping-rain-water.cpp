@@ -1,4 +1,9 @@
 // Tags: Amazon Two-pointers Array
+/* Brute force:
+ * For each element in the array, we find the maximum level of water it can trap
+ * after the rain, which is equal to the minimum of maximum height of bars on both
+ * the sides minus its own height.
+ */
 // Time: O(n)
 // Space: O(1)
 class Solution {

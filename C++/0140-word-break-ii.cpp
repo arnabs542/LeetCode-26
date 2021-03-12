@@ -1,12 +1,12 @@
 // Tags: Amazon DP Backtracking
-// Time: O(s.size() * (avg list size))
+// Time: O(s.size()^2 + (avg list size))
 // Space: O(s.size() * (avg list size * avg string size)
 // Memoization solution
 class Solution {
 public:
     vector<string> wordBreak(string s, vector<string>& wordDict) {
         unordered_set<string> dict(wordDict.begin(), wordDict.end());
-        // could also use vector<vector<string>> dp(s.size()); instead
+        // could also use vector<vector<string>> dp(s.size() + 1); instead
         // dp[s.size()] = {""};
         unordered_map<int, vector<string>> dp {{s.size(), {""}}};
 
@@ -32,3 +32,5 @@ public:
         return sentences(0);
     }
 };
+
+// To check exact time complexity (LC premium)

@@ -1,5 +1,5 @@
 // Tags: Amazon Backtracking Trie
-// TLE: Time limit exceeded (To check)
+// TLE: Time limit exceeded, works in Python (To check, LC premium)
 class TrieNode {
     public:
     bool isWord;

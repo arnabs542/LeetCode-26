@@ -20,6 +20,7 @@ public:
             // * colors
             res = (res + (cur * (cur + 1) - (cur - rounds) * (cur - rounds + 1)) / 2 * colors) % 1000000007;
             if (cur - prev > rounds) {
+                // this is the last iteration
                 // (no of complete rounds possible are more than the no of complete rounds required)
                 // take half round if orders != 0 and break
                 res = (res + orders * (cur - rounds)) % 1000000007;

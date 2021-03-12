@@ -32,6 +32,7 @@ public:
             ret = helper(num/1000000000) + " Billion " + helper(num%1000000000);
         
         // trim leading and training whitespaces at each function call
+        // (required to avoid "Fifty " or "One Hundred ")
         ret = ret.back() == ' ' ? ret.substr(0, ret.size() - 1) : ret;
         ret = ret.front() == ' ' ? ret.substr(1) : ret;
         return ret;
