@@ -8,7 +8,7 @@ public:
     bool canFinish(int numCourses, vector<vector<int>>& prerequisites)
     {
         int n = numCourses;
-        vector<vector<int>> adj(n,vector<int> ());
+        vector<vector<int>> adj(n, vector<int>());
         vector<int> indegree(n,0);
 
         for (auto &p: prerequisites) {
@@ -71,7 +71,7 @@ public:
     }
 
     bool canFinish(int numCourses, vector<vector<int>>& prerequisites) {
-        vector<vector<int>> adj (numCourses, vector<int>());
+        vector<vector<int>> adj(numCourses, vector<int>());
         vector<int> visit(numCourses, 0);
         
         for (const auto &p: prerequisites) {

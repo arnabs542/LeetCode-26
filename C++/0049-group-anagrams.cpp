@@ -4,7 +4,7 @@
 class Solution {
 public:
     vector<vector<string>> groupAnagrams(vector<string>& strs) {
-        unordered_map <string, vector<string>> groups;
+        unordered_map<string, vector<string>> groups;
         // key is a string whereas value is a vector of strings
         for (const auto &str : strs){
             string tmp {str};
@@ -20,7 +20,7 @@ public:
         for (const auto &group : groups){
             vector<string> instances {group.second};
             // sorting not necessary
-            sort(instances.begin(),instances.end());
+            sort(instances.begin(), instances.end());
             anagrams.emplace_back(move(instances));
         }
         return anagrams;

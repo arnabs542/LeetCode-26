@@ -9,7 +9,7 @@ public:
         int m = grid.size(), n = grid[0].size();
         if (m == 1 and n == 1)
             return 0;
-        // -2 because grid[0][] = grid[m - 1][n - 1] = 0
+        // -2 because grid[0][0] = grid[m - 1][n - 1] = 0
         if (k > m - 1 + n - 1)
             return m + n - 2;
         // row, col, eliminate left, steps
@@ -75,6 +75,5 @@ storing a 4th piece of the data, the current steps. This will reduce
 the amount of repeat work.
 
 Note: We push multiple copies of same cell into queue with different
-      different available eliminate values and possibly different
-      steps value.
+      available eliminate values and possibly different steps value.
 */
