@@ -19,6 +19,7 @@ public:
         //         }
         //     }
         // }
+        // At each level we index a new digit
         vector<string> cur {""}, next;
         for (size_t i = 0; i < digits.length(); ++i) {
             for (auto x: cur)

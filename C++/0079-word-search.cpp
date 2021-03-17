@@ -6,7 +6,7 @@ public:
     bool exist(vector<vector<char>>& board, string word) {
         int rows = board.size();
         int cols = board[0].size();
-        vector<vector<bool>> visited (rows, vector<bool> (cols, false));
+        vector<vector<bool>> visited(rows, vector<bool>(cols, false));
 
         for (int i = 0; i < rows; ++i)
             for (int j = 0; j < cols; ++j)

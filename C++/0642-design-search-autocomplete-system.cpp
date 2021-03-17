@@ -3,7 +3,9 @@
 //        we start searching from the root)
 // Space: O(p * t + s), t is the number of nodes of trie
 //                    , s is the size of the sentences
+//        (each trie node in the path will contain the sentence p after # is observed)
 // Similar to 1268-search-suggestions-system
+// Best Trie template
 struct TrieNode {
     unordered_map<char, TrieNode*> children;
     // count of sentences that have string upto current

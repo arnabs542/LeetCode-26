@@ -4,7 +4,7 @@
 class Solution {
 public:
     double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
-        //if input1 length is greater than switch them so that input1 is smaller than input2.
+        // if input1 length is greater than switch them so that input1 is smaller than input2.
         if (nums1.size() > nums2.size())
             return findMedianSortedArrays(nums2, nums1);
         int x = nums1.size(), y = nums2.size();
@@ -17,13 +17,13 @@ public:
         while (low <= high) {
             // no of elements on the left side in case of nums1 
             // or start index for right side of nums1
-            int partx = (low + high)/2;
+            int partx = (low + high)/2; // (mid in the binary search)
             // no of elements on the left side in case of nums2
             // or start index for right side of nums2
             int party = (x + y + 1)/2 - partx;
             
-            //if partx is 0 it means nothing is there on left side. Use -INF for maxleftx
-            //if partx is length of input then there is nothing on right side. Use +INF for minrightx
+            // if partx is 0 it means nothing is there on left side. Use -INF for maxleftx
+            // if partx is length of input then there is nothing on right side. Use +INF for minrightx
             int maxleftx = (partx == 0) ? numeric_limits<int>::min() : nums1[partx - 1];
             int minrightx = (partx == x) ? numeric_limits<int>::max() : nums1[partx];
             
@@ -37,11 +37,11 @@ public:
                 // or get max of left for odd length combined array size.
                 return ((x + y) % 2 == 0) ? (max(maxleftx, maxlefty) + min(minrightx, minrighty)) / 2.0 :
                     max(maxleftx, maxlefty);
-            } else if(maxleftx > minrighty) {
-                //we are too far on right side for partx. Go on left side.
+            } else if (maxleftx > minrighty) {
+                // we are too far on right side for partx. Go on left side.
                 high = partx - 1;
             } else {
-                //we are too far on left side for partx. Go on right side.
+                // we are too far on left side for partx. Go on right side.
                 low = partx + 1;
             }
         }
@@ -51,6 +51,22 @@ public:
 };
 
 /*
+Idea:
+We want to do a binary search on smaller array to find partitions for both arrays such that
+    * the number of elements on each side is same
+    * every element on left side is <= every element on the right side
+
+            partx
+            ^
+x : x1 x2 | x3 x4 x5 x6
+y : y1 y2 y3 y4 y5 | y6 y7 y8
+                     ^
+                     party
+
+find partx such that x2 <= y6, (x2 already <= x3)
+                 and y5 <= x3, (y5 already <= y6)
+
+Algo:
 Take minimum size of two array. Possible number of partitions are from 0 to m in m size array.
 Try every cut in binary search way. When you cut first array at i then you cut second array at (m + n + 1)/2 - i
 Now try to find the i where a[i-1] <= b[j] and b[j-1] <= a[i]. So this i is partition around which lies the median.

@@ -8,7 +8,9 @@ public:
         if (k <= 0)
             return num;
         int n = num.length();
-        if (k >= n*(n + 1)/2) {
+        // the total number of swaps if you need to reverse the whole string is n*(n-1)//2
+		// (n + n-1 + n-2 + .....1 ) therefore, if k is >= this number, any order is achievable.
+        if (k >= n*(n - 1)/2) {
             sort(num.begin(), num.end());
             return num;
         }
@@ -34,12 +36,16 @@ public:
 // Space: O(n)
 // Using segment tree & list of queues
 class SegmentTree {
-    // tells count of numbers in the range
+    // tells count of numbers (moved to the front) in the range [i  j]
+    // where i <= j < n
+    // each node in the array represent a range and holds the answer for that
+    // range
     vector<int> nodes;
     int n;
     void addUtil(int num, int low, int high, int pos) {
         if (num < low || num > high)
             return;
+        // increase count for the node representing range [i i] or [num num]
         if (low == high) {
             ++nodes[pos];
             return;
@@ -91,7 +97,7 @@ public:
                 if(!char2idx[d].empty()) {
                     // yes, there is a occurrence of digit at pos
                     int idx = char2idx[d].front();
-                    // Since few numbers already shifted to left, this `idx` might be outdated.
+                    // Since few numbers already shifted to left (moved to front), this `idx` might be outdated.
                     // we try to find how many number already got shifted that were to the left of idx.
                     int shift = seg.getCountLessThan(idx);
                     // (idx - shift) is number of steps to make digit move from idx to i.
@@ -121,4 +127,8 @@ We will use segment tree for this (telling the count of numbers before a
 number).
 
 For observation 2, We will use queue to choose latest occurence of each digit
+
+Note: In segment tree we only make changes/update answer for the leaf nodes
+representing range [x x]. These changes are automatically propagated in the
+internal nodes up to the root.
 */
