@@ -1,4 +1,4 @@
-// Tags: Union-find Graph Amazon
+// Tags: Union-find Graph Amazon Premium
 // Time: O((E + N)logN)
 // Space: O(E + N)
 // Prim's algorithm
@@ -83,7 +83,6 @@ public:
         }
         return true;
     }
-    
 };
 
 class Solution {

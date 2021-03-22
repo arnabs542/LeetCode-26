@@ -25,6 +25,7 @@ public:
                 // If buildings[i] starts after the end of the top building in the
                 // live queue or i == len, process the building in the live queue
                 cur_X = liveBlg.top().second;
+                // (pop current building and also the ones that end before cur_X)
                 while (!liveBlg.empty() && liveBlg.top().second <= cur_X)
                     liveBlg.pop();
             }

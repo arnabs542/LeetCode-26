@@ -1,4 +1,4 @@
-// Tags: Greedy
+// Tags: Greedy Amazon
 // Time: O(n)
 // Space: O(1)
 class Solution {
