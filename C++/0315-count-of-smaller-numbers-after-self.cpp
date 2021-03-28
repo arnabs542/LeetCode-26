@@ -1,4 +1,4 @@
-// Tags: D&C BST BIT Segment-tree Sort Top-interview
+// Tags: D&C BST BIT Segment-tree Sort Top-interview Amazon
 // Time:  O(nlogn)
 // Space: O(n)
 // Divide and Conquer solution
