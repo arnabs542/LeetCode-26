@@ -10,7 +10,7 @@ public:
         vector<vector<int>> dp(K + 1, vector<int>(prices.size()));
         for (int k = 1; k <= K; ++k) {
             dp[k][1] = max(prices[1] - prices[0], 0);
-            // stores max {dp[k - 1][j - 1] - prices[j]} upto j = i - 1
+            // stores max {dp[k - 1][j - 1] - prices[j]} upto j = i - 2
             int maxa = -prices[0];
             for (auto i = 2; i < prices.size(); ++i) {
                 maxa = max(dp[k - 1][i - 1 - 1] - prices[i - 1], maxa);

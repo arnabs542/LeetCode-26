@@ -25,5 +25,5 @@ are taking minimum out of all those (not sum like in number of ways).
 
 dp[t] = minimum number of perfect squares that add upto target t
 
-dp[t] = min [1 <= num <= t] dp[t - num^2]
+dp[t] = min [1 <= num^2 <= t] dp[t - num^2] + 1
 */

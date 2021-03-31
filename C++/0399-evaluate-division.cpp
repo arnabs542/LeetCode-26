@@ -4,10 +4,12 @@
 // Space: O(v^2)
 // Dfs solution
 class Solution {
-    double dfs(string start, string end, unordered_map<string, unordered_map<string, double>> &adj, unordered_set<string> &visited) {
+    double dfs(string start, string end, unordered_map<string, unordered_map<string, double>>
+        &adj, unordered_set<string> &visited) {
         // only for starting node
         if (!adj.count(start))
             return -1.0;
+        // ["a", "a"] returns from here
         if (adj[start].count(end))
             return adj[start][end];
         visited.insert(start);
@@ -22,13 +24,12 @@ class Solution {
         }
         // return extreme last node in a branch
         // (can't go back as ancestor nodes are already visited)
-        // also cases like ["a", "a"] return from here as "a" is not
-        // present in adj["a"]
         return -1.0;
     }
 
 public:
-    vector<double> calcEquation(vector<vector<string>>& equations, vector<double>& values, vector<vector<string>>& queries) {
+    vector<double> calcEquation(vector<vector<string>>& equations, vector<double>& values,
+        vector<vector<string>>& queries) {
         // or unordered_map<string, vector<pair<string, double>> adj
         unordered_map<string, unordered_map<string, double>> adj;
         for (int i = 0; i < equations.size(); ++i) {
@@ -57,7 +58,8 @@ public:
 // Bfs solution
 class Solution {
 public:
-    vector<double> calcEquation(vector<vector<string>>& equations, vector<double>& values, vector<vector<string>>& queries) {
+    vector<double> calcEquation(vector<vector<string>>& equations, vector<double>& values,
+        vector<vector<string>>& queries) {
         unordered_map<string, vector<pair<string, double>>> adj;
         for (int i = 0; i < equations.size(); ++i) {
             string u = equations[i][0];
@@ -76,6 +78,7 @@ public:
             while (!q.empty()) {
                 auto [u, w] = q.front(); q.pop();
                 if (u == queries[i][1]) {
+                    // ["a", "a"] returns from here
                     res[i] = w;
                     break;
                 }
@@ -91,3 +94,47 @@ public:
 /* Again, for each query, we may end up traversing
    the whole graph.
 */
+
+
+
+// Time: O(v^3 + n*(1))
+// Space: O(v + e)
+// Floyd Warshall
+class Solution {
+public:
+    vector<double> calcEquation(vector<vector<string>>& equations, vector<double>& values, vector<vector<string>>& queries) {
+        unordered_map<string, unordered_map<string, double>> dp;
+        for (int i = 0; i < equations.size(); ++i) {
+            string u = equations[i][0];
+            string v = equations[i][1];
+            dp[u][v] = values[i];
+            dp[v][u] = 1/values[i];
+            dp[u][u] = dp[v][v] = 1.0;
+        }
+        for (auto& pk : dp) {
+            for (auto& pi : dp) {
+                for (auto& pj : dp) {
+                    if (pi.second.count(pk.first) && pk.second.count(pj.first)) {
+                        // we only update if both paths i->k and k->j are present
+                        // we DO NOT need shortest path here, so even the path not shortest is fine
+
+                        // (if we did use min, we would get 0 for pi.second[pj.first] if i->j
+                        // not directly connected as default value is 0 in map)
+                        // dp[i][j] = dp[i][k] * dp[k][j]
+                        pi.second[pj.first] = pi.second[pk.first] * pk.second[pj.first];
+                    }
+                }
+            }
+        }
+        vector<double> res;
+        for (auto q : queries) {
+            if (dp[q[0]].count(q[1]))
+                res.push_back(dp[q[0]][q[1]]);
+            else
+                res.push_back(-1.0);
+        }
+        return res;
+    }
+};
+
+// To do: Union find solution

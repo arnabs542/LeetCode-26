@@ -19,8 +19,6 @@ public:
     }
 };
 /*
-Then go through the numbers. 
-
 If the number x is the start of a streak (i.e., x-1 is not in the set),
 then test y = x+1, x+2, x+3, ... and stop at the first number y not in
 the set. The length of the streak is then simply y-x and we update our

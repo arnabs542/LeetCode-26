@@ -1,4 +1,4 @@
-// Tags: Hash-table Top-interview-questions
+// Tags: Hash-table Top-interview-questions Amazon
 // Time: O(n^2)
 // Space: O(n^2)
 class Solution {

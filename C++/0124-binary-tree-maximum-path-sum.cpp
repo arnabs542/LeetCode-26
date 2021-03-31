@@ -10,7 +10,7 @@ public:
     }
 // PathSum() returns the maximum gain one could have including the node and may
 // be one of its subtrees into the path
-    int PathSum (TreeNode* node){
+    int PathSum (TreeNode* node) {
         if (node == nullptr)
             return 0;
         // if any branch returns negative path sum, we can skip that branch
@@ -20,6 +20,5 @@ public:
         maxSum = max(maxSum, left + right + node->val);
 
         return max(left,right) + node->val;
-
     }
 };

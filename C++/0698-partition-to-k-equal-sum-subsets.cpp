@@ -28,8 +28,9 @@ class Solution {
 public:
     bool canPartitionKSubsets(vector<int>& nums, int k) {
         int target = accumulate(nums.begin(), nums.end(), 0);
-        if (nums.size() < k || nums.size() % k != 0 || 
-            *max_element(nums.begin(), nums.end()) > target/k);
+        if (nums.size() < k || target % k != 0 || *max_element(nums.begin(), nums.end())
+            > target/k)
+            return false;
         target /= k;
         vector<int> sets(k, 0);
         sort(nums.begin(), nums.end(), greater<int>()); // opt 1
@@ -56,7 +57,7 @@ public:
         if (totalSum % k)
             return false;
 
-        // now we know total sum is exactly divisible b k
+        // now we know total sum is exactly divisible by k
         // we want to find if numbers can be split into sets
         // having sum = totalsum/k
         int tar = totalSum/k;

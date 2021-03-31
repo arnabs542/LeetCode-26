@@ -10,6 +10,7 @@ public:
         // records the path length upto the latest
         // subdirectory at given depth
         unordered_map<int, int> pathLen;
+        // pathLen[-2] = 0;
         while (getline(ss, cur, '\n')) {
             auto depth = cur.find_last_of('\t');
             string name = (depth == string::npos) ? cur : cur.substr(depth + 1);
@@ -19,7 +20,7 @@ public:
             } else {
                 // it is a subdirectory
                 // + 1 for '/' (after name)
-                // pathLen[-1 (npos)] = name.length() + 1, eg "dir"
+                // pathLen[-1 (npos)] = 0 + name.length() + 1, eg "dir"
                 // pathLen[0] = pathLen[-1] + name.length() + 1, eq "\tsubdir"
                 pathLen[depth] = pathLen[depth - 1] + name.length() + 1;
             }
@@ -31,7 +32,7 @@ public:
 Main idea is to use hashmap to store the path length for each depth
 (to be used by sub sub directories or files of current sub directory).
 
-The depth is the number of '\t'. 
+The depth is the number of '\t' (-1 indexed).
 
 For each filename, calculate the path length by the current depth and
 update the maximum path length.

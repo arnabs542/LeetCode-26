@@ -1,5 +1,5 @@
-// Tags: Heap Top-100-liked
-// Time: O(n) ~ O(n^2)
+// Tags: Heap Top-100-liked Amazon
+// Time: O(n), average ~ O(n^2), worst case
 // Space: O(1)
 // Quick select solution
 class Solution {
