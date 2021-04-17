@@ -22,11 +22,11 @@ increasing.
 if S[i] == 0
     dp = min(dp + 1, ones)
     i.e. (either flip newly appended 0 to 1 or flip 'ones' 1's
-    in original string to 0)
+    in original string [0....i-1] to 0)
 else
     ones++;
     
-where = ones denotes the number of 1's in the original string seen
+where 'ones': denotes the number of 1's in the original string seen
         so far
 
 Eg. 0101100011

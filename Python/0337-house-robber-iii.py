@@ -1,10 +1,3 @@
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
-
 # First attempt: Time limit exceeded
 # Time: O(exponential)
 # Space: O(h)
@@ -54,7 +47,7 @@ class Solution:
             return robSub(root)
 
 # Notes:
-# In step I, we only considered the aspect of "optimal substructure",
+# In first solution, we only considered the aspect of "optimal substructure",
 # but think little about the possibilities of overlapping of the subproblems.
 # For example, to obtain rob(root), we need rob(root.left), rob(root.right),
 # rob(root.left.left), rob(root.left.right), rob(root.right.left),

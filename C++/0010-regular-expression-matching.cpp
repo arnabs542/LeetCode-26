@@ -1,4 +1,4 @@
-// Tags: DP String Backtracking
+// Tags: DP String Backtracking Amazon
 // Time: O(m*n)
 // Space: O(m*n)
 // Dp solution
@@ -11,7 +11,7 @@ public:
         for (auto j = 2; j < dp[0].size(); ++j) {
             // p is 0th base indexed
             if (p[j - 1] == '*')
-                dp[0][j] = dp[0][j - 2]; // skip current *x (0 occurence)
+                dp[0][j] = dp[0][j - 2]; // skip current x* (0 occurence)
         }
         for (auto i = 1; i < dp.size(); ++i) {
             for (auto j = 1; j < dp[0].size(); ++j) {
@@ -56,7 +56,7 @@ Base Cases:
 
 
 
-// Time: O(m + n)
+// Time: O(m + n), can't be correct
 // Space: O(min(m,n)), not sure
 // Recursion
 class Solution {

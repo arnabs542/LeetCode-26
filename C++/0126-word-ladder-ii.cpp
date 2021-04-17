@@ -8,7 +8,7 @@ public:
         unordered_set<string> dict(wordList.begin(), wordList.end());
         if (!dict.count(endWord))
             return {};
-        unordered_map<string, unordered_set<string>> tree;
+        unordered_map<string, unordered_set<string>> tree; // parent
         unordered_set<string> head {beginWord}, tail {endWord};
         bool isFound = false, isReversed = false;
         while (!head.empty()) {
@@ -62,7 +62,10 @@ private:
     // although we have a backward tree (child to parent), we are
     // interating from top to bottom only (parent to child), as we
     // are performing postorder traversal
-    // similar to sentences() of 0126-word-break-ii
+    // similar to sentences() of 040-word-break-ii, but appending current word
+    // instead of prepending
+    // backtrack(word) returns list of paths that lead to beginWord from current word 'word'
+    // backtrack(beginWord) returns {{beginWord}}
     vector<vector<string>> backtracking(const unordered_map<string, 
             unordered_set<string>> &tree, const string &beginWord, 
             const string &word) {
@@ -73,7 +76,7 @@ private:
             return res;
         }
         
-        if (tree.count(word)) {
+        if (tree.count(word)) { // this check is not necessary
             for (const auto &new_word : tree.at(word)) {
                 auto paths = backtracking(tree, beginWord, new_word);
                 // append (current) word to all the vectors of paths

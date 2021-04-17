@@ -9,7 +9,7 @@ public:
         // there has to be atleast 1 more day left to sell
         while (i < n - 1) {
             // smallest in consecutive decreasing prices
-            // = for cases like [3,3]
+            // = for cases like [3,3], preventing TLE
             while (i < n - 1 && prices[i + 1] <= prices[i])
                 ++i;
             int buy = prices[i];

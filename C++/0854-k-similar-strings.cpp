@@ -48,7 +48,7 @@ public:
     }
 };
 /*
-When it comes to shorted step, we should always have Bfs in mind.
+When it comes to shortest step, we should always have Bfs in mind.
 
 Here we only swap the i-th and j-th character when j-th character is
 wrong and it happends to be the target character of i-th position.

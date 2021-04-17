@@ -1,4 +1,4 @@
-// Tags: BFS Premium C3.ai
+// Tags: BFS Premium C3.ai Amazon
 // Time: O(k * m * n), k is the number of the buildings
 // Space: O(m * n)
 class Solution {

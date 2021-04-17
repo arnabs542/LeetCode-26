@@ -1,4 +1,4 @@
-// Tags: DP String Top-interview
+// Tags: DP String Top-interview Amazon
 // Similar to 0010-regular-expression-matching
 // Time: O(m*n)
 // Space: O(m*n)
@@ -66,7 +66,7 @@ Base Cases:
 
 
 
-// Time: O(m + n)
+// Time: O(m + n), can't be better than dp
 // Space: O(min(m,n)), not sure
 // Recursion
 // Time limit exceeded
