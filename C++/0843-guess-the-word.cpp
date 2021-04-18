@@ -42,7 +42,7 @@ The key point is, which word should we guess from all of the wordlist?
 
 // Time: O(n)
 // Space: O(n)
-// Elimination histogram
+// Position/character histogram
 class Solution {
     int match(string a, string b) {
         int matches = 0;
