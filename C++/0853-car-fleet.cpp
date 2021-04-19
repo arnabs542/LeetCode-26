@@ -12,7 +12,7 @@ public:
         sort(cars.begin(), cars.end());
         // number of fleets
         int res = 0;
-        // time needed by slowest car seen so far
+        // current time needed by slowest(lead) car
         double cur = 0;
         for (int i = cars.size() - 1; i >= 0; --i) {
             if (cars[i].second > cur) {
@@ -28,11 +28,11 @@ public:
 * Loop on each car from the end to the beginning
 * Calculate its time needed to arrive the target
 
-cur records the current biggest time (the slowest)
+cur records the current biggest time (the slowest, by the 'lead')
 
 If next car needs less or equal time than cur,
 it can catch up this car fleet (and join with it).
 
 If next car needs more time, it will be the new slowest car,
-and becomes the new lead of a new car fleet.
+and becomes the new 'lead' of a new car fleet.
 */
