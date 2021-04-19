@@ -9,8 +9,9 @@ public:
           return (double)(-cars[l][0] + cars[r][0])/(cars[l][1] - cars[r][1]);  
         };
         for (int i = cars.size() - 1; i >= 0; --i) {
-            while (!st.empty() && (cars[i][1] <= cars[st.back()][1] || st.size() > 1 && col_time(i, st.back()) >= res[st.back()])) {
-                st.pop_back();
+            while (!st.empty() && (cars[i][1] <= cars[st.back()][1] || 
+                st.size() > 1 && col_time(i, st.back()) >= res[st.back()])) {
+                    st.pop_back();
             }
             res[i] = st.empty() ? -1 : col_time(i, st.back());
             st.push_back(i);
