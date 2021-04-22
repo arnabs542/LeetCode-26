@@ -1,4 +1,4 @@
-// Tags: DP Graph Google
+// Tags: DP Graph Google Premium
 // Time: O(n^2 * m), m is the length of targetPath
 // Space: O(n * m)
 class Solution {
