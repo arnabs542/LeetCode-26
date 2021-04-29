@@ -1,5 +1,6 @@
 // Tags: WC235 Math
-// Time: O(n*sqrt(m)*(logm+logm)),  n = len(nums), m = max(nums) (max element in nums)
+// Time: O(n*sqrt(m)*(logm+logm)), n = len(nums), m = max(nums) (max element in nums)
+// Space: O(200001) ~ O(1)
 class Solution {
     int gcd(int a, int b) {
         int temp;
