@@ -1,4 +1,4 @@
-// Tags: Amazon BFS
+// Tags: Amazon BFS Path.ai
 // Time:  O(|V| + |E|)
 // Space: O(|V| + |E|)
 class Solution {
