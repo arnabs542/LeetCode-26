@@ -1,4 +1,4 @@
-// Tags: DP Two-pointers Google
+// Tags: DP Two-pointers Google Premium
 // Time: O(m*n)
 // Space: O(1)
 // Two pointers solution
