@@ -1,4 +1,4 @@
-// Tags:
+// Tags: Google Array
 // Time: O(n), n = number of intervals
 // Space: O(n)
 class MyCalendar {
