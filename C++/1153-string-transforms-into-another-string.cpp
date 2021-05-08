@@ -1,9 +1,10 @@
 // Tags: Graph Google Premium
 // Time: O(n)
-// Space: O(1)
+// Space: O(26) ~ O(1)
 class Solution {
 public:
     bool canConvert(string str1, string str2) {
+        // edge case
         if (str1 == str2)
             return true;
         unordered_map<char, char> transform;
