@@ -1,4 +1,4 @@
-// Tags: Array DP Google
+// Tags: Array DP Google Premium
 // Time: O(m*n)
 // Space: O(m*n)
 class Solution {
