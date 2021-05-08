@@ -6,7 +6,7 @@ public:
     double minAreaFreeRect(vector<vector<int>>& points) {
         int n = points.size();
         double res = numeric_limits<double>::max();
-        // key : diagonal represented by center point and length
+        // key: diagonal represented by center point and length
         // value: vector of (pairs of indices to vertices) for each diagonal
         unordered_map<string, vector<pair<size_t, size_t>>> diag_to_vert;
         if (n < 4)
