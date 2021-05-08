@@ -1,6 +1,6 @@
 // Tags: Array DP Google
 // Time: O(m*n)
-// Space: O(m*n) or O(1) if we reuse the matrix
+// Space: O(m*n) or O(1) if we reuse original matrix as dp matrix
 // Reusing 0221-maximal-square
 class Solution {
 public:
@@ -17,7 +17,7 @@ public:
     }
 };
 /*
-dp[i][j] = number of square that can be formed having matrix[i][j] at the bottom right corner.
+dp[i][j] = number of squares that can be formed having matrix[i][j] as the bottom right corner.
 (equivalent to the side of the biggest square that can be formed with matrix[i][j] as the
 bottom right corner).
 
