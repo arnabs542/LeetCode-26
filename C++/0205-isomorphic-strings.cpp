@@ -21,7 +21,7 @@ public:
 /*
 Traverse the character of both s and t on the same position, 
 if their mapping values in sm and st are different, means they
-are not mapping correctly, returen false
+are not mapping correctly, return false
 */
 
 
