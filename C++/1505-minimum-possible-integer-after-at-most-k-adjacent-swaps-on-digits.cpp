@@ -46,6 +46,7 @@ class SegmentTree {
         if (num < low || num > high)
             return;
         // increase count for the node representing range [i i] or [num num]
+        // or if (low == num && high == num)
         if (low == high) {
             ++nodes[pos];
             return;

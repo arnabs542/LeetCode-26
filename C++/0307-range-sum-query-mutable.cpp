@@ -6,7 +6,7 @@ Time: ctor: O(1)
       sumRange: O(n)
 Space: O(1)
 
-2D table (worse than brute force)
+2D table
 Time: ctor: O(n^2)
       update: O(n^2)
       sumRange: O(1)
@@ -26,6 +26,7 @@ Space: O(1), modifying the input array
 //        query: O(logn)
 // Space: O(n)
 // Segment tree solution (Representing segment tree using nodes)
+// (lesser number of function arguments)
 class SegTreeNode {
 public:
     int start, end;
