@@ -1,4 +1,4 @@
-// Tags: Segment-tree Binary-indexed-tree Google
+// Tags: Segment-tree Binary-indexed-tree Google Premium
 // Time: ctor: O(m*n)
 //       update and sumRegion: O(m)
 // Space: O(1)
@@ -110,12 +110,15 @@ class NumMatrix {
     }
     
     int sumRegionHelper(SegTreeNode *root, int qrow1, int qcol1, int qrow2, int qcol2) {
+        // no overlap
         if (root == nullptr || qrow2 < root->row1 || qrow1 > root->row2 ||
            qcol2 < root->col1 || qcol1 > root->col2)
             return 0;
+        // total overlap
         if (qrow1 <= root->row1 && qcol1 <= root->col1 && root->row2 <= qrow2
             && root->col2 <= qcol2)
             return root->sum;
+        // partial overlap
         return sumRegionHelper(root->c1, qrow1, qcol1, qrow2, qcol2) +
             sumRegionHelper(root->c2, qrow1, qcol1, qrow2, qcol2) +
             sumRegionHelper(root->c3, qrow1, qcol1, qrow2, qcol2) +
