@@ -56,4 +56,6 @@ i -------> j
 ^
 k
 
+Note: To prove that a quadrilateral is a rectangle, we show that the diagonals bisect each
+other, and that they are equal in length
 */

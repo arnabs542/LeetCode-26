@@ -11,7 +11,7 @@ Still lead to TLE.
 
 
 
-// Time: ctor: O(log(max(k)) * n), where n = number of nodes
+// Time: ctor: O(log(max(k)) * n), where n = number of nodes, max(k) = n (one sided tree)
 //       getKthAncestor: O(log(k))
 // Space: O(log(max(k)) * n)
 // Binary lifting / Jump pointers
@@ -46,6 +46,8 @@ public:
     }
     
     int getKthAncestor(int node, int k) {
+        // if k = 19
+        // => 10011 = 16 + 2 + 1 = 16th ancestor of 2nd ancestor of 1st ancestor of node
         for (int i = 0; i < LOG; ++i) {
             // ith bit is set
             if (k & (1 << i)) {
