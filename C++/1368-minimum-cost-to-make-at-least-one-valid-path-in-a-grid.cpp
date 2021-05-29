@@ -2,6 +2,7 @@
 // Time: O(m*n)
 // Space: O(m*n)
 // Somewhat similar to 0909-snakes-and-ladders
+// Bfs + Dfs
 class Solution {
     // right, left, down, up
     int dir[4][2] = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
