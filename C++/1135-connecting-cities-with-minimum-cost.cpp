@@ -34,6 +34,7 @@ public:
                 int ncost = v.first;
                 int ncity = v.second;
                 if (!visited[ncity] && ncost < min_cost[ncity]) {
+                    // updating minimum cost in table
                     min_cost[ncity] = ncost;
                     min_heap.push({ncost, ncity});
                 }
