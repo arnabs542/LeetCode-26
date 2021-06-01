@@ -31,7 +31,8 @@ class Solution {
                     // if I am losing vertex, prev undefined vertex is winning one
                     dfs(prev_state, true);
                 } else {
-                    // if I am winning vertex, prev underfined vertex is losing one in case all its outgoing edges lead to winning vertices
+                    // if I am winning vertex, prev underfined vertex is losing one in case
+                    // all its outgoing edges lead to winning vertices
                     if (++outdegree[prev_state] == cat_degree[prev_cat]) {
                         dfs(prev_state, false);
                     }
