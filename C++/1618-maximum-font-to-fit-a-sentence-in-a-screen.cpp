@@ -1,4 +1,4 @@
-// Tags: Binary-search String Google
+// Tags: Binary-search String Google Premium
 // Time:  O(n + logm), n is the length of text, m is the number of fonts
 // Space: O(1)
 class Solution {
